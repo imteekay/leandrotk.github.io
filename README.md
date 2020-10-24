@@ -1,5 +1,7 @@
 # Hi, I'm TK! 👋
 
+Welcome to my website.
+
 ```console
 $ cat /etc/profile.txt
 I'm a software engineer, lifelong-learner, and writer.
