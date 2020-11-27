@@ -1419,6 +1419,14 @@ p.no-margin {
   margin: 0;
 }
 
+p.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+p.no-margin-top {
+  margin-top: 0;
+}
+
 .spacing {
   margin-bottom: 15px;
   margin-top: 15px;
