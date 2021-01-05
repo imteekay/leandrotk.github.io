@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -75,7 +75,7 @@
       <hr />
 
       <p>This post is part of the <a
-          href="https://leandrotk.github.io/tk/series/algorithms-problem-solving/index.html">Algorithms Problem
+          href="https://leandrotk.github.io/series/algorithms-problem-solving/index.html">Algorithms Problem
           Solving</a> series.</p>
       <h2 id="problemdescription">Problem Description</h2>
       <p>This is the <em><a href="https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/">Sum of Nodes
@@ -109,7 +109,8 @@
       <p>With that, I have access to the grandparent node and I can get the grandchild's value.</p>
       <p>Now that I can get the grandchild's value, I need to store it in a variable. So I initialized a variable
         <code>left</code> with value <code>0</code> to get the sum of all left part of the tree. I needed to do the left
-        child's left child and the left child's right child. So basically the left and the right grandchildren.</p>
+        child's left child and the left child's right child. So basically the left and the right grandchildren.
+      </p>
       <pre><code class="python language-python">def sum_even_grandparent(node):
     left = 0
 
@@ -183,16 +184,16 @@ def helper(node, parent, grandparent):
         the node value if it is even. Zero if it is not.</p>
       <h2 id="resources">Resources</h2>
       <ul>
-        <li><a href="https://leandrotk.github.io/tk/2017/09/learning-python-from-zero-to-hero/index.html">Learning
+        <li><a href="https://leandrotk.github.io/2017/09/learning-python-from-zero-to-hero/index.html">Learning
             Python: From Zero to Hero</a></li>
-        <li><a href="https://leandrotk.github.io/tk/series/algorithms-problem-solving/index.html">Algorithms Problem
+        <li><a href="https://leandrotk.github.io/series/algorithms-problem-solving/index.html">Algorithms Problem
             Solving Series</a></li>
-        <li><a href="https://leandrotk.github.io/tk/2020/01/stack-data-structure/index.html">Stack Data Structure</a>
+        <li><a href="https://leandrotk.github.io/2020/01/stack-data-structure/index.html">Stack Data Structure</a>
         </li>
-        <li><a href="https://leandrotk.github.io/tk/2020/01/queue-data-structure/index.html">Queue Data Structure</a>
+        <li><a href="https://leandrotk.github.io/2020/01/queue-data-structure/index.html">Queue Data Structure</a>
         </li>
-        <li><a href="https://leandrotk.github.io/tk/2020/02/linked-list/index.html">Linked List</a></li>
-        <li><a href="https://leandrotk.github.io/tk/2020/02/tree-data-structure/index.html">Tree Data Structure</a></li>
+        <li><a href="https://leandrotk.github.io/2020/02/linked-list/index.html">Linked List</a></li>
+        <li><a href="https://leandrotk.github.io/2020/02/tree-data-structure/index.html">Tree Data Structure</a></li>
       </ul>
     </article>
 

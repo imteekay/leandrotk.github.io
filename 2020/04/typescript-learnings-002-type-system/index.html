@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -76,7 +76,7 @@
       <hr />
 
       <p>This is part of my series on <a
-          href="https://leandrotk.github.io/tk/2020/04/typescript-learnings/index.html">TypeScript Learning</a>, where I
+          href="https://leandrotk.github.io/2020/04/typescript-learnings/index.html">TypeScript Learning</a>, where I
         share micro-posts about everything I'm learning related to TypeScript.</p>
       <p>One of the main TypeScript features is the Type System. We are going to play around with the type system and
         see how it works.</p>
@@ -89,7 +89,8 @@
       </ul>
       <p>We define these type by using this nomenclature: <code>variableName: typeName</code>, where the
         <code>variableName</code> you choose and the <code>typeName</code> can be a <code>number</code>, a
-        <code>string</code>, or a <code>boolean</code>. Let's try it out.</p>
+        <code>string</code>, or a <code>boolean</code>. Let's try it out.
+      </p>
       <pre><code class="typescript language-typescript">const age: number = 25;
 const name: string = 'TK';
 const isLearning: boolean = true;
@@ -130,7 +131,8 @@ thoughts = [42, 'Programming']; // Fails!
 </code></pre>
       <p>For objects, we can use the <code>object</code> type that represents the non-primitive type
         (<code>number</code>, <code>string</code>, <code>boolean</code>, <code>bigint</code>, <code>symbol</code>,
-        <code>null</code>, or <code>undefined</code>).</p>
+        <code>null</code>, or <code>undefined</code>).
+      </p>
       <pre><code class="typescript language-typescript">const printObj = (obj: object): void =&gt; {
   console.log(obj);
 };
@@ -145,7 +147,8 @@ printObj(true); // Argument of type 'true' is not assignable to parameter of typ
 </code></pre>
       <p>Another way to define types for the object is to use Interfaces and Types.</p>
       <p>Interfaces give the shape of the object. We define the types for the object structure. For the
-        <code>printObj</code> function we defined before, we just need an interface to handle the object structure.</p>
+        <code>printObj</code> function we defined before, we just need an interface to handle the object structure.
+      </p>
       <pre><code class="typescript language-typescript">interface Person {
   name: string;
 };

@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -157,7 +157,8 @@ export const App = () =&gt; (
 );
 </code></pre>
       <p>Now if we enter the <code>localhost:1234</code>, we see the title <code>It's Home</code>. Go to the
-        <code>localhost:1234/search</code>, we see the text <code>It's the search!</code>.</p>
+        <code>localhost:1234/search</code>, we see the text <code>It's the search!</code>.
+      </p>
       <p>Before we continue to start implementing our search page, I wanted to build a simple menu to switch between
         home and search pages without manipulating the URL. For this project, I'm using <a
           href="https://material-ui.com/">Material UI</a> to build the UI foundation.</p>
@@ -214,13 +215,16 @@ export default Menu;
 </code></pre>
       <p>Don't panic! I know it is a huge block of code, but it is pretty simple. the <code>Fragment</code> wrap the
         <code>Button</code> and <code>MuiMenu</code> (<code>Mui</code> stands for Material UI. I needed to rename the
-        component because the component I'm building is also called menu).</p>
+        component because the component I'm building is also called menu).
+      </p>
       <p>It receives the <code>menuItems</code> as a prop and maps through it to build the menu item wrapped by the
-        <code>Link</code> component. Link is a component from react-router to link to a given URL.</p>
+        <code>Link</code> component. Link is a component from react-router to link to a given URL.
+      </p>
       <p>The menu behavior is also simple: we bind the <code>handleClick</code> function to the button's
         <code>onClick</code>. That way, we can change <code>anchorEl</code> when the button is triggered (or clicked if
         you prefer). The <code>anchorEl</code> is just a component state that represents the Mui menu element to open
-        the menu switch. So it will open the menu items to let the user chooses one of those.</p>
+        the menu switch. So it will open the menu items to let the user chooses one of those.
+      </p>
       <p>Now, how do we use this component?</p>
       <pre><code class="typescript language-typescript">import { Menu } from './components/Menu';
 import { MenuItem } from './types/MenuItem';
@@ -242,7 +246,8 @@ const menuItems: MenuItem[] = [
 </code></pre>
       <p>The <code>menuItems</code> is a list of objects. The object has the correct contract expected by the
         <code>Menu</code> component. The type <code>MenuItem</code> ensures that the contract is correct. It is just a
-        TypeScript <code>type</code>:</p>
+        TypeScript <code>type</code>:
+      </p>
       <pre><code class="typescript language-typescript">export type MenuItem = {
   linkTo: string;
   label: string;
@@ -289,13 +294,15 @@ export const Search = () =&gt; {
         <li><code>hasError</code> initialized as false</li>
         <li>The <code>fetchProducts</code> is an async function that calls <code>getProducts</code> from the
           <code>api</code> module. As we don't have a proper API for products yet, this <code>getProducts</code> would
-          return a mock data.</li>
+          return a mock data.
+        </li>
         <li>When the <code>fetchProducts</code> is executed, we set the <code>isLoading</code> to true, fetch the
           products, and then set the <code>isLoading</code> to false, because the fetching finished, and the set the
           fetched products into <code>products</code> to be used in the component.</li>
         <li>If it gets any error in the fetching, we catch them, set the <code>isLoading</code> to false, and the
           <code>hasError</code> to true. In this context, the component will know that we had an error while fetching
-          and can handle this case.</li>
+          and can handle this case.
+        </li>
         <li>Everything is encapsulated into a <code>useEffect</code> because we are doing a side effect here.</li>
       </ul>
       <p>To handle all the state logic (when to update each part for the specific context), we can extract it to a
@@ -450,7 +457,8 @@ useEffect(() =&gt; {
       <p>The reducer is easier as it is just a pure function. It receives value, process, and returns a new value. No
         side-effect. Everything deterministic.</p>
       <p>To cover all the possibilities of this reducer, I created three contexts: <code>FETCH_INIT</code>,
-        <code>FETCH_SUCCESS</code>, and <code>FETCH_ERROR</code> actions.</p>
+        <code>FETCH_SUCCESS</code>, and <code>FETCH_ERROR</code> actions.
+      </p>
       <p>Before implementing anything, I set up the initial data to work with.</p>
       <pre><code class="typescript language-typescript">const initialData: Data = [];
 const initialState: State = {
@@ -570,7 +578,8 @@ const initialData: Data = [];
 </code></pre>
       <p>And for the success case, we need to create a product object to use it as a request-response data. We also
         expect the <code>data</code> to be a list of this product object. The <code>hasError</code> and the
-        <code>isLoading</code> are false in this case.</p>
+        <code>isLoading</code> are false in this case.
+      </p>
       <pre><code class="typescript language-typescript">it('gets and updates data from the api request', async () =&gt; {
   const product: ProductType = {
     name: 'iPhone',
@@ -644,7 +653,8 @@ const initialData: Data = [];
 };
 </code></pre>
       <p>As I'm using TypeScript, I can enforce the static types for the component props. In this case, I have the prop
-        <code>products</code> and the <code>isLoading</code>.</p>
+        <code>products</code> and the <code>isLoading</code>.
+      </p>
       <p>I built a <code>ProductListPropsType</code> type to handle the product list props.</p>
       <pre><code class="typescript language-typescript">type ProductListPropsType = {
   products: ProductType[];
@@ -695,7 +705,8 @@ const initialData: Data = [];
       <p>Let's start with the easiest one: the <code>Tag</code>. We will pass three data to this component.
         <code>label</code>, <code>isVisible</code>, and <code>isLoading</code>. When it is not visible, we just return
         <code>null</code> to don't render it. If it is loading, we will render a <code>Skeleton</code> component from
-        Material UI. But after loading it, we render the tag info with the <code>Free Shipping</code> label.</p>
+        Material UI. But after loading it, we render the tag info with the <code>Free Shipping</code> label.
+      </p>
       <pre><code class="typescript language-typescript">export const Tag = ({ label, isVisible, isLoading }: TagProps) =&gt; {
   if (!isVisible) return null;
   if (isLoading) {
@@ -766,7 +777,8 @@ const initialData: Data = [];
 </code></pre>
       <ul>
         <li>bonus point: accessibility. I also built an automated test to cover accessibility violations using
-          <code>jest-axe</code>.</li>
+          <code>jest-axe</code>.
+        </li>
       </ul>
       <pre><code class="typescript language-typescript">it('has no accessibility violations', async () =&gt; {
   const { container } = render(
@@ -780,12 +792,14 @@ const initialData: Data = [];
 </code></pre>
       <p>We are ready to implement another component: the <code>TitleDescription</code>. It will work almost similar to
         the <code>Tag</code> component. It receives some props: <code>name</code>, <code>description</code>, and
-        <code>isLoading</code>.</p>
+        <code>isLoading</code>.
+      </p>
       <p>As we have the <code>Product</code> type with the type definition for the <code>name</code> and the
         <code>description</code>, I wanted to reuse it. I tried different things - and you can <a
-          href="https://leandrotk.github.io/tk/2020/05/typescript-learnings-interesting-types/index.html">take a look
+          href="https://leandrotk.github.io/2020/05/typescript-learnings-interesting-types/index.html">take a look
           here for more details</a> - and I found the <code>Pick</code> type. With that, I could get the
-        <code>name</code> and the <code>description</code> from the <code>ProductType</code>:</p>
+        <code>name</code> and the <code>description</code> from the <code>ProductType</code>:
+      </p>
       <pre><code class="typescript language-typescript">type TitleDescriptionType = Pick&lt;ProductType, 'name' | 'description'&gt;;
 </code></pre>
       <p>With this new type, I could create the <code>TitleDescriptionPropsType</code> for the component:</p>
@@ -813,7 +827,8 @@ const initialData: Data = [];
 }
 </code></pre>
       <p>If the component is not loading anymore, we render the title and description texts. Here we use the
-        <code>Typography</code> component.</p>
+        <code>Typography</code> component.
+      </p>
       <pre><code class="typescript language-typescript">return (
   &lt;Fragment&gt;
     &lt;Typography data-testid="product-name"&gt;{name}&lt;/Typography&gt;
@@ -896,7 +911,8 @@ const initialData: Data = [];
       <p>But before I start implementing these components, I wanted to structure the data to be used. The
         <code>price</code> and the <code>discount</code> values are numbers. So let's build a function called
         <code>getPriceInfo</code> that receives the <code>price</code> and the <code>discount</code> and it will return
-        this data:</p>
+        this data:
+      </p>
       <pre><code class="typescript language-typescript">{
   priceWithDiscount,
   originalPrice,
@@ -1034,7 +1050,8 @@ export const OriginalPrice = ({ price }: OriginalPricePropsType) =&gt; (
 </code></pre>
       <p>The <code>PriceWithDiscount</code> component has a very similar implementation, but we pass the
         <code>hasDiscount</code> boolean to render this price or not. If it has a discount, render the price with the
-        discount. Otherwise, it won't render anything.</p>
+        discount. Otherwise, it won't render anything.
+      </p>
       <pre><code class="typescript language-typescript">type PricePropsType = {
   hasDiscount: boolean;
   price: string;
@@ -1167,7 +1184,8 @@ export const Discount = ({ hasDiscount, discountOff }: DiscountPropsType) =&gt; 
       <p>The <code>imageUrl</code>, <code>imageAlt</code>, and the <code>isLoading</code> props are passed by the
         product component. The <code>width</code> is an attribute for the skeleton and the image tag. The
         <code>imageWrapperStyle</code> and the <code>imageStyle</code> are props that have a default value in the image
-        component. We'll talk about this later.</p>
+        component. We'll talk about this later.
+      </p>
       <p>Let's add a type for this props:</p>
       <pre><code class="typescript language-typescript">type ImageUrlType = Pick&lt;ProductType, 'imageUrl'&gt;;
 type ImageAttrType = { imageAlt: string; width: string };
@@ -1185,7 +1203,8 @@ export type ImagePropsType = ImageUrlType &amp;
       <p>The idea here is to give meaning for the types and then compose everything. We can get the
         <code>imageUrl</code> from the <code>ProductType</code>. The attribute type will have the <code>imageAlt</code>
         and the <code>width</code>. The image state has the <code>isLoading</code> state. And the image style has some
-        <code>CSSProperties</code>.</p>
+        <code>CSSProperties</code>.
+      </p>
       <p>At first, the component would like this:</p>
       <pre><code class="typescript language-typescript">export const Image = ({
   imageUrl,
@@ -1313,7 +1332,8 @@ export const useIntersectionObserver = (
 </code></pre>
       <p>In our callback function, we just set if the entry target is intersecting the viewport or not. The
         <code>setIsIntersecting</code> is a setter from the <code>useState</code> hook we define at the top of our
-        custom hook.</p>
+        custom hook.
+      </p>
       <p>It is initialized as <code>false</code> but will update to <code>true</code> if it is intersecting the
         viewport.</p>
       <p>With this new information in the component, we can render the image or not. If it is intersecting, we can
@@ -1333,7 +1353,8 @@ export const useIntersectionObserver = (
       <pre><code class="typescript language-typescript">&lt;div ref={wrapperCallback}&gt;
 </code></pre>
       <p>After setting the <code>wrapperRef</code>, we can pass it as the <code>target</code> for our
-        <code>useIntersectionObserver</code> and expect a <code>isIntersecting</code> status as a result:</p>
+        <code>useIntersectionObserver</code> and expect a <code>isIntersecting</code> status as a result:
+      </p>
       <pre><code class="typescript language-typescript">const { isIntersecting }: IntersectionStatus = useIntersectionObserver(wrapperRef);
 </code></pre>
       <p>With this new value, we can build a boolean value to know if we render the skeleton or the product image.</p>
@@ -1423,7 +1444,8 @@ export const useIntersectionObserver = (
       <p>This hook just provides some data and behavior for the component. The <code>handleImageOnLoad</code> we talked
         earlier, the <code>imageVisibility</code> to make the low-quality image visible or not, and the
         <code>imageOpactity</code> to make the transition from transparent to opaque, that way we make it visible after
-        loading it.</p>
+        loading it.
+      </p>
       <p>The <code>isLoaded</code> is a simple boolean to handle the visibility of the images. Another small detail is
         the <code>filter: 'blur(10px)'</code> to make the low-quality-image blur and then slowly focusing while
         transitioning from the low-quality image to the high-quality image.</p>

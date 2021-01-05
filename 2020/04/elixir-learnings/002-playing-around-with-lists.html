@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -74,13 +74,14 @@
 
       <hr />
 
-      <p>This is part of my series on <a href="https://leandrotk.github.io/tk/2020/04/elixir-learnings/">Elixir
+      <p>This is part of my series on <a href="https://leandrotk.github.io/2020/04/elixir-learnings/">Elixir
           Learnings</a>, where I share micro-posts about everything I'm learning related to Elixir.</p>
       <p>Today we going to play around with lists. At the same time lists are very simple, they are powerful. And we use
         it always in our day-to-day work. Here we will understand some common concepts we need to handle lists.</p>
       <h2 id="addandremoveitems">Add and remove items</h2>
       <p>We have two ways to add new items to the list. We can use the <code>insert_at</code> List function and the
-        <code>++</code> operator to concat lists.</p>
+        <code>++</code> operator to concat lists.
+      </p>
       <p>The <code>insert_at</code> function receives three parameters: the list, the index position you want to add the
         new item, and the item.</p>
       <pre><code class="elixir language-elixir">items = [1 ,2 ,3 ,4]
@@ -133,7 +134,8 @@ List.last([]) # nil
 </code></pre>
       <h2 id="iteratethroughit">Iterate through it</h2>
       <p>One thing we always do with lists is iteration. We can use the <code>each</code> function from the
-        <code>Enum</code> module to loop through the list.</p>
+        <code>Enum</code> module to loop through the list.
+      </p>
       <pre><code class="elixir language-elixir">items = [1, 2, 3, 4, 5]
 Enum.each(items, fn (n) -&gt; IO.inspect(n) end)
 </code></pre>
@@ -141,7 +143,8 @@ Enum.each(items, fn (n) -&gt; IO.inspect(n) end)
       <pre><code class="elixir language-elixir">Enum.each(items, &amp;IO.inspect/1) # shortcut
 </code></pre>
       <p>The <code>Enum</code> module has various other functions to work on data types, like lists, that implements the
-        <code>Enumerable</code> protocol.</p>
+        <code>Enumerable</code> protocol.
+      </p>
       <h2 id="destructuring">Destructuring</h2>
       <p>Another way to get items from the list is called <code>destructuring</code>. We unpack items from the list by
         specifying the "variables" inside a list.</p>

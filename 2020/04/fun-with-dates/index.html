@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -83,7 +83,8 @@
 Date.today # #&lt;Date: 2020-04-05 ((2458945j,0s,0n),+0s,2299161j)&gt;
 </code></pre>
       <p>This is pretty cool! I can send a simple message to the Date object "hey, provide me the
-        <code>today date</code>" by calling the <code>today</code> method.</p>
+        <code>today date</code>" by calling the <code>today</code> method.
+      </p>
       <p>Or simply get the <code>year</code>, <code>month</code>, <code>day</code>.</p>
       <pre><code class="ruby language-ruby">date = Date.today
 date.year # 2020
@@ -94,7 +95,8 @@ date.day # 5
       <pre><code class="ruby language-ruby">Date.yesterday
 </code></pre>
       <p>Rails also provides other interesting APIs: <code>beginning_of_month</code>, <code>minutes.ago</code>,
-        <code>days.ago</code>.</p>
+        <code>days.ago</code>.
+      </p>
       <p>So after a long time with Ruby and Rails, I started using JavaScript more and more. But the JavaScript Date
         object was really strange for me. I wanted to use all the Ruby/Rails date APIs but in JavaScript and TypeScript.
       </p>
@@ -150,7 +152,8 @@ year(now); // 2020
       <pre><code class="typescript language-typescript">new Date(); // 2020-04-05T18:58:45
 </code></pre>
       <p>But it would be great to return the beginning of the day. We could simply pass the day, month, and year to the
-        <code>Date</code> and it will generate this for us.</p>
+        <code>Date</code> and it will generate this for us.
+      </p>
       <pre><code class="typescript language-typescript">const today = (): Date =&gt; {
   const now: Date = new Date();
   const day: number = now.getDate();
@@ -258,7 +261,8 @@ const yesterday = (): Date =&gt; {
       <p>So "argument", right? Now the function receives a date, but it is flexible to not receive it too. I just handle
         it with a default value of the current date.</p>
       <p>For the <code>beginningOfMonth</code>, it will look pretty much the same, but instead of using the
-        <code>day</code>, we just set it to <code>1</code>.</p>
+        <code>day</code>, we just set it to <code>1</code>.
+      </p>
       <pre><code class="typescript language-typescript">const beginningOfMonth = (date: Date = new Date()): Date =&gt; {
   const { month, year }: SeparatedDate = getSeparatedDate();
 
@@ -275,7 +279,8 @@ const yesterday = (): Date =&gt; {
 </code></pre>
       <h2 id="travelingbackintime">Traveling back in time</h2>
       <p>Now the <code>get(1).dayAgo</code> API. We could build a <code>get</code> function that receives a
-        <code>number</code> and return an object like:</p>
+        <code>number</code> and return an object like:
+      </p>
       <pre><code class="typescript language-typescript">{
   dayAgo,
   monthAgo,
@@ -314,7 +319,8 @@ const yesterday = (): Date =&gt; {
       <p>We build each attribute: <code>dayAgo</code>, <code>monthAgo</code>, and <code>yearAgo</code> by basically
         handling the Date object as we know.</p>
       <p>But now we also need to implement the object in the plural: <code>daysAgo</code>, <code>monthsAgo</code>, and
-        <code>yearsAgo</code>. But only for a number greater than 1.</p>
+        <code>yearsAgo</code>. But only for a number greater than 1.
+      </p>
       <p>For these new attributes, we don't need to create a whole new date again. We can use the same value from the
         singular attributes.</p>
       <p>We also need to handle the <code>number</code> received.</p>
@@ -387,8 +393,7 @@ const yesterday = (): Date =&gt; {
         <li><a href="https://api.rubyonrails.org/classes/Date.html">Ruby on Rails Date API</a></li>
         <li><a href="https://ruby-doc.org/stdlib-2.7.1/libdoc/date/rdoc/Date.html">Ruby Date API</a></li>
         <li><a href="https://github.com/leandrotk/dating">Dating library</a></li>
-        <li><a
-            href="https://leandrotk.github.io/tk/2020/04/typescript-learnings/001-object-destructuring.html">TypeScript
+        <li><a href="https://leandrotk.github.io/2020/04/typescript-learnings/001-object-destructuring.html">TypeScript
             Learnings 001: Object Destructuring</a></li>
         <li><a
             href="https://www.digitalocean.com/community/tutorials/understanding-date-and-time-in-javascript">Understanding

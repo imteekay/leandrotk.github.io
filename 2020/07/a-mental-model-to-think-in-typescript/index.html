@@ -15,14 +15,14 @@
     content="Types can be hard and this long-format essay tries to give a way of thinking about types and TypeScript">
   <meta property="og:locale" content="en">
   <meta property="og:image"
-    content="https://leandrotk.github.io/tk/2020/07/a-mental-model-to-think-in-typescript/assets/cover.jpg">
+    content="https://leandrotk.github.io/2020/07/a-mental-model-to-think-in-typescript/assets/cover.jpg">
   <meta property="og:updated_time" content="2020-07-19T00:00:00.000Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="A Mental Model to think in TypeScript">
   <meta name="twitter:description"
     content="Types can be hard and this long-format essay tries to give a way of thinking about types and TypeScript">
   <meta name="twitter:image"
-    content="https://leandrotk.github.io/tk/2020/07/a-mental-model-to-think-in-typescript/assets/cover.jpg">
+    content="https://leandrotk.github.io/2020/07/a-mental-model-to-think-in-typescript/assets/cover.jpg">
 
   <title>A Mental Model to think in TypeScript</title>
   <link rel="stylesheet" type="text/css" href="../../../stylesheets/main.css">
@@ -33,7 +33,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -173,7 +173,8 @@ sumAllPrices(products); // 425
         progressively make it more complex while designing the mental model to think in types.</p>
       <p>As JavaScript, TypeScript also has basic data types like <code>number</code>, <code>string</code>,
         <code>boolean</code>, <code>null</code>, etc. You can find all the basic data types in the <a
-          href="https://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Docs</a>.</p>
+          href="https://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Docs</a>.
+      </p>
       <p>With these units of data, we can make our programs more useful. To be more practical, let's get a simple
         example. A <code>sum</code> function.</p>
       <p>How does it work in JavaScript?</p>
@@ -221,7 +222,8 @@ const username: string = 'tk';
 };
 </code></pre>
       <p>This is the product value. It has a <code>title</code> as <code>string</code> and the <code>price</code> as
-        <code>number</code>. For now, this is what we need to know.</p>
+        <code>number</code>. For now, this is what we need to know.
+      </p>
       <p>The object type would be something like:</p>
       <pre><code class="typescript language-typescript">{ title: string, price: number }
 </code></pre>
@@ -258,7 +260,8 @@ const product: Product = {
 </code></pre>
       <p>It's better to visualize the type, add semantics, and maybe reuse in our system.</p>
       <p>Now that we have this product type, we can use it to type the products list. The syntax looks like this:
-        <code>MyType[]</code>. In our case, <code>Product[]</code>.</p>
+        <code>MyType[]</code>. In our case, <code>Product[]</code>.
+      </p>
       <pre><code class="typescript language-typescript">const products: Product[] = [
   {
     title: 'Product 1',
@@ -282,7 +285,8 @@ const product: Product = {
 </code></pre>
       <p>This is very interesting. As we typed the product, when we write <code>product.</code>, it will show the
         possible properties we can use. In the product type case, it will show the properties <code>price</code> and
-        <code>title</code>.</p>
+        <code>title</code>.
+      </p>
       <pre><code class="typescript language-typescript">sumAllPrices(products); // 425
 sumAllPrices([]); // 0
 sumAllPrices([{ title: 'Test', willFail: true }]); // Type '{ title: string; willFail: true; }' is not assignable to type 'Product'.
@@ -325,7 +329,8 @@ const c2: Client = new Client(); // OK!
 </code></pre>
       <p>We want to use the <code>Client</code> type, and it has the property <code>name</code>, to point to the
         <code>Person</code> type. It also has the property type. So TypeScript will understand that both types have the
-        same shape.</p>
+        same shape.
+      </p>
       <p>But it is not only about classes, but it works for any other "object".</p>
       <pre><code class="typescript language-typescript">const c3: Client = {
   name: 'TK'
@@ -345,7 +350,8 @@ const c2: Client = new Client(); // OK!
 </code></pre>
       <p>The compiler will not accept that. We want to use the <code>Customer</code>, that has <code>name</code> and
         <code>age</code>. But we are instantiating the <code>Client</code> that has only the <code>name</code> property.
-        So it doesn't have the same shape. It will cause an error:</p>
+        So it doesn't have the same shape. It will cause an error:
+      </p>
       <pre><code class="bash language-bash">Property 'age' is missing in type 'Client' but required in type 'Customer'.
 </code></pre>
       <p>The other way around would work because we want <code>Client</code>, and <code>Customer</code> has all the
@@ -366,9 +372,11 @@ const c2: Client = new Client(); // OK!
         in TypeScript, for example, is very related to the code that we wrote before:</p>
       <ul>
         <li>When the type is missing property:
-          <code>Property 'age' is missing in type 'Client' but required in type 'Customer'.</code></li>
+          <code>Property 'age' is missing in type 'Client' but required in type 'Customer'.</code>
+        </li>
         <li>When the type doesn't match:
-          <code>Type '{ title: string; willFail: true; }' is not assignable to type 'Product'.</code></li>
+          <code>Type '{ title: string; willFail: true; }' is not assignable to type 'Product'.</code>
+        </li>
       </ul>
       <p>Let's see some examples to have a better understanding.</p>
       <p>I want to write a function to get the index of a part of the passed programming language.</p>
@@ -382,7 +390,8 @@ getIndexOf(42, 'script'); // Uncaught TypeError: language.indexOf is not a funct
 </code></pre>
       <p>When passing a string, it works fine. But passing a number, we got a runtime error
         <code>Uncaught TypeError</code>. Because a number doesn't have an <code>indexOf</code> function, so we can't
-        really use it.</p>
+        really use it.
+      </p>
       <p>But if we give type information to the compiler, in compile time, it will throw an error before running the
         code.</p>
       <pre><code class="typescript language-typescript">function getIndexOf(language: string, part: string): number {
@@ -400,7 +409,8 @@ getIndexOf(42, 'script'); // Argument of type '42' is not assignable to paramete
         get errors in compile time before shipping code to production.</p>
       <p>At first, we need all the learning curve to understand types and all the mental models, but after a while,
         you'll be more used to type annotations and eventually become friends with the compiler. It would be a
-        <em>helper</em>, not a <em>yeller</em>.</p>
+        <em>helper</em>, not a <em>yeller</em>.
+      </p>
       <p>As we are learning about the basic difference between compile time and runtime, I think it's great to
         differentiate types from values.</p>
       <p>All the examples I'll show here can be copied and run in the <a
@@ -414,7 +424,8 @@ getIndexOf(42, 'script'); // Argument of type '42' is not assignable to paramete
       <p>TypeScript has the process of type checking the source code types and sees if everything is correct and
         consistent. And then it can compile to JavaScript. As these two parts are separate, we can't use type checking
         in runtime. Only in "compile time". If you try to use a type as a value, it will throw an error:
-        <code>only refers to a type, but is being used as a value here</code>.</p>
+        <code>only refers to a type, but is being used as a value here</code>.
+      </p>
       <p>Let's see examples of this idea.</p>
       <p>Imagine we want to write a function called <code>purchase</code> where we receive a payment method and based on
         this method, we want to do some action. We have a credit card and a debit card. Let's define them here:</p>
@@ -437,7 +448,8 @@ type PaymentMethod = CreditCard | DebitCard;
       <p>These types are in the <em>Type space</em>, so it only works in compile time. After type checking this
         function, the compiler removes all the types.</p>
       <p>If you add these types in the TypeScript Playground, the output will be only a strict definition
-        <code>"use strict";</code>.</p>
+        <code>"use strict";</code>.
+      </p>
       <p>The idea here is to really understand that the types live in the <em>Type space</em> and will not be available
         in the runtime. So in our function, it won't be possible to do this:</p>
       <pre><code class="typescript language-typescript">const purchase = (paymentMethod: PaymentMethod) =&gt; {
@@ -449,9 +461,11 @@ type PaymentMethod = CreditCard | DebitCard;
 }
 </code></pre>
       <p>In compiler throws an error:
-        <code>'CreditCard' only refers to a type, but is being used as a value here.</code>.</p>
+        <code>'CreditCard' only refers to a type, but is being used as a value here.</code>.
+      </p>
       <p>The compiler knows the difference between the two spaces and that the type <code>CreditCard</code> lives in the
-        <em>Type space</em>.</p>
+        <em>Type space</em>.
+      </p>
       <p>The playground is a very cool tool to see the output of your TypeScript code. If you create a new credit card
         object like this:</p>
       <pre><code class="typescript language-typescript">const creditCard: CreditCard = {
@@ -531,7 +545,8 @@ function stringOrNumber(value: StringOrNumber) {}
 </code></pre>
       <p>In the function body, the compiler won't know which methods or properties we can use for this type. Is it a
         string or number? We only know about the value in runtime. But we can narrow the type using the
-        <code>typeof</code>:</p>
+        <code>typeof</code>:
+      </p>
       <pre><code class="typescript language-typescript">function stringOrNumber(value: StringOrNumber) {
   if (typeof value === 'string') {
     // value.
@@ -552,7 +567,8 @@ function stringOrNumber(value: StringOrNumber) {}
         Now it will know the specific type for each <code>if</code> body.</p>
       <p>The IDE knows what to show for the specific type. In runtime, when the value is a string, it will go to the
         first <code>if</code> statement, and the compiler will infer that the type is a string:
-        <code>(parameter) value: string</code>.</p>
+        <code>(parameter) value: string</code>.
+      </p>
       <p>When the value is a number, it will go to the second <code>if</code> statement and the compiler will infer that
         a type is a number: <code>(parameter) value: number</code>.</p>
       <p>The <code>if</code> statement can be a helper to the compiler.</p>
@@ -569,7 +585,8 @@ function stringOrNumber(value: StringOrNumber) {}
 </code></pre>
       <p>It's a simple <code>User</code> type. Let's focus on the <code>complement</code> property. It's optional (take
         a closer look at the <code>?</code> symbol), which means that it can be a <code>string</code> or
-        <code>undefined</code>.</p>
+        <code>undefined</code>.
+      </p>
       <p>Now we want to build a function to receive the user and get the length of the address complement. What about
         this?</p>
       <pre><code class="typescript language-typescript">function getComplementLength(user: User): number {
@@ -579,7 +596,8 @@ function stringOrNumber(value: StringOrNumber) {}
 }
 </code></pre>
       <p>As we see earlier, the <code>complement</code> can be a <code>string</code> or <code>undefined</code>.
-        <code>undefined</code> doesn't really have a property called <code>length</code>:</p>
+        <code>undefined</code> doesn't really have a property called <code>length</code>:
+      </p>
       <pre><code class="typescript language-typescript">Uncaught TypeError: Cannot read property 'length' of undefined
 </code></pre>
       <p>We could make something like:</p>
@@ -591,7 +609,8 @@ function stringOrNumber(value: StringOrNumber) {}
         <code>undefined</code>. So this function has two possible return types: <code>number | undefined</code>. But we
         want to ensure that we only return <code>number</code>. So we use a <code>if</code> or a ternary condition to
         narrow the type. It will only call <code>.length</code> when it has real value (or when it is not
-        <code>undefined</code>).</p>
+        <code>undefined</code>).
+      </p>
       <pre><code class="typescript language-typescript">function getComplementLength(user: User): number {
   return user.address.complement
     ? user.address.complement.length
@@ -618,7 +637,8 @@ getComplementLength({
       <p>We'll get <code>0</code> from the first function call and <code>12</code> from the second call.</p>
       <p>With this <code>if</code> concept, we can also use other helpers to do the same thing. We could use the
         <code>in</code> operator to verify a property from an object, a <code>Array.isArray</code> to verify an array,
-        or the <code>instanceof</code> for any other class type.</p>
+        or the <code>instanceof</code> for any other class type.
+      </p>
       <p>We could also use more advanced concepts like assertion function or type guards, but I'll let these concepts to
         future posts.</p>
       <p>One thing that I want to dig deep in this <em>Constraints</em> topic is immutability.</p>
@@ -733,7 +753,8 @@ author.books.push(book);
 </code></pre>
       <p>It works just fine!</p>
       <p>I want to show another way to add immutability in compile time. TypeScript has an utility type called
-        <code>Readonly</code>.</p>
+        <code>Readonly</code>.
+      </p>
       <p>You can add the <code>readonly</code> for each property in an object. Something like this:</p>
       <pre><code class="typescript language-typescript">type Book = {
   readonly title: string;
@@ -749,7 +770,8 @@ author.books.push(book);
 </code></pre>
       <p>One thing to keep in mind is that it doesn't add the readonly for nested properties. For example, if we add the
         <code>Readonly</code> to the <code>Author</code> type, it won't add the <code>readonly</code> to the
-        <code>Book</code> type too.</p>
+        <code>Book</code> type too.
+      </p>
       <pre><code class="typescript language-typescript">type Author = Readonly&lt;{
   name: string;
   email: string;
@@ -794,7 +816,8 @@ author.books;
       <p>The <code>push</code> will work just fine.</p>
       <p>So, how do we enforce a readonly to the <code>books</code>? We need to make sure that the array is a readonly
         type. We can use the <code>Readonly</code>, or use another utility from TypeScript called
-        <code>ReadonlyArray</code>. Let's see the two ways to do it.</p>
+        <code>ReadonlyArray</code>. Let's see the two ways to do it.
+      </p>
       <p>With <code>Readonly</code>:</p>
       <pre><code class="typescript language-typescript">type Author = Readonly&lt;{
   name: string;
@@ -880,7 +903,8 @@ author.books.push(book); // Property 'push' does not exist on type 'readonly [{ 
 </code></pre>
       <p>This function gets a list of numbers and makes every number a squared value. The returning type is
         <code>number[]</code>, even though the result of a map is always a list, and as we have a list of numbers, it
-        will always be a list of numbers. So we let the compiler infers this too:</p>
+        will always be a list of numbers. So we let the compiler infers this too:
+      </p>
       <pre><code class="typescript language-typescript">function squareAll(numbers: number[]) {
   return numbers.map(number =&gt; number * number);
 };
@@ -991,7 +1015,8 @@ fetch('/harry-potter/spells', {
 &lt;ComponentState type={StateTypes.Error} /&gt;
 </code></pre>
       <p>In the component, it had a state object with all the information related to the <code>title</code>,
-        <code>description</code>, and <code>icon</code>.</p>
+        <code>description</code>, and <code>icon</code>.
+      </p>
       <pre><code class="typescript language-typescript">const stateInfo = {
   Empty: {
     title: messages.emptyTitle,
@@ -1006,7 +1031,8 @@ fetch('/harry-potter/spells', {
 };
 </code></pre>
       <p>So I could just receive the type based on the enum and use this <code>stateInfo</code> object with the
-        <code>State</code> component from our design system:</p>
+        <code>State</code> component from our design system:
+      </p>
       <pre><code class="typescript language-typescript">export const ComponentState = ({ type }) =&gt; (
   &lt;State
     title={stateInfo[type].title}
@@ -1035,7 +1061,8 @@ fetch('/harry-potter/spells', {
 Object is possibly 'undefined'.
 </code></pre>
       <p>We can't sum an <code>undefined</code> value (well, actually in JavaScript we can, but we receive a
-        <code>NaN</code> value).</p>
+        <code>NaN</code> value).
+      </p>
       <p>We need to ensure that the <code>c</code> exists. Type narrowing!</p>
       <pre><code class="typescript language-typescript">function sumAll(a: number, b: number, c?: number) {
   if (c) {
@@ -1046,7 +1073,8 @@ Object is possibly 'undefined'.
 }
 </code></pre>
       <p>If the <code>c</code> exists, it will be a <code>number</code> and we can sum all. If not, sum only the
-        <code>a</code> and <code>b</code> values.</p>
+        <code>a</code> and <code>b</code> values.
+      </p>
       <p>An interesting part of this optional property is that it is a <code>undefined</code> not <code>null</code>.
         This is why we do this, we get a compile error:</p>
       <pre><code class="typescript language-typescript">let number = null;
@@ -1055,7 +1083,8 @@ sumAll(1, 2, number);
 </code></pre>
       <p>As the <code>?</code> operator doesn't handle the <code>null</code> value, choose to use the
         <code>undefined</code> type in your application and so you can still use the optional property and make the
-        types consistent. We can use it like this:</p>
+        types consistent. We can use it like this:
+      </p>
       <pre><code class="typescript language-typescript">let value: number | undefined;
 sumAll(1, 2, value); // 3
 </code></pre>
@@ -1081,7 +1110,8 @@ sumAll(1, 2, value); // 3
 };
 </code></pre>
       <p>But in reality, the email is optional for the user. The API endpoint could return or not. But the
-        <code>UserResponse</code> type we built treat it as a required property.</p>
+        <code>UserResponse</code> type we built treat it as a required property.
+      </p>
       <p>After fetching the user data, we want to see if the user email matches with a specific domain.</p>
       <pre><code class="typescript language-typescript">function matchDomain(email: string) {
   return email.endsWith(domain);
@@ -1112,7 +1142,8 @@ sumAll(1, 2, value); // 3
 }
 </code></pre>
       <p>But now we get a compile error when running <code>email.endsWith</code>, because it could be
-        <code>undefined</code> too:</p>
+        <code>undefined</code> too:
+      </p>
       <pre><code class="typescript language-typescript">// (parameter) email: string | undefined
 // Object is possibly 'undefined'.
 </code></pre>
@@ -1145,7 +1176,8 @@ const fetchAction: FetchAction = {
 };
 </code></pre>
       <p>A <code>fetchAction</code> has a type <code>FetchAction</code> that has a property type that is a typeof
-        <code>FETCH</code>.</p>
+        <code>FETCH</code>.
+      </p>
       <p>But a reducer can receive other actions too. For example a submit action:</p>
       <pre><code class="typescript language-typescript">enum ActionTypes {
   FETCH = 'FETCH',
@@ -1211,7 +1243,8 @@ const houses: House[] = [
 ];
 </code></pre>
       <p>I want to keep it simple, so the <code>House</code> type has only the <code>name</code> and the
-        <code>traits</code>, a list of possible traits from people related to the house.</p>
+        <code>traits</code>, a list of possible traits from people related to the house.
+      </p>
       <p>And then, I create each house and added all of them to the <code>houses</code> list.</p>
       <p>Great! Now I'll build the <code>Person</code> type. A person can be a witch or a muggle.</p>
       <pre><code class="typescript language-typescript">type Witch = {
@@ -1304,10 +1337,10 @@ const imagePropsWithWidth: ImageProps = {
 </code></pre>
       <p>Nice! One more concept to reuse and compose types.</p>
       <p>I also find the <code>Pick</code> type very interesting and useful. We have other <a
-          href="https://leandrotk.github.io/tk/2020/05/typescript-learnings-interesting-types/index.html">interesting
+          href="https://leandrotk.github.io/2020/05/typescript-learnings-interesting-types/index.html">interesting
           types</a> that we could write here, but the idea here is to understand that we can compose type and there is
         no limit to reuse types. If you're interested in study other types, take a look at this post I wrote: <a
-          href="https://leandrotk.github.io/tk/2020/05/typescript-learnings-interesting-types/index.html">TypeScript
+          href="https://leandrotk.github.io/2020/05/typescript-learnings-interesting-types/index.html">TypeScript
           Learnings: Interesting Types</a>.</p>
       <h2 id="tooling">Tooling</h2>
       <p>When you <code>npm install typescript</code>, you don't just get the compiler, you get the language service
@@ -1429,8 +1462,7 @@ for (const person of people) {
         <li><a href="https://www.no.lol/2019-12-27-type-narrowing/">Type Narrowing in TypeScript</a></li>
         <li><a href="https://2ality.com/2020/06/type-guards-assertion-functions-typescript.html">TypeScript: narrowing
             types via type guards and assertion functions</a></li>
-        <li><a
-            href="https://leandrotk.github.io/tk/2020/05/typescript-learnings-interesting-types/index.html">TypeScript
+        <li><a href="https://leandrotk.github.io/2020/05/typescript-learnings-interesting-types/index.html">TypeScript
             Learnings: Interesting Types</a></li>
         <li><a href="https://www.youtube.com/watch?v=MbZoQlmQaWQ">Understanding TypeScript's Structural Type System</a>
         </li>

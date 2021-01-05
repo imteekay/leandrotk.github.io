@@ -33,7 +33,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -107,7 +107,7 @@
 </code></pre>
       <p>After installing it, we have to configure the nodemon json config. This is the simple configuration I did for
         my <a
-          href="https://leandrotk.github.io/tk/2020/04/publisher-a-tooling-to-automate-the-process-to-publish-my-blog-posts/index.html">publisher
+          href="https://leandrotk.github.io/2020/04/publisher-a-tooling-to-automate-the-process-to-publish-my-blog-posts/index.html">publisher
           tool</a>:</p>
       <pre><code class="json language-json">{
   "watch": [
@@ -122,7 +122,8 @@
       <p>It watches the <code>src</code> and <code>example</code> folders with <code>.ts</code>, <code>.js</code>,
         <code>.html</code>, and <code>.json</code> files. If one of these files changes, the nodemon executes your main
         file defined in the <code>exec</code> property. In my project, I add the main file in the
-        <code>./src/index.ts</code>.</p>
+        <code>./src/index.ts</code>.
+      </p>
       <p>In your <code>package.json</code>, you can add a script to handle nodemon:</p>
       <pre><code class="json language-json">{
   "scripts": {

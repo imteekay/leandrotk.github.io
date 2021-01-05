@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -98,7 +98,8 @@
         the <code>S</code> are an empty string?</p>
       <p>As my first solution, the brute force solution, I needed to look through the string. So I didn't need to care
         about the empty strings. For empty strings, it doesn't loop, it just return the default counter, in this case,
-        <code>0</code>.</p>
+        <code>0</code>.
+      </p>
       <p>I just needed to loop through the <code>J</code> and for each character in the <code>J</code> string, I need to
         compare to each character of <code>S</code>. If they match, I increment the counter.</p>
       <p>After looping through each character, just return the final counter.</p>
@@ -117,7 +118,8 @@ print(num_jewels_in_stones("z", "ZZ")) # 0
 </code></pre>
       <p>This is a <code>O(N^2)</code> solution in terms of time complexity. Or more precisaly:
         <code>O(len(J) * len(S))</code>. For the space complexity, it is <code>O(1)</code> as we just store the value in
-        a counter. If <code>len(J)</code> or <code>len(S)</code> increase, the used space keeps constant.</p>
+        a counter. If <code>len(J)</code> or <code>len(S)</code> increase, the used space keeps constant.
+      </p>
       <p>Just to iterate this solution, we can make it <code>O(N)</code> in terms of time complexity by using a hash
         table to store all characters as key and the counter as value.</p>
       <pre><code class="python language-python">def num_jewels_in_stones_opt(J, S):
@@ -148,21 +150,22 @@ print(num_jewels_in_stones_opt("z", "ZZ")) # 0
         scenario, the space complexity is <code>O(N)</code>, worse than the first approach.</p>
       <hr />
       <p>For more stories and posts about my journey learning &amp; mastering software engineering, take a look at what
-        <a href="https://leandrotk.github.io/tk/writing.html">I've been writing and documenting</a>.</p>
+        <a href="https://leandrotk.github.io/writing.html">I've been writing and documenting</a>.
+      </p>
       <p>My <a href="https://twitter.com/LeandroTk_">Twitter</a> &amp; <a
           href="https://github.com/LeandroTk">Github</a>. ☺</p>
       <h2 id="resources">Resources</h2>
       <ul>
-        <li><a href="https://leandrotk.github.io/tk/2017/09/learning-python-from-zero-to-hero/index.html">Learning
+        <li><a href="https://leandrotk.github.io/2017/09/learning-python-from-zero-to-hero/index.html">Learning
             Python: From Zero to Hero</a></li>
-        <li><a href="https://leandrotk.github.io/tk/series/algorithms-problem-solving/index.html">Algorithms Problem
+        <li><a href="https://leandrotk.github.io/series/algorithms-problem-solving/index.html">Algorithms Problem
             Solving Series</a></li>
-        <li><a href="https://leandrotk.github.io/tk/2020/01/stack-data-structure/index.html">Stack Data Structure</a>
+        <li><a href="https://leandrotk.github.io/2020/01/stack-data-structure/index.html">Stack Data Structure</a>
         </li>
-        <li><a href="https://leandrotk.github.io/tk/2020/01/queue-data-structure/index.html">Queue Data Structure</a>
+        <li><a href="https://leandrotk.github.io/2020/01/queue-data-structure/index.html">Queue Data Structure</a>
         </li>
-        <li><a href="https://leandrotk.github.io/tk/2020/02/linked-list/index.html">Linked List</a></li>
-        <li><a href="https://leandrotk.github.io/tk/2020/02/tree-data-structure/index.html">Tree Data Structure</a></li>
+        <li><a href="https://leandrotk.github.io/2020/02/linked-list/index.html">Linked List</a></li>
+        <li><a href="https://leandrotk.github.io/2020/02/tree-data-structure/index.html">Tree Data Structure</a></li>
       </ul>
     </article>
 

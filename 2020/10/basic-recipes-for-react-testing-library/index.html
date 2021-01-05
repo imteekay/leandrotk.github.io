@@ -12,12 +12,14 @@
   <meta property="og:title" content="Basic Recipes for React Testing Library">
   <meta property="og:description" content="Understanding testing in the frontend and react applications">
   <meta property="og:locale" content="en">
-  <meta property="og:image" content="https://leandrotk.github.io/tk/2020/10/basic-recipes-for-react-testing-library/assets/cover.jpg">
+  <meta property="og:image"
+    content="https://leandrotk.github.io/2020/10/basic-recipes-for-react-testing-library/assets/cover.jpg">
   <meta property="og:updated_time" content="2020-10-13T00:00:00.000Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Basic Recipes for React Testing Library">
   <meta name="twitter:description" content="Understanding testing in the frontend and react applications">
-  <meta name="twitter:image" content="https://leandrotk.github.io/tk/2020/10/basic-recipes-for-react-testing-library/assets/cover.jpg">
+  <meta name="twitter:image"
+    content="https://leandrotk.github.io/2020/10/basic-recipes-for-react-testing-library/assets/cover.jpg">
 
   <title>Basic Recipes for React Testing Library</title>
   <link rel="stylesheet" type="text/css" href="../../../stylesheets/main.css">
@@ -28,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -56,8 +58,8 @@
 
           <div class="article-tag">
             <i class=b fa-tag"></i>
-<a class="tag-link" href="../../../tags/javascript.html">javascript</a>
-<a class="tag-link" href="../../../tags/web_development.html">web_development</a>
+            <a class="tag-link" href="../../../tags/javascript.html">javascript</a>
+            <a class="tag-link" href="../../../tags/web_development.html">web_development</a>
           </div>
         </div>
       </header>
@@ -71,40 +73,58 @@
 
       <hr />
 
-      <p>Last year I attended a conference called <a href="https://clojure-south.com/">Clojure South</a> where we had a lot of cool tech talks about functional programming and the programming language Clojure.</p>
-<p>One of the talks I really liked was about <a href="https://www.youtube.com/watch?v=0hhQmbHlwcY&ab_channel=BuildingNubank">Clojure Spec & Generative Tests</a> by David Chelimsky. He was part of the <a href="https://github.com/rspec/rspec">Rspec team</a> and he works in the clojure.spec team.</p>
-<p>He started his talk asking</p>
-<blockquote>
-  <p>Why do you make tests?</p>
-</blockquote>
-<p><em>"Confidence"</em> said someone in the audience. Confidence that your software works as expected.</p>
-<p>But tests only give confidence if we add tests that make sense. So it's important to have best practices and adjust the mindset to test properly.</p>
-<blockquote>
-  <p>Side note: In my opinion, having bad tests is worse than having any tests at all. Without tests, you are aware that you need tests in the future or that you will need to manually test your software before shipping to production. With bad tests, you think the tests cover good parts of your product, but they actually don't.</p>
-</blockquote>
-<p>Thinking about this, I wanted to play around with React Testing Library to provide good examples of what and how to test properly. So I created a playground to, well, <a href="https://github.com/leandrotk/react-testing-library-recipes">play with the Testing Library in some different contexts</a>.</p>
-<p>So, for this post, we will talk about theses topics:</p>
-<ul>
-<li>How to query</li>
-<li>How to verify content</li>
-<li>How to handle forms</li>
-<li>How to handle loading and fetching/async operations</li>
-</ul>
-<p>So let's get started!</p>
-<h1 id="howtoquery">How to query</h1>
-<p>We have three main ways to get elements from the DOM: <code>getBy</code>, <code>queryBy</code>, and <code>findBy</code>.</p>
-<p>All of these queries have different variants. For example, the <code>getBy</code> query has some variants like <code>getByRole</code> and <code>getByLabelText</code>. Depending on the context, you better use one over the others. But to simplify this process, the Testing Library docs has a section called <code><a href="https://testing-library.com/docs/guide-which-query">Which query should I use?</a></code> that explains the priority of one query over the others thinking about accessibility and semantics.</p>
-<h2 id="getby">getBy</h2>
-<p>Before start using the <code>getBy</code> query, let's see what we are testing.</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <p>Last year I attended a conference called <a href="https://clojure-south.com/">Clojure South</a> where we had a
+        lot of cool tech talks about functional programming and the programming language Clojure.</p>
+      <p>One of the talks I really liked was about <a
+          href="https://www.youtube.com/watch?v=0hhQmbHlwcY&ab_channel=BuildingNubank">Clojure Spec & Generative
+          Tests</a> by David Chelimsky. He was part of the <a href="https://github.com/rspec/rspec">Rspec team</a> and
+        he works in the clojure.spec team.</p>
+      <p>He started his talk asking</p>
+      <blockquote>
+        <p>Why do you make tests?</p>
+      </blockquote>
+      <p><em>"Confidence"</em> said someone in the audience. Confidence that your software works as expected.</p>
+      <p>But tests only give confidence if we add tests that make sense. So it's important to have best practices and
+        adjust the mindset to test properly.</p>
+      <blockquote>
+        <p>Side note: In my opinion, having bad tests is worse than having any tests at all. Without tests, you are
+          aware that you need tests in the future or that you will need to manually test your software before shipping
+          to production. With bad tests, you think the tests cover good parts of your product, but they actually don't.
+        </p>
+      </blockquote>
+      <p>Thinking about this, I wanted to play around with React Testing Library to provide good examples of what and
+        how to test properly. So I created a playground to, well, <a
+          href="https://github.com/leandrotk/react-testing-library-recipes">play with the Testing Library in some
+          different contexts</a>.</p>
+      <p>So, for this post, we will talk about theses topics:</p>
+      <ul>
+        <li>How to query</li>
+        <li>How to verify content</li>
+        <li>How to handle forms</li>
+        <li>How to handle loading and fetching/async operations</li>
+      </ul>
+      <p>So let's get started!</p>
+      <h1 id="howtoquery">How to query</h1>
+      <p>We have three main ways to get elements from the DOM: <code>getBy</code>, <code>queryBy</code>, and
+        <code>findBy</code>.</p>
+      <p>All of these queries have different variants. For example, the <code>getBy</code> query has some variants like
+        <code>getByRole</code> and <code>getByLabelText</code>. Depending on the context, you better use one over the
+        others. But to simplify this process, the Testing Library docs has a section called
+        <code><a href="https://testing-library.com/docs/guide-which-query">Which query should I use?</a></code> that
+        explains the priority of one query over the others thinking about accessibility and semantics.</p>
+      <h2 id="getby">getBy</h2>
+      <p>Before start using the <code>getBy</code> query, let's see what we are testing.</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 
 const Queries = () =&gt; &lt;h1&gt;Title&lt;/h1&gt;;
 
 export default Queries;
 </code></pre>
-<p>This a simple component called <code>Queries</code> that renders a title with a text <code>Title</code>.</p>
-<p>In this first test, we want to know if it renders the proper text. To query the element (<code>&lt;h1&gt;</code>), we'll be using the <code>getBy</code>. More specifically, we'll try the <code>getByText</code>.</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <p>This a simple component called <code>Queries</code> that renders a title with a text <code>Title</code>.</p>
+      <p>In this first test, we want to know if it renders the proper text. To query the element
+        (<code>&lt;h1&gt;</code>), we'll be using the <code>getBy</code>. More specifically, we'll try the
+        <code>getByText</code>.</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Queries from '../Queries';
 
@@ -118,16 +138,20 @@ describe('getBy', () =&gt; {
   });
 });
 </code></pre>
-<p>So here it is the first test. As simple as it looks.</p>
-<ul>
-<li>We use the <code>render</code> function from the testing library to render the component we want to test</li>
-<li>Query by the text <code>title</code> together with the <code>screen</code> function from the testing library.</li>
-<li>In the query, we use the regular expression to not have the problem of upper or lower case.</li>
-<li>And finally we expect to have this element <code>title</code> in the DOM.</li>
-</ul>
-<p>We'll talk about this <code>toBeInTheDocument</code> method later. But we basically want to use this matcher to expect that title is in the DOM.</p>
-<p>One specific "feature" the <code>getBy</code> has is to throw an error if it doesn't find the element in the rendered component. Let's see it in action.</p>
-<pre><code class="jsx language-jsx">it('verify no element', () =&gt; {
+      <p>So here it is the first test. As simple as it looks.</p>
+      <ul>
+        <li>We use the <code>render</code> function from the testing library to render the component we want to test
+        </li>
+        <li>Query by the text <code>title</code> together with the <code>screen</code> function from the testing
+          library.</li>
+        <li>In the query, we use the regular expression to not have the problem of upper or lower case.</li>
+        <li>And finally we expect to have this element <code>title</code> in the DOM.</li>
+      </ul>
+      <p>We'll talk about this <code>toBeInTheDocument</code> method later. But we basically want to use this matcher to
+        expect that title is in the DOM.</p>
+      <p>One specific "feature" the <code>getBy</code> has is to throw an error if it doesn't find the element in the
+        rendered component. Let's see it in action.</p>
+      <pre><code class="jsx language-jsx">it('verify no element', () =&gt; {
   render(&lt;Queries /&gt;);
 
   try {
@@ -137,10 +161,14 @@ describe('getBy', () =&gt; {
   }
 });
 </code></pre>
-<p>If you run this test, the <code>subtitle</code> text doesn't exist and it will throw an error. As we use the <code>try-catch</code>, when we run the test, it will log the text <code>Did not find nonexistent element</code> in your terminal.</p>
-<h2 id="queryby">queryBy</h2>
-<p><code>queryBy</code> has the same feature as the <code>getBy</code>. The main difference is that the <code>queryBy</code> doesn't throw an error if it doesn't find a given element in the DOM. Let's do the same implementation we did with <code>getBy</code>, but now with <code>queryBy</code>.</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <p>If you run this test, the <code>subtitle</code> text doesn't exist and it will throw an error. As we use the
+        <code>try-catch</code>, when we run the test, it will log the text <code>Did not find nonexistent element</code>
+        in your terminal.</p>
+      <h2 id="queryby">queryBy</h2>
+      <p><code>queryBy</code> has the same feature as the <code>getBy</code>. The main difference is that the
+        <code>queryBy</code> doesn't throw an error if it doesn't find a given element in the DOM. Let's do the same
+        implementation we did with <code>getBy</code>, but now with <code>queryBy</code>.</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Queries from '../Queries';
 
@@ -154,9 +182,10 @@ describe('queryBy', () =&gt; {
   });
 });
 </code></pre>
-<p>The happy path works the same way. Here we use the <code>queryByText</code> to get the title element and expect it to be in the document.</p>
-<p>But now when it doesn't find an element:</p>
-<pre><code class="jsx language-jsx">it('verify no element', () =&gt; {
+      <p>The happy path works the same way. Here we use the <code>queryByText</code> to get the title element and expect
+        it to be in the document.</p>
+      <p>But now when it doesn't find an element:</p>
+      <pre><code class="jsx language-jsx">it('verify no element', () =&gt; {
   render(&lt;Queries /&gt;);
 
   const subtitle = screen.queryByText(/subtitle/i);
@@ -164,13 +193,17 @@ describe('queryBy', () =&gt; {
   expect(subtitle).not.toBeInTheDocument();
 });
 </code></pre>
-<p>It won't throw an error. Here we can use the <code>queryByText</code> without the <code>try-catch</code> and try to get the subtitle element.</p>
-<p>We use the <code>.not</code> together with the <code>toBeInTheDocument</code> matcher to expect that the subtitle is not in the DOM.</p>
-<p>The <code>queryBy</code> is very useful when we want to make sure that the page is not showing an element.</p>
-<h2 id="findby">findBy</h2>
-<p>The <code>findBy</code> always returns a promise. And the promise resolves when it finds the element we are searching for.</p>
-<p>It's very useful when the element is not the DOM. But the element appears after a specific event. Let's see an example:</p>
-<pre><code class="jsx language-jsx">import React, { useState } from 'react';
+      <p>It won't throw an error. Here we can use the <code>queryByText</code> without the <code>try-catch</code> and
+        try to get the subtitle element.</p>
+      <p>We use the <code>.not</code> together with the <code>toBeInTheDocument</code> matcher to expect that the
+        subtitle is not in the DOM.</p>
+      <p>The <code>queryBy</code> is very useful when we want to make sure that the page is not showing an element.</p>
+      <h2 id="findby">findBy</h2>
+      <p>The <code>findBy</code> always returns a promise. And the promise resolves when it finds the element we are
+        searching for.</p>
+      <p>It's very useful when the element is not the DOM. But the element appears after a specific event. Let's see an
+        example:</p>
+      <pre><code class="jsx language-jsx">import React, { useState } from 'react';
 
 const Queries = () =&gt; {
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
@@ -185,10 +218,11 @@ const Queries = () =&gt; {
 
 export default Queries;
 </code></pre>
-<p>So here it is a simple component where we have a button and a logic to show or not a paragraph.</p>
-<p>At the top of the component, we use a <code>useState</code> hook to just manage the state to show or hide the paragraph. If the user click the button, it will show the paragraph. This is the "feature".</p>
-<p>Now we can use the <code>findBy</code> to query a paragraph, after clicking in the button.</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <p>So here it is a simple component where we have a button and a logic to show or not a paragraph.</p>
+      <p>At the top of the component, we use a <code>useState</code> hook to just manage the state to show or hide the
+        paragraph. If the user click the button, it will show the paragraph. This is the "feature".</p>
+      <p>Now we can use the <code>findBy</code> to query a paragraph, after clicking in the button.</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Queries from '../Queries';
 
@@ -204,17 +238,21 @@ describe('findBy', () =&gt; {
   });
 });
 </code></pre>
-<ul>
-<li>First we render the <code>Queries</code> component.</li>
-<li>Get the button with the <code>getByRole</code> query.</li>
-<li>We use the <code>fireEvent</code> function from the testing library to mimic the click in the button.</li>
-<li>And now we finally try to get the paragraph with the <code>findByText</code>.</li>
-<li>After getting the paragraph, we make sure it is in the document.</li>
-<li>As the <code>findBy</code> query returns a promise, we can use the <code>.then</code> method or the <code>await</code> to get the real element. As we used the <code>await</code> in this example, we need to add an <code>async</code> statement in the <code>it</code> block.</li>
-</ul>
-<p>A common example to use <code>findBy</code> is when we do an asynchronous operation like fetching an API for some data, so we need to wait until we have the data rendered in the dom to get the elements we want to verify that are there.</p>
-<p>The <code>findBy</code> also throws an error when it doesn't find an element like the <code>getBy</code>.</p>
-<pre><code class="jsx language-jsx">it('verify no other item', async () =&gt; {
+      <ul>
+        <li>First we render the <code>Queries</code> component.</li>
+        <li>Get the button with the <code>getByRole</code> query.</li>
+        <li>We use the <code>fireEvent</code> function from the testing library to mimic the click in the button.</li>
+        <li>And now we finally try to get the paragraph with the <code>findByText</code>.</li>
+        <li>After getting the paragraph, we make sure it is in the document.</li>
+        <li>As the <code>findBy</code> query returns a promise, we can use the <code>.then</code> method or the
+          <code>await</code> to get the real element. As we used the <code>await</code> in this example, we need to add
+          an <code>async</code> statement in the <code>it</code> block.</li>
+      </ul>
+      <p>A common example to use <code>findBy</code> is when we do an asynchronous operation like fetching an API for
+        some data, so we need to wait until we have the data rendered in the dom to get the elements we want to verify
+        that are there.</p>
+      <p>The <code>findBy</code> also throws an error when it doesn't find an element like the <code>getBy</code>.</p>
+      <pre><code class="jsx language-jsx">it('verify no other item', async () =&gt; {
   render(&lt;Queries /&gt;);
 
   const button = screen.getByRole('button', { name: /show paragraph/i });
@@ -227,19 +265,27 @@ describe('findBy', () =&gt; {
   }
 });
 </code></pre>
-<p>In this test, I added a <code>try-catch</code> to see that the <code>findByText</code> really throws an error.</p>
-<h1 id="howtoexpectcontent">How to expect content</h1>
-<p>There are many ways to verify the correct content in the page or component. But one I like the most is the matcher <code>.toBeInTheDocument</code>.</p>
-<p>The <code>.toBeInTheDocument</code> is matcher from the <a href="https://github.com/testing-library/jest-dom">jest-dom</a> library from the testing library org. There other custom jest matchers we can use too.</p>
-<p>We use this matcher in all the queries examples. But one thing that is cool to mention is that we don't need to import the matchers if we import the <code>jest-dom</code> in the <code>setupTests.js</code> like this:</p>
-<pre><code class="jsx language-jsx">// setupTests.js
+      <p>In this test, I added a <code>try-catch</code> to see that the <code>findByText</code> really throws an error.
+      </p>
+      <h1 id="howtoexpectcontent">How to expect content</h1>
+      <p>There are many ways to verify the correct content in the page or component. But one I like the most is the
+        matcher <code>.toBeInTheDocument</code>.</p>
+      <p>The <code>.toBeInTheDocument</code> is matcher from the <a
+          href="https://github.com/testing-library/jest-dom">jest-dom</a> library from the testing library org. There
+        other custom jest matchers we can use too.</p>
+      <p>We use this matcher in all the queries examples. But one thing that is cool to mention is that we don't need to
+        import the matchers if we import the <code>jest-dom</code> in the <code>setupTests.js</code> like this:</p>
+      <pre><code class="jsx language-jsx">// setupTests.js
 import '@testing-library/jest-dom/extend-expect';
 </code></pre>
-<p>So now the <code>expect</code> function from <code>jest</code> is extended to use all the matchers from the <code>jest-dom</code>.</p>
-<h1 id="howtohandleforms">How to handle forms</h1>
-<p>We can also handle forms with the testing library. The best practice is to use the <a href="https://github.com/testing-library/user-event">@testing-library/user-event library</a>. This library simulates the real interactions between users and browsers.</p>
-<p>Before starting to test, let's the simple form we want to test.</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <p>So now the <code>expect</code> function from <code>jest</code> is extended to use all the matchers from the
+        <code>jest-dom</code>.</p>
+      <h1 id="howtohandleforms">How to handle forms</h1>
+      <p>We can also handle forms with the testing library. The best practice is to use the <a
+          href="https://github.com/testing-library/user-event">@testing-library/user-event library</a>. This library
+        simulates the real interactions between users and browsers.</p>
+      <p>Before starting to test, let's the simple form we want to test.</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 
 export const Form = () =&gt; (
   &lt;&gt;
@@ -316,22 +362,24 @@ export const Form = () =&gt; (
 
 export default Form;
 </code></pre>
-<p>Wow! A lot of stuff here. But let's break down each part of the form (and see that it's not that scary). We want to test a lot of different kind of elements (input, select, multi-select, radio button, checkbox, etc):</p>
-<ul>
-<li>A text input for the name</li>
-<li>A number input for the age</li>
-<li>A date input for the birthdate</li>
-<li>A checkbox for hobbies</li>
-<li>A radio button for operating system</li>
-<li>A select for favorite city</li>
-<li>A multi-select for countries I want to visit</li>
-</ul>
-<p>That's it! We want to fill, select, and check all these elements with the testing library, and finally click the submit button.</p>
-<p>First thing we always do: render the component.</p>
-<pre><code class="jsx language-jsx">render(&lt;Form /&gt;);
+      <p>Wow! A lot of stuff here. But let's break down each part of the form (and see that it's not that scary). We
+        want to test a lot of different kind of elements (input, select, multi-select, radio button, checkbox, etc):</p>
+      <ul>
+        <li>A text input for the name</li>
+        <li>A number input for the age</li>
+        <li>A date input for the birthdate</li>
+        <li>A checkbox for hobbies</li>
+        <li>A radio button for operating system</li>
+        <li>A select for favorite city</li>
+        <li>A multi-select for countries I want to visit</li>
+      </ul>
+      <p>That's it! We want to fill, select, and check all these elements with the testing library, and finally click
+        the submit button.</p>
+      <p>First thing we always do: render the component.</p>
+      <pre><code class="jsx language-jsx">render(&lt;Form /&gt;);
 </code></pre>
-<p>And then we use the <code>screen</code> together with the <code>getBy</code> query to get the form fields.</p>
-<pre><code class="jsx language-jsx">const nameInput = screen.getByLabelText(/name/i);
+      <p>And then we use the <code>screen</code> together with the <code>getBy</code> query to get the form fields.</p>
+      <pre><code class="jsx language-jsx">const nameInput = screen.getByLabelText(/name/i);
 const ageInput = screen.getByLabelText(/age/i);
 const birthdayInput = screen.getByLabelText(/birthday/i);
 
@@ -351,35 +399,35 @@ const netherlandsOption = screen.getByText(/netherlands/i);
 
 const button = screen.getByRole('button', { name: /submit/i });
 </code></pre>
-<h3 id="textnumberanddateinputs">Text, number, and date inputs</h3>
-<p>And finally we fill the input fields with the <code>type</code> function:</p>
-<pre><code class="jsx language-jsx">userEvent.type(nameInput, 'TK');
+      <h3 id="textnumberanddateinputs">Text, number, and date inputs</h3>
+      <p>And finally we fill the input fields with the <code>type</code> function:</p>
+      <pre><code class="jsx language-jsx">userEvent.type(nameInput, 'TK');
 userEvent.type(ageInput, '24');
 userEvent.type(birthdayInput, '01/01/1996');
 </code></pre>
-<h3 id="checkboxes">Checkboxes</h3>
-<p>Check the checkboxes with the <code>click</code> function:</p>
-<pre><code class="jsx language-jsx">userEvent.click(codingCheckbox);
+      <h3 id="checkboxes">Checkboxes</h3>
+      <p>Check the checkboxes with the <code>click</code> function:</p>
+      <pre><code class="jsx language-jsx">userEvent.click(codingCheckbox);
 userEvent.click(readingCheckbox);
 userEvent.click(writingCheckbox);
 </code></pre>
-<h3 id="radiobuttons">Radio buttons</h3>
-<p>Choose an option from the radio button with the <code>click</code> function:</p>
-<pre><code class="jsx language-jsx">userEvent.click(osRadio);
+      <h3 id="radiobuttons">Radio buttons</h3>
+      <p>Choose an option from the radio button with the <code>click</code> function:</p>
+      <pre><code class="jsx language-jsx">userEvent.click(osRadio);
 </code></pre>
-<h3 id="selects">Selects</h3>
-<p>Select the favorite city with the <code>selectOptions</code> function:</p>
-<pre><code class="jsx language-jsx">userEvent.selectOptions(favCitySelect, [tokyoOption]);
+      <h3 id="selects">Selects</h3>
+      <p>Select the favorite city with the <code>selectOptions</code> function:</p>
+      <pre><code class="jsx language-jsx">userEvent.selectOptions(favCitySelect, [tokyoOption]);
 </code></pre>
-<h3 id="multiselects">Multi-selects</h3>
-<p>Select countries I want visit (again) with the <code>selectOptions</code></p>
-<pre><code class="jsx language-jsx">userEvent.selectOptions(countriesMultiSelect, [japanOption, germanyOption, netherlandsOption]);
+      <h3 id="multiselects">Multi-selects</h3>
+      <p>Select countries I want visit (again) with the <code>selectOptions</code></p>
+      <pre><code class="jsx language-jsx">userEvent.selectOptions(countriesMultiSelect, [japanOption, germanyOption, netherlandsOption]);
 </code></pre>
-<p>And after filling all the form, we are able to click the submit button:</p>
-<pre><code class="jsx language-jsx">userEvent.click(button);
+      <p>And after filling all the form, we are able to click the submit button:</p>
+      <pre><code class="jsx language-jsx">userEvent.click(button);
 </code></pre>
-<h3 id="howdoesallcometogether">How does all come together?</h3>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <h3 id="howdoesallcometogether">How does all come together?</h3>
+      <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import { Form } from '../Form';
@@ -425,11 +473,14 @@ describe('Form', () =&gt; {
   });
 });
 </code></pre>
-<p>This is a simple form, but if we want to add some validation, we can think of how a user would use the form.</p>
-<p>Have each form field a validation of presence that show a text below each field? We could, for example, click the submit buttons and verify which fields have the validation text until it doesn't have any error anymore.</p>
-<h1 id="howtohandlefetchingandloading">How to handle fetching and loading</h1>
-<p>Now we will see an example of fetching within a component and test the loading state and then the data rendered in the DOM.</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <p>This is a simple form, but if we want to add some validation, we can think of how a user would use the form.
+      </p>
+      <p>Have each form field a validation of presence that show a text below each field? We could, for example, click
+        the submit buttons and verify which fields have the validation text until it doesn't have any error anymore.</p>
+      <h1 id="howtohandlefetchingandloading">How to handle fetching and loading</h1>
+      <p>Now we will see an example of fetching within a component and test the loading state and then the data rendered
+        in the DOM.</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 import { useFetchAPI } from './useFetchAPI';
 
 const Loading = ({ pokemon }) =&gt; {
@@ -465,16 +516,18 @@ const Loading = ({ pokemon }) =&gt; {
 
 export default Loading;
 </code></pre>
-<p>This is a very simple component that we'll use to test the loading and the error state and the data rendered.</p>
-<p>Here we have:</p>
-<ul>
-<li>A custom hook for fetching: it uses the <code>fetch</code> function to request data from any API.</li>
-<li>The custom hook receives a url that it will request and returns 4 values: <code>hasError</code>, <code>isLoading</code>, <code>isResolved</code>, and the <code>data</code> to render.</li>
-<li>Below we have three if statements to handle the error, the loading, and when the request didn't finish.</li>
-<li>And then we have the data we want to render: the name and skills of a pokemon.</li>
-</ul>
-<p>Let's first test the error state when the API responds with an error.</p>
-<pre><code class="jsx language-jsx">it('renders the error', async () =&gt; {
+      <p>This is a very simple component that we'll use to test the loading and the error state and the data rendered.
+      </p>
+      <p>Here we have:</p>
+      <ul>
+        <li>A custom hook for fetching: it uses the <code>fetch</code> function to request data from any API.</li>
+        <li>The custom hook receives a url that it will request and returns 4 values: <code>hasError</code>,
+          <code>isLoading</code>, <code>isResolved</code>, and the <code>data</code> to render.</li>
+        <li>Below we have three if statements to handle the error, the loading, and when the request didn't finish.</li>
+        <li>And then we have the data we want to render: the name and skills of a pokemon.</li>
+      </ul>
+      <p>Let's first test the error state when the API responds with an error.</p>
+      <pre><code class="jsx language-jsx">it('renders the error', async () =&gt; {
   fetch.mockReject(() =&gt; Promise.reject('API is down'));
 
   render(&lt;Loading pokemon="charmander" /&gt;);
@@ -483,15 +536,19 @@ export default Loading;
   expect(error).toBeInTheDocument();
 });
 </code></pre>
-<ul>
-<li>The first thing I did was to mock the <code>fetch</code> function to simulate that the API will respond with an error.</li>
-<li>Then we render the <code>Loading</code> component with a prop called <code>pokemon</code> and a value <code>charmander</code>.</li>
-<li>We try to find the text <code>Error!</code>.</li>
-<li>And verify if it is actually in the document.</li>
-</ul>
-<p>We use the <code>findByText</code> because the error state will appear only after the fetching finishes, so it's a asynchronous operation. This is why we need to have an <code>async-await</code> in the test.</p>
-<p>Now for the happy path: we fetch the pokemon, the loading state appears, and then the pokemon data renders in the DOM.</p>
-<pre><code class="jsx language-jsx">it('renders the loading and then the pokemon info', async () =&gt; {
+      <ul>
+        <li>The first thing I did was to mock the <code>fetch</code> function to simulate that the API will respond with
+          an error.</li>
+        <li>Then we render the <code>Loading</code> component with a prop called <code>pokemon</code> and a value
+          <code>charmander</code>.</li>
+        <li>We try to find the text <code>Error!</code>.</li>
+        <li>And verify if it is actually in the document.</li>
+      </ul>
+      <p>We use the <code>findByText</code> because the error state will appear only after the fetching finishes, so
+        it's a asynchronous operation. This is why we need to have an <code>async-await</code> in the test.</p>
+      <p>Now for the happy path: we fetch the pokemon, the loading state appears, and then the pokemon data renders in
+        the DOM.</p>
+      <pre><code class="jsx language-jsx">it('renders the loading and then the pokemon info', async () =&gt; {
   const data = { name: 'charmander', types: [{ type: { name: 'fire' } }] };
   fetch.once(JSON.stringify(data));
 
@@ -507,14 +564,14 @@ export default Loading;
   expect(charmanderSkills).toBeInTheDocument();
 });
 </code></pre>
-<ul>
-<li>The first two lines we define the data and mock the fetch to return this value for us.</li>
-<li>We fetch the <code>Loading</code> component passing <code>charmander</code></li>
-<li>Then we first want to see the <code>Loading...</code> text in the document.</li>
-<li>And then verify if the pokemon name and skills are in the document.</li>
-</ul>
-<p>Now everything together:</p>
-<pre><code class="jsx language-jsx">import React from 'react';
+      <ul>
+        <li>The first two lines we define the data and mock the fetch to return this value for us.</li>
+        <li>We fetch the <code>Loading</code> component passing <code>charmander</code></li>
+        <li>Then we first want to see the <code>Loading...</code> text in the document.</li>
+        <li>And then verify if the pokemon name and skills are in the document.</li>
+      </ul>
+      <p>Now everything together:</p>
+      <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Loading from '../Loading';
 
@@ -545,16 +602,18 @@ describe('Loading', () =&gt; {
   });
 });
 </code></pre>
-<h1 id="finalwords">Final words</h1>
-<p>So here we finish this first conversation about tests in frontend. We've learned a lot of things:</p>
-<ul>
-<li>How to: query elements in the DOM</li>
-<li>How to: verify content in the document</li>
-<li>How to: test forms</li>
-<li>How to: handle fetching and loading</li>
-</ul>
-<p>I wanted to cover as much as possible, but I think this is a good start to understand how use this tool to test our applications and gain more confidence when shipping features or refactorings to production. I hope these recipes can help you understand more about testing in general and improve the quality of your software.</p>
-<p>Until the next time! Keep learning!</p>
+      <h1 id="finalwords">Final words</h1>
+      <p>So here we finish this first conversation about tests in frontend. We've learned a lot of things:</p>
+      <ul>
+        <li>How to: query elements in the DOM</li>
+        <li>How to: verify content in the document</li>
+        <li>How to: test forms</li>
+        <li>How to: handle fetching and loading</li>
+      </ul>
+      <p>I wanted to cover as much as possible, but I think this is a good start to understand how use this tool to test
+        our applications and gain more confidence when shipping features or refactorings to production. I hope these
+        recipes can help you understand more about testing in general and improve the quality of your software.</p>
+      <p>Until the next time! Keep learning!</p>
     </article>
 
     <iframe src="https://teekay.substack.com/embed" width="100%" height="300"
@@ -563,8 +622,8 @@ describe('Loading', () =&gt; {
     <div class="meta meta-footer">
       <div class="article-tag">
         Tags:
-<a class="tag-link" href="../../../tags/javascript.html">javascript</a>
-<a class="tag-link" href="../../../tags/web_development.html">web_development</a>
+        <a class="tag-link" href="../../../tags/javascript.html">javascript</a>
+        <a class="tag-link" href="../../../tags/web_development.html">web_development</a>
 
       </div>
     </div>

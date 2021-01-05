@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -74,10 +74,10 @@
       <hr />
 
       <p>This post is part of the <a
-          href="https://leandrotk.github.io/tk/2020/04/typescript-learnings/index.html">TypeScript Learning Series</a>.
+          href="https://leandrotk.github.io/2020/04/typescript-learnings/index.html">TypeScript Learning Series</a>.
       </p>
       <p>When I was testing some ideas and API features for JavaScript dates, I built a project in TypeScript. I wanted
-        to build a more <a href="https://leandrotk.github.io/tk/2020/04/fun-with-dates/index.html">human-friendly API to
+        to build a more <a href="https://leandrotk.github.io/2020/04/fun-with-dates/index.html">human-friendly API to
           handle dates</a>.</p>
       <p>This is what I was looking for:</p>
       <pre><code class="typescript language-typescript">get(1).dayAgo; // it gets yesterday
@@ -117,7 +117,8 @@ get(10).yearsAgo;
       <p>And here we are! I want to tell you about Union Type with objects.</p>
       <p>We have different return types depending on the <code>n</code> parameter. If the <code>n</code> is greater than
         <code>1</code>, we return an object with "plural" kind of attributes. Otherwise, I just return the "singular"
-        type of attributes.</p>
+        type of attributes.
+      </p>
       <p>Different return types. So I built the two types.</p>
       <p>The <code>DateAgo</code>:</p>
       <pre><code class="typescript language-typescript">type DateAgo = {
@@ -159,7 +160,8 @@ get(10).yearsAgo;
       </ul>
       <p>But it can have this properties in run-time. Because we can assign any kind of properties to an object. So a
         possible solution would be to add an <code>undefined</code> type to both <code>DateAgo</code> and
-        <code>DatesAgo</code>.</p>
+        <code>DatesAgo</code>.
+      </p>
       <pre><code class="typescript language-typescript">type DateAgo = {
   dayAgo: Date
   monthAgo: Date
@@ -184,7 +186,8 @@ type DatesAgo = {
       <pre><code class="typescript language-typescript">yearAgo?: undefined
 </code></pre>
       <p>With that, you can set these <code>undefined</code> properties. A better solution is to use the
-        <code>never</code> type:</p>
+        <code>never</code> type:
+      </p>
       <blockquote>
         <p>"The never type represents the type of values that never occur."</p>
       </blockquote>

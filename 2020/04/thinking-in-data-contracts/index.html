@@ -13,14 +13,13 @@
   <meta property="og:description"
     content="This is part of my studies on how to build sustainable and consistent software.">
   <meta property="og:locale" content="en">
-  <meta property="og:image" content="https://leandrotk.github.io/tk/2020/04/thinking-in-data-contracts/assets/maps.jpg">
+  <meta property="og:image" content="https://leandrotk.github.io/2020/04/thinking-in-data-contracts/assets/maps.jpg">
   <meta property="og:updated_time" content="2020-03-08T00:00:00.000Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Thinking in data contracts">
   <meta name="twitter:description"
     content="This is part of my studies on how to build sustainable and consistent software.">
-  <meta name="twitter:image"
-    content="https://leandrotk.github.io/tk/2020/04/thinking-in-data-contracts/assets/maps.jpg">
+  <meta name="twitter:image" content="https://leandrotk.github.io/2020/04/thinking-in-data-contracts/assets/maps.jpg">
 
   <title>Thinking in data contracts</title>
   <link rel="stylesheet" type="text/css" href="../../../stylesheets/main.css">
@@ -31,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -67,7 +66,7 @@
       </header>
 
       <div class="figure">
-        <img src="https://leandrotk.github.io/tk/2020/04/thinking-in-data-contracts/assets/maps.jpg">
+        <img src="https://leandrotk.github.io/2020/04/thinking-in-data-contracts/assets/maps.jpg">
         <span class="figcaption">
           Photo by <a href="https://unsplash.com/@nahilnaseer" target="_blank">Andrew Neel</a>
         </span>
@@ -95,7 +94,8 @@
 };
 </code></pre>
       <p>After the app state definition, we can think of the API contract. We can just implement a type
-        <code>PersonAPI</code> with all the types needed for the data.</p>
+        <code>PersonAPI</code> with all the types needed for the data.
+      </p>
       <pre><code class="lang-typescript">type PersonAPI = {
   <span class="hljs-built_in">id</span>: <span class="hljs-built_in">number</span>,
   <span class="hljs-built_in">name</span>: <span class="hljs-built_in">string</span>,
@@ -124,7 +124,8 @@
       <p>Here we have a very simple mapping, no involved logic. But what if the API data we receive has no
         <code>name</code>, but <code>firstName</code> and <code>lastName</code>? We want to transform the
         <code>firstName</code> and <code>lastName</code> into a <code>name</code> attribute in the <code>Person</code>
-        contract.</p>
+        contract.
+      </p>
       <p>The <code>PersonAPI</code> type:</p>
       <pre><code class="lang-typescript">type PersonAPI = {
   <span class="hljs-built_in">id</span>: <span class="hljs-built_in">number</span>,
@@ -357,7 +358,7 @@ PersonStatus<span class="hljs-selector-class">.Inactive</span> <span class="hljs
         <li>It also serves as good documentation: a better understanding of our API response and the app state we need
           to deal with.</li>
         <li>Another cool benefit is when we define the data types and use it in the initial state. <a
-            href="https://leandrotk.github.io/tk/2020/04/consistent-state-management-in-react-and-redux/index.html">We
+            href="https://leandrotk.github.io/2020/04/consistent-state-management-in-react-and-redux/index.html">We
             make our system really consistent</a> if we preserve the state contract across the application.</li>
         <li>It doesn&#39;t need to be complex. Simple &amp; pure functions only. Separate the responsibility of each
           function and we are good to go. It also helps us when testing.</li>
