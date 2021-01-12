@@ -231,6 +231,318 @@
       <p><strong>Side note</strong>: 2 years ago, the team responsible for the landing page decided to use a tool to
         develop the landing page with react but in the build time, we remove the react from the application to reduce
         the bundle size served in the landing page.</p>
+      <p>And this is what we got:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd107b20-f219-4091-824a-2b342b93e3bc/react-on-lp.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd107b20-f219-4091-824a-2b342b93e3bc/react-on-lp.png" />
+      </p>
+      <p>We can analyze a lot of things here, but one that got our attention was the React library in our landing page
+        bundle. As I wrote above, in the side note, React is not being used in production, and we are unintentionally
+        serving it in production making our users download the library without the need to do this.</p>
+      <pre><code class="jsx language-jsx">// components/XYZ.js
+import React from 'react';
+
+export const A_CONSTANT = 'A_CONSTANT';
+</code></pre>
+      <p>We had a constant inside a React component file. And we were importing that constant in the landing page.</p>
+      <pre><code class="jsx language-jsx">// landing.js
+import { A_CONSTANT } from 'components/XYZ';
+</code></pre>
+      <p>So importing this constant, we were also importing React.</p>
+      <p>A possible simple fix was to separate this constant outside the React component file and import it from this
+        new file.</p>
+      <pre><code class="jsx language-jsx">// components/XYZ/constants.js
+export const A_CONSTANT = 'A_CONSTANT';
+</code></pre>
+      <p>And import the constant from the new file:</p>
+      <pre><code class="jsx language-jsx">// landing.js
+import { A_CONSTANT } from 'components/XYZ/constants';
+</code></pre>
+      <p>Let's see the bundle size impact after this change:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/56801d97-3bb8-451a-ae99-3671b5e4ac37/Screenshot_from_2021-01-08_13-57-35.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/56801d97-3bb8-451a-ae99-3671b5e4ac37/Screenshot_from_2021-01-08_13-57-35.png" />
+      </p>
+      <p>We reduced 95KB! It's interesting to think we can have a huge impact on a small change after carefully
+        analyzing our bundles. This will be the process behind each improvement we did for the rest of this article:</p>
+      <ol>
+        <li>Analyze the bundles</li>
+        <li>Fix the performance issue</li>
+        <li>Gather results &amp; keep track the metrics</li>
+      </ol>
+      <p>We run again the bundle analyzer and we got this:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f30bde19-e5fb-4789-a544-94ab096428bb/lp-with-appboy.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f30bde19-e5fb-4789-a544-94ab096428bb/lp-with-appboy.png" />
+      </p>
+      <p>The first things that got our attention were the <code>appboy.min.js</code> and the <code>transit.js</code>
+        libraries. The <code>appboy</code> is the Braze, a library we use for communication, and the
+        <code>transit</code> is a library to transform JSON format data into our app state.</p>
+      <p>The <code>Braze</code> library was very similar to the React library. It was an <code>import</code> statement
+        in a file that the landing page was using but not really using the <code>Braze</code>.</p>
+      <pre><code class="jsx language-jsx">// braze.js
+import braze from 'appboy-web-sdk';
+
+export const aFunction = (brazeInstance = braze) =&gt; {
+  // do something with braze
+};
+</code></pre>
+      <p>It was importing Braze in the file and using the instance as a default value for a function. The simple
+        solution was to remove the import statement and enforce that every place that was using the
+        <code>aFunction</code> function passes the braze instance. So we don't need to import Braze and add a default
+        value to the parameter:</p>
+      <pre><code class="jsx language-jsx">// braze.js
+export const aFunction = (brazeInstance) =&gt; {
+  // do something with braze
+};
+</code></pre>
+      <p>Running the bundle analyzer again, we got an astonishing result.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c262280c-8c22-44f0-9399-ecff7c10b6f9/Screenshot_from_2021-01-08_14-40-51.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c262280c-8c22-44f0-9399-ecff7c10b6f9/Screenshot_from_2021-01-08_14-40-51.png" />
+      </p>
+      <p>The AnnounceYourHouse landing page was reduced to 90 KB. We could remove almost 50% of the main landing bundle.
+      </p>
+      <p>We also improved a lot the bundle size of the PriceSuggestion landing page. From 115 KB to 4 KB was an amazing
+        result.</p>
+      <p>For the <code>transit</code> library, we did a temporary workaround solution. It was importing the library to
+        transform the string JSON saved in the local storage to get info from a single attribute from this object.</p>
+      <p>The temporary solution was to verify if the string included the info we wanted and remove the need to use the
+        <code>transit</code> library.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8e6c07e-88bb-40a2-abc4-18385c17efef/Screenshot_from_2021-01-08_14-56-55.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8e6c07e-88bb-40a2-abc4-18385c17efef/Screenshot_from_2021-01-08_14-56-55.png" />
+      </p>
+      <p>We could improved a lot the bundle size of the main landing. Removing almost 50% of the bundle.</p>
+      <p>As we saw in the metrics section, we had set up the Speed Curve to track the performance of some pages in all
+        this journey. So, for every improvement we made in our application, we keep track of the metrics in these tools.
+      </p>
+      <p>The total size of the landing page reduced drastically: -2.16 MB.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7646c93-432a-4051-ab0e-57f5edd7f10f/Screenshot_from_2021-01-08_15-07-17.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7646c93-432a-4051-ab0e-57f5edd7f10f/Screenshot_from_2021-01-08_15-07-17.png" />
+      </p>
+      <p>The Lighthouse Performance score was from 73 to 97:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f096f09f-5d8b-4517-942d-126e85a90571/Screenshot_from_2021-01-08_15-07-25.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f096f09f-5d8b-4517-942d-126e85a90571/Screenshot_from_2021-01-08_15-07-25.png" />
+      </p>
+      <p>The Largest Contentful Paint was improved in 1s:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3d5eaa7d-0f99-47e8-bc69-948ac021e73c/Screenshot_from_2021-01-08_15-07-38.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3d5eaa7d-0f99-47e8-bc69-948ac021e73c/Screenshot_from_2021-01-08_15-07-38.png" />
+      </p>
+      <h3 id="vendorchunk">Vendor Chunk</h3>
+      <p>When running <code>npm run bundle:analyzer</code>, we also notice a big dependency in our vendor chunk.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/568a2178-ad58-4155-b7c1-3a626a41d726/vendor-icons.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/568a2178-ad58-4155-b7c1-3a626a41d726/vendor-icons.png" />
+      </p>
+      <p>In the vendor chunk, we noticed all the icons from Material UI. Every time a user enters the website, and if
+        the chunk is not cached in the browser, it would need to download the whole chunk. If it's a big chunk to
+        download, it has an impact on the performance and consequently on the user experience.</p>
+      <p>This is a <a href="https://material-ui.com/guides/minimizing-bundle-size/">common problem</a> when importing a
+        Material UI icon in a React component.</p>
+      <p>One of our components was using an internal component library that used the "named import" style to import the
+        Material UI icon. This, without a proper babel plugin, also adds the rest of the unused icons to the vendor
+        chunk.</p>
+      <p>We came up with two solutions:</p>
+      <ol>
+        <li>Fix the import from this internal component library we had stopping the use of named import.</li>
+        <li>Add the babel plugin and configure the app to not add unused modules.</li>
+      </ol>
+      <p>As this internal component library was the first and the deprecated version of our design system, we didn't
+        want to keep maintaining it. The best approach was to not use this library anymore and move all the codebase to
+        use the new design system library (and we're working on it!).</p>
+      <p>This performance project was not our main project in the quarter so we had less time to focus on it in the
+        sprint. The babel plugin was a more straightforward and simple solution for us at that moment.</p>
+      <p>We basically needed to add this new babel plugin <code>babel-plugin-transform-imports</code> and configure the
+        <code>babelrc</code>:</p>
+      <pre><code class="jsx language-jsx">[
+  "babel-plugin-transform-imports",
+  {
+    "@material-ui/core": {
+      "transform": "@material-ui/core/esm/${member}",
+      "preventFullImport": true
+    },
+    "@material-ui/icons": {
+      "transform": "@material-ui/icons/esm/${member}",
+      "preventFullImport": true
+    }
+  }
+]
+</code></pre>
+      <p>And with it, we prevent the full import of the library in the vendor chunk.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d41287ca-d648-4d2b-a3bf-8194e9446f3a/Screenshot_from_2021-01-09_14-54-29.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d41287ca-d648-4d2b-a3bf-8194e9446f3a/Screenshot_from_2021-01-09_14-54-29.png" />
+      </p>
+      <p>The vendor became way smaller. We also had some impact in the main chunk (the next chunk will talk soon).</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57e50ef0-d333-4dfd-9f66-b7036e1ba01b/Screenshot_from_2021-01-09_14-57-40.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57e50ef0-d333-4dfd-9f66-b7036e1ba01b/Screenshot_from_2021-01-09_14-57-40.png" />
+      </p>
+      <p>With this simple analysis and configuration, we could reduce the vendor chunk by more than 50% (it's still 2.83
+        MB and could be improved. We will see later!) and the main chunk by 28%.</p>
+      <p>A huge improvement for the whole app as these chunks were downloaded on each page, if not cached in the
+        browser.</p>
+      <h3 id="mainchunk">Main Chunk</h3>
+      <p>The main chunk has some common modules among all parts of the application. But after running the bundle
+        analyzer, we got this:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2fe3d453-421b-4eb0-9d64-1742f8cc4c5b/main-chunk-before.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2fe3d453-421b-4eb0-9d64-1742f8cc4c5b/main-chunk-before.png" />
+      </p>
+      <p>The main chunk is the bottom-left block in the bundle. One thing that got our attention was some containers and
+        components in the bundle. Why are there some components that are specific to only one page but we are making our
+        users download the whole main chunk?</p>
+      <p>The issue was simple: our code splitting was not working properly.</p>
+      <p>Our initial idea was to make sure all routes had dynamic import for our components to code split in each router
+        entry point. And this was the problem: not all routes entry points had loadable components, so they were joined
+        in the main chunk instead of creates their own chunk for that specific route and page.</p>
+      <p>In this application we were using, at that time, <code>react-loadable</code>, so the idea was to simply create
+        these loadables:</p>
+      <pre><code class="jsx language-jsx">import Loadable from 'react-loadable';
+
+export default Loadable({
+  loader: () =&gt; import(/* webpackChunkName: "component" */'./Component'),
+  loading: () =&gt; null,
+});
+</code></pre>
+      <p>And use them for each route entry point.</p>
+      <p>Running bundle analyzer, we got this:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1fad56c0-444c-48ec-af23-ca0b68dd8f07/main-chunk-after.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1fad56c0-444c-48ec-af23-ca0b68dd8f07/main-chunk-after.png" />
+      </p>
+      <p>The main chunk is way smaller and Webpack created more page-specific chunks as well.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5e7f1216-8cc6-44ba-8b04-ac4b2c1190af/Screenshot_from_2021-01-10_11-06-20.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5e7f1216-8cc6-44ba-8b04-ac4b2c1190af/Screenshot_from_2021-01-10_11-06-20.png" />
+      </p>
+      <p>The result was huge. The main chunk got more than 50% smaller and the vendor chunk also decreased by 29%.</p>
+      <h3 id="cachingbiggestdependencies">Caching Biggest Dependencies</h3>
+      <p>Reading this article, you probably saw some big dependencies in our bundle like firebase, braze, immutable, and
+        so on.</p>
+      <p>Every time we do a new product release, our build system generate a new bundle with the chunks. If anything
+        related to the vendor chunk changes, Webpack will generate a new hash for the chunk. So the browser will not
+        have a cached version for this chunk and it will make the user download it again.</p>
+      <p>But sometimes, or most of the time, we don't really change these biggest dependencies (only when the dependency
+        is upgraded), and we are making our users paying for that huge chunk.</p>
+      <p>Our idea was to split these biggest dependencies in its own chunk and make sure the browser has a cached
+        version of this chunk and the user doesn't need to download it again until it is needed.</p>
+      <p>As we were using Webpack 3 at that time, we needed to use the <code>CommonsChunkPlugin</code> to split these
+        dependencies in its own chunk.</p>
+      <p>We created a list of all biggest dependencies:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/07f6542d-3789-47b6-bd0a-291cb34efd87/Screenshot_from_2021-01-10_11-49-40.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/07f6542d-3789-47b6-bd0a-291cb34efd87/Screenshot_from_2021-01-10_11-49-40.png" />
+      </p>
+      <p>It was mapped as a list data structure in our Webpack config as well:</p>
+      <pre><code class="jsx language-jsx">const VENDOR_LIBRARIES = [
+  {
+    name: '@firebase',
+    label: 'firebase',
+  },
+  {
+    name: '@braze',
+    label: 'braze',
+  },
+  {
+    name: 'transit-js',
+    label: 'transit-js',
+  },
+  {
+    name: '@material-ui(?!\\/icons)',
+    label: 'material-ui',
+  },
+  {
+    name: 'react-dom',
+    label: 'react-dom',
+  },
+  {
+    name: 'amplitude-js',
+    label: 'amplitude-js',
+  },
+  {
+    name: 'immutable',
+    label: 'immutable',
+  },
+  {
+    name: 'raven-js',
+    label: 'raven-js',
+  },
+];
+</code></pre>
+      <p>Along with <code>CommonsChunkPlugin</code>, we just needed to iterate through this list to create each chunk.
+      </p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb6e4f3d-97ea-44a9-8acf-3ea97f496f9d/biggest-deps-later.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb6e4f3d-97ea-44a9-8acf-3ea97f496f9d/biggest-deps-later.png" />
+      </p>
+      <p>We can see that the vendor chunk got way smaller and some new chunks were created.</p>
+      <p>Running the application, we can also test the download of each separate chunk.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d3bdce9-8a52-4279-a2f3-696f7cd7c00e/biggest-deps-network.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d3bdce9-8a52-4279-a2f3-696f7cd7c00e/biggest-deps-network.png" />
+      </p>
+      <p>And we got a really cool result:</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce24451d-a86d-4e3d-b13b-1f7b4fc247b3/Screenshot_from_2021-01-10_11-56-28.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce24451d-a86d-4e3d-b13b-1f7b4fc247b3/Screenshot_from_2021-01-10_11-56-28.png" />
+      </p>
+      <p>The user still needs to download the dependencies, but after download the first time, the browser will cache
+        them and they won't need to be downloaded again until we bump their version. If we change the vendor chunk,
+        Webpack only generates a new hash for the vendor and doesn't change the other dependencies.</p>
+      <p>We saw some nice improvements in the Speed Curve dashboard:</p>
+      <p>As expected, we saw a huge improvement in the JavaScript size: -1.43 MB</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16068b39-79fd-4a3b-ac49-a61d28df2943/Screenshot_from_2021-01-10_12-08-01.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16068b39-79fd-4a3b-ac49-a61d28df2943/Screenshot_from_2021-01-10_12-08-01.png" />
+      </p>
+      <p>Decreasing the JavaScript size also had an impact on the total time the user is blocked to interact with the
+        page: -1.2s</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30925afe-a367-4cd8-bffb-5543520dcf71/Screenshot_from_2021-01-10_12-08-11.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30925afe-a367-4cd8-bffb-5543520dcf71/Screenshot_from_2021-01-10_12-08-11.png" />
+      </p>
+      <p>The speed index is a metric to show how quickly the contents of a page are visibly populated. We improved the
+        page to load 2.2s faster.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0cc1509-fe1e-4d31-9a1e-14d58022e62d/Screenshot_from_2021-01-10_12-08-23.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0cc1509-fe1e-4d31-9a1e-14d58022e62d/Screenshot_from_2021-01-10_12-08-23.png" />
+      </p>
+      <p>And the largest contentful paint went from 6s to 3.75s.</p>
+      <p><img
+          src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d90d438-313b-44cc-aaeb-f1f0c126c2b3/Screenshot_from_2021-01-10_12-08-31.png"
+          alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d90d438-313b-44cc-aaeb-f1f0c126c2b3/Screenshot_from_2021-01-10_12-08-31.png" />
+      </p>
+      <h2 id="recap">Recap</h2>
+      <p>To recap what we saw in this article, let's see the list of things we did in this journey:</p>
+      <ul>
+        <li><strong>Measure</strong>: metrics as the foundation of performance improvements.</li>
+        <li><strong>Lock</strong>: prevent regressions &amp; scale the performance knowledge.</li>
+        <li><strong>Analyze</strong>: with data and metrics, analyze the possible problems.</li>
+        <li><strong>Improvements</strong>: code.</li>
+        <li><strong>Impact</strong>: measure the before and the later picture.</li>
+      </ul>
+      <p>I would also recommend talking to more experienced people in this performance domain if it is possible.</p>
+      <h2 id="nextsteps">Next steps</h2>
+      <p>We have more things to do, but we didn't have time to focus on those things in the last quarter. This is a list
+        of things that come to my mind now:</p>
+      <ul>
+        <li><strong>More metrics</strong>: rum for logged pages, ux metrics (engagement, bounce rate), business metrics
+          (conversion).</li>
+        <li><strong>Manage requests</strong>: server requests caching.</li>
+        <li><strong>More Analysis</strong>: backend, chunks, prefetching, etc.</li>
+        <li><strong>Removable Dependencies</strong>: analyze big dependencies that can be removable or replaced</li>
+        <li><strong>Webpack Upgrade</strong>: bump to v5 - cache, optimization, code-splitting, tree shaking.</li>
+        <li><strong>Webpack Optimization</strong>: the need to build faster.</li>
+        <li><strong>Keep studying</strong>: learn more to discover more opportunities.</li>
+      </ul>
+      <h2 id="resources">Resources</h2>
+      <p>I have some resources I used along the way while doing this project. I hope it can be helpful to you too: <a
+          href="https://github.com/leandrotk/web-performance-studies">Web Performance Studies</a>.</p>
     </article>
 
     <iframe src="https://teekay.substack.com/embed" width="100%" height="300"
