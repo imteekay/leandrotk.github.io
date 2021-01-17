@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -107,7 +107,8 @@ small = div(remaining_after_medium, 5)
 remaining_matchsticks = rem(remaining_after_medium, 5)
 </code></pre>
       <p>With this, I have the <code>big</code>, the <code>medium</code>, the <code>small</code>, and the
-        <code>remaining_matchsticks</code>. And I can return this whole information with a map object.</p>
+        <code>remaining_matchsticks</code>. And I can return this whole information with a map object.
+      </p>
       <pre><code class="elixir language-elixir">def boxes(matchsticks) do
   big = div(matchsticks, 50)
   remaining_after_big = rem(matchsticks, 50)
@@ -195,7 +196,7 @@ MatchstickFactory.boxes(39) # %{big: 0, medium: 1, remaining_matchsticks: 4, sma
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

@@ -106,12 +106,14 @@
       <p>So let's get started!</p>
       <h1 id="howtoquery">How to query</h1>
       <p>We have three main ways to get elements from the DOM: <code>getBy</code>, <code>queryBy</code>, and
-        <code>findBy</code>.</p>
+        <code>findBy</code>.
+      </p>
       <p>All of these queries have different variants. For example, the <code>getBy</code> query has some variants like
         <code>getByRole</code> and <code>getByLabelText</code>. Depending on the context, you better use one over the
         others. But to simplify this process, the Testing Library docs has a section called
         <code><a href="https://testing-library.com/docs/guide-which-query">Which query should I use?</a></code> that
-        explains the priority of one query over the others thinking about accessibility and semantics.</p>
+        explains the priority of one query over the others thinking about accessibility and semantics.
+      </p>
       <h2 id="getby">getBy</h2>
       <p>Before start using the <code>getBy</code> query, let's see what we are testing.</p>
       <pre><code class="jsx language-jsx">import React from 'react';
@@ -123,7 +125,8 @@ export default Queries;
       <p>This a simple component called <code>Queries</code> that renders a title with a text <code>Title</code>.</p>
       <p>In this first test, we want to know if it renders the proper text. To query the element
         (<code>&lt;h1&gt;</code>), we'll be using the <code>getBy</code>. More specifically, we'll try the
-        <code>getByText</code>.</p>
+        <code>getByText</code>.
+      </p>
       <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Queries from '../Queries';
@@ -163,11 +166,13 @@ describe('getBy', () =&gt; {
 </code></pre>
       <p>If you run this test, the <code>subtitle</code> text doesn't exist and it will throw an error. As we use the
         <code>try-catch</code>, when we run the test, it will log the text <code>Did not find nonexistent element</code>
-        in your terminal.</p>
+        in your terminal.
+      </p>
       <h2 id="queryby">queryBy</h2>
       <p><code>queryBy</code> has the same feature as the <code>getBy</code>. The main difference is that the
         <code>queryBy</code> doesn't throw an error if it doesn't find a given element in the DOM. Let's do the same
-        implementation we did with <code>getBy</code>, but now with <code>queryBy</code>.</p>
+        implementation we did with <code>getBy</code>, but now with <code>queryBy</code>.
+      </p>
       <pre><code class="jsx language-jsx">import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Queries from '../Queries';
@@ -246,7 +251,8 @@ describe('findBy', () =&gt; {
         <li>After getting the paragraph, we make sure it is in the document.</li>
         <li>As the <code>findBy</code> query returns a promise, we can use the <code>.then</code> method or the
           <code>await</code> to get the real element. As we used the <code>await</code> in this example, we need to add
-          an <code>async</code> statement in the <code>it</code> block.</li>
+          an <code>async</code> statement in the <code>it</code> block.
+        </li>
       </ul>
       <p>A common example to use <code>findBy</code> is when we do an asynchronous operation like fetching an API for
         some data, so we need to wait until we have the data rendered in the dom to get the elements we want to verify
@@ -279,7 +285,8 @@ describe('findBy', () =&gt; {
 import '@testing-library/jest-dom/extend-expect';
 </code></pre>
       <p>So now the <code>expect</code> function from <code>jest</code> is extended to use all the matchers from the
-        <code>jest-dom</code>.</p>
+        <code>jest-dom</code>.
+      </p>
       <h1 id="howtohandleforms">How to handle forms</h1>
       <p>We can also handle forms with the testing library. The best practice is to use the <a
           href="https://github.com/testing-library/user-event">@testing-library/user-event library</a>. This library
@@ -522,7 +529,8 @@ export default Loading;
       <ul>
         <li>A custom hook for fetching: it uses the <code>fetch</code> function to request data from any API.</li>
         <li>The custom hook receives a url that it will request and returns 4 values: <code>hasError</code>,
-          <code>isLoading</code>, <code>isResolved</code>, and the <code>data</code> to render.</li>
+          <code>isLoading</code>, <code>isResolved</code>, and the <code>data</code> to render.
+        </li>
         <li>Below we have three if statements to handle the error, the loading, and when the request didn't finish.</li>
         <li>And then we have the data we want to render: the name and skills of a pokemon.</li>
       </ul>
@@ -540,7 +548,8 @@ export default Loading;
         <li>The first thing I did was to mock the <code>fetch</code> function to simulate that the API will respond with
           an error.</li>
         <li>Then we render the <code>Loading</code> component with a prop called <code>pokemon</code> and a value
-          <code>charmander</code>.</li>
+          <code>charmander</code>.
+        </li>
         <li>We try to find the text <code>Error!</code>.</li>
         <li>And verify if it is actually in the document.</li>
       </ul>
@@ -647,7 +656,7 @@ describe('Loading', () =&gt; {
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

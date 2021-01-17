@@ -27,7 +27,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -81,13 +81,16 @@
       <h2>Concepts and Implementations</h2>
       <h3>The Node</h3>
       <p>A Linked List is a sequence of nodes and each node has two
-        <code>attributes</code>: the value it stores and the reference to the next node of the sequence.</p>
+        <code>attributes</code>: the value it stores and the reference to the next node of the sequence.
+      </p>
       <p>The first and last nodes are called <code>head</code> and
         <code>tail</code> of the list, respectively. So to get to the tail of the last, we traverse the linked list by
-        moving from one node to another using the each node&#x27;s next reference.</p>
+        moving from one node to another using the each node&#x27;s next reference.
+      </p>
       <p>The Linked List having the <code>head</code> and the
         <code>tail</code> as attributes helps adding new nodes to the start and the end of the list. But we can
-        implement it with or without the <code>tail</code> attribute. We will dive in into the this implementation.</p>
+        implement it with or without the <code>tail</code> attribute. We will dive in into the this implementation.
+      </p>
       <p>We can separate the linked list from its elements. Each
         element is a node and we can implement this representation with a <code>Node</code> class.</p>
       <pre class="code python"><code>class Node:
@@ -132,12 +135,14 @@ new_node.next.value  # 2</code></pre>
     def __init__(self):
         self.head = None</code></pre>
       <p>Simple as that. Just a class and initialize the
-        <code>head</code> attribute with <code>None</code> for an empty list.</p>
+        <code>head</code> attribute with <code>None</code> for an empty list.
+      </p>
 
       <h3>is_empty method</h3>
       <p>Let&#x27;s implement the easier method:
         <code>is_empty</code>. How do we know when a list is empty? If the <code>head</code> is <code>None</code>, we
-        didn&#x27;t add any node to this list. This is the logic behind the <code>is_empty</code> method.</p>
+        didn&#x27;t add any node to this list. This is the logic behind the <code>is_empty</code> method.
+      </p>
       <pre class="code python"><code>def is_empty(self):
     return self.head is None</code></pre>
       <p>Pretty simple, huh?</p>
@@ -150,10 +155,12 @@ new_node.next.value  # 2</code></pre>
         this:</p>
       <pre class="code python"><code>Node(value, previous_head)</code></pre>
       <p>In the context of the linked list, we will have the
-        <code>self.head</code>. So:</p>
+        <code>self.head</code>. So:
+      </p>
       <pre class="code python"><code>Node(value, self.head)</code></pre>
       <p>The last step is to assign this new node to the
-        <code>head</code> and we will prepend it.</p>
+        <code>head</code> and we will prepend it.
+      </p>
       <pre class="code python"><code>self.head = Node(value, self.head)</code></pre>
       <ul class="bulleted-list">
         <li>Create new node</li>
@@ -177,7 +184,8 @@ new_node.next.value  # 2</code></pre>
       <p>The question is: How do we iterate through the list?</p>
       <p>The difference between the tail node and the rest is the
         <code>next</code> attribute. The tail has no <code>next</code>. It points to <code>None</code>. The rest always
-        point to a different node.</p>
+        point to a different node.
+      </p>
       <p>To iterate through the list to get the last node, we get the
         next node until the node has no <code>next</code> attribute. Start with the first node: the head.</p>
       <pre class="code python"><code>current_node = self.head</code></pre>
@@ -266,7 +274,8 @@ current_node.next = Node(value)</code></pre>
     current_node = current_node.next</code></pre>
       <p>We can do this way to return <code>True</code> if the
         searched value is found. Or we can defined a <code>found</code> variable and use it to set it to
-        <code>True</code> when find it and get out of the loop.</p>
+        <code>True</code> when find it and get out of the loop.
+      </p>
       <pre class="code python"><code>while not found and current_node is not None:
     found = current_node.value == value
     current_node = current_node.next</code></pre>
@@ -281,7 +290,8 @@ current_node.next = Node(value)</code></pre>
           value for each current node value</li>
       </ul>
       <p>We define the <code>found</code> and
-        <code>current_node</code> before iterating and return if we found the searched value or not.</p>
+        <code>current_node</code> before iterating and return if we found the searched value or not.
+      </p>
       <pre class="code python"><code>def search(self, value):
     found = False
     current_node = self.head
@@ -476,7 +486,8 @@ print_size(linked_list)  # 2</code></pre>
 print_found(linked_list, 2)  # True
 print_found(linked_list, 3)  # True</code></pre>
       <p>That&#x27;s cool! We really don&#x27;t have the
-        <code>1</code> node, but we have the <code>2</code> and the <code>3</code>.</p>
+        <code>1</code> node, but we have the <code>2</code> and the <code>3</code>.
+      </p>
       <p>Now printing after removing each node:</p>
       <pre class="code python"><code>linked_list.remove(1)
 print_all(linked_list)  # 2 3
@@ -585,7 +596,7 @@ print_all(linked_list)  # 1 2 4</code></pre>
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

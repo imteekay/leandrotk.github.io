@@ -27,7 +27,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -81,7 +81,8 @@
 
       <p>We can create a <code>Stack</code> class as a wrapper and use the Python list to store the stack data. This
         class will have the implementation of the <code>push</code>, <code>pop</code>, <code>size</code>,
-        <code>top</code>, and <code>is_empty</code> methods.</p>
+        <code>top</code>, and <code>is_empty</code> methods.
+      </p>
 
       <p>The first step is to create a class definition and how we are gone store our items.</p>
 
@@ -126,7 +127,8 @@
 </code></pre>
 
       <p>But we need to handle the stack emptiness. For an empty list, the <code>pop</code> method raises an exception
-        <code>IndexError: pop from empty list</code>. So we can create an exception class to handle this issue.</p>
+        <code>IndexError: pop from empty list</code>. So we can create an exception class to handle this issue.
+      </p>
 
       <pre><code class="python">class Emptiness(Exception):
     pass
@@ -353,7 +355,7 @@ print(reversed_bookshelf) # ['Peak', 'Sapiens', 'Leonardo da Vinci', 'Atomic Hab
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

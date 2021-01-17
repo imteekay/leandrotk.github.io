@@ -33,7 +33,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -111,12 +111,14 @@
       <p>As we know, when the <code>displayName</code> function is created, the closure is also created and it makes the
         function aware of the environment, in this case, the <code>name</code> constant. This is why we can
         <code>console.log</code> the <code>name</code> without breaking anything. The function knows about the lexical
-        environment.</p>
+        environment.
+      </p>
       <pre><code class="lang-javascript">const myFunction = makeFunction()<span class="hljs-comment">;</span>
 myFunction()<span class="hljs-comment">; // TK</span>
 </code></pre>
       <p>Great! It works as expected! The return of the <code>makeFunction</code> is a function that we store it in the
-        <code>myFunction</code> constant, call it later, and displays <code>TK</code>.</p>
+        <code>myFunction</code> constant, call it later, and displays <code>TK</code>.
+      </p>
       <p>We can also make it work as an arrow function:</p>
       <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> makeFunction = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-keyword">const</span> name = <span class="hljs-string">'TK'</span>;
@@ -186,7 +188,8 @@ myFunction(); <span class="hljs-comment">// TK</span>
 </code></pre>
       <p>As we created the <code>items</code> stack data inside our <code>buildStack</code> function, it is
         &quot;private&quot;. It can be accessed only within the function. In this case, only the <code>push</code>,
-        <code>pop</code>, etc could touch the data. And this is what we&#39;re looking for.</p>
+        <code>pop</code>, etc could touch the data. And this is what we&#39;re looking for.
+      </p>
       <p>And how do we use it? Like this:</p>
       <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> <span class="hljs-built_in">stack</span> = buildStack();
 
@@ -263,7 +266,8 @@ addTen(20); // <span class="hljs-number">30</span>
       <p>And this is interesting. We can generate specialized functions by calling the first function. Imagine we want
         an
         <code>increment</code> function. We can generate it from our <code>add</code> function by passing the
-        <code>1</code> as the argument value.</p>
+        <code>1</code> as the argument value.
+      </p>
       <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> increment = add(<span class="hljs-number">1</span>);
 increment(<span class="hljs-number">9</span>); <span class="hljs-comment">// 10</span>
 </code></pre>
@@ -289,7 +293,8 @@ buildSelector(<span class="hljs-string">'input'</span>, <span class="hljs-string
         <li>&quot;<em>and value Z</em>&quot;: <code>andValue(z)</code></li>
       </ul>
       <p>We can transform the <code>buildSelector(x, y, z)</code> into <code>get(x)</code> ⇒
-        <code>withAttribute(y)</code> ⇒ <code>andValue(z)</code> by using the currying concept.</p>
+        <code>withAttribute(y)</code> ⇒ <code>andValue(z)</code> by using the currying concept.
+      </p>
       <pre><code class="lang-javascript">const get = <span class="hljs-function"><span class="hljs-params">(element)</span> =&gt;</span> {
   <span class="hljs-keyword">return</span> {
     withAttribute: <span class="hljs-function"><span class="hljs-params">(attribute)</span> =&gt;</span> {
@@ -459,7 +464,7 @@ result; <span class="hljs-comment">// [{ id: 1, name: 'TK' }]</span>
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

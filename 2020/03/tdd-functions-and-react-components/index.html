@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -290,7 +290,8 @@
         the software is behaving, but we can make it better: step 3!</p>
 
       <p>What about extracting the anonymous function within the <code>filter</code> function and make the
-        <code>'UNSAVED'</code> be represented by an enum?</p>
+        <code>'UNSAVED'</code> be represented by an enum?
+      </p>
 
       <pre><code class="javascript language-javascript">const STATUS = {
   UNSAVED: 'UNSAVED',
@@ -690,7 +691,7 @@ const getRealEstatesDrafts = (realEstates) => realEstates.filter(byUnsaved);
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

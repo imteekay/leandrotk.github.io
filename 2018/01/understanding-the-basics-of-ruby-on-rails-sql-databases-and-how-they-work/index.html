@@ -28,7 +28,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -92,7 +92,8 @@
       </ol>
       <p>Should I store all the data in a notepad? Just put all the information inside it separated by commas, save the
         <code>txt file</code>, and done. Now I can open it and get all the data I want. We can store data and get it
-        anytime… problem solved!</p>
+        anytime… problem solved!
+      </p>
       <p>We solved this problem, but we missed the other. Now all the data is stored and we won’t lose it. But it’s not
         well-structured in the file. We need the rule to store and get data in an organized and well-structured form.
       </p>
@@ -109,7 +110,8 @@
         <li>
           <p><strong>Columns</strong>: <strong>First name</strong>, <strong>Last Name</strong>,
             <strong>Address</strong>,
-            etc</p>
+            etc
+          </p>
         </li>
         <li>
           <p><strong>Rows</strong>: in this case, we can say that a row can be a <strong>person</strong> with, for
@@ -160,7 +162,8 @@
         </li>
         <li>
           <p>Or if we want to update a specific person with first name <strong>Leandro</strong>and last name
-            <strong>Kinoshita</strong>?</p>
+            <strong>Kinoshita</strong>?
+          </p>
         </li>
         <li>
           <p>Or just select all data from the people table and sort it by age from younger to older?</p>
@@ -168,7 +171,8 @@
       </ul>
       <p>Yeah, we use conditions like <strong>where</strong>and <strong>order by,</strong>and operators like
         <strong>or</strong>and
-        <strong>and</strong>. Let’s see some examples:</p>
+        <strong>and</strong>. Let’s see some examples:
+      </p>
       <ul>
         <li>Deleting all records from the people table with last name <strong>Kinoshita</strong>.</li>
       </ul>
@@ -176,7 +180,8 @@
 </code></pre>
       <ul>
         <li>Updating all records from the people table with first name <strong>Leandro</strong> and last name
-          <strong>Kinoshita</strong>.</li>
+          <strong>Kinoshita</strong>.
+        </li>
       </ul>
       <pre><code class="lang-sql"><span class="hljs-keyword">UPDATE</span> People <span class="hljs-keyword">SET</span> firstname=<span class="hljs-string">"Gennady"</span> <span class="hljs-keyword">WHERE</span> firstname=<span class="hljs-string">"Leandro"</span> <span class="hljs-keyword">AND</span> lastname=<span class="hljs-string">"Kinoshita"</span>;
 </code></pre>
@@ -216,7 +221,8 @@
           World</strong>?</p>
       <p>First of all: <strong>Rails</strong> is <strong>Rails</strong>. The <strong>Database</strong> is
         <strong>Database</strong>.
-        Is it obvious? But people usually get confused about that.</p>
+        Is it obvious? But people usually get confused about that.
+      </p>
       <p>A User model <strong>can</strong> represent a Users table. But the model isn’t the table.</p>
       <ul>
         <li>
@@ -233,7 +239,8 @@
       <p>In the migration, we add columns <code>first_name</code>, <code>last_name</code>, <code>email</code>,
         <code>birthday</code>,
         <code>created_at</code>, and <code>updated_at</code>. (<code>created_at</code> and <code>updated_at</code> are
-        created by the <code>t.timestamps</code> code).</p>
+        created by the <code>t.timestamps</code> code).
+      </p>
       <pre><code class="ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreateAuthors</span> &lt; ActiveRecord::Migration[5.0]</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change</span></span>
     create_table <span class="hljs-symbol">:authors</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|t|</span>
@@ -248,7 +255,8 @@
 </code></pre>
       <p>So we create a migration (Ruby code), run the <code>rake db:migrate</code> command in the terminal, and it
         generates a table <code>Authors</code> with <code>first_name</code>, <code>last_name</code>, <code>email</code>,
-        <code>birthday</code>, <code>created_at</code>, and <code>updated_at</code> columns.</p>
+        <code>birthday</code>, <code>created_at</code>, and <code>updated_at</code> columns.
+      </p>
       <p>Back to Rails — we can create an <code>Author</code> model:</p>
       <pre><code class="ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span> &lt; ActiveRecord::Base</span>
 
@@ -273,7 +281,8 @@ author.save
           many</strong>
         (<strong>1-n</strong>). Remember?</p>
       <p>So when we create a <code>Posts</code> table, we need to store a reference to the post’s author (column
-        <strong>author_id</strong> in the <strong>Posts</strong> table). It’s known as the <code>Foreign Key</code>.</p>
+        <strong>author_id</strong> in the <strong>Posts</strong> table). It’s known as the <code>Foreign Key</code>.
+      </p>
       <p>And how do we relate the models?</p>
       <h3 id="author-has_many-posts">author has_many posts</h3>
       <pre><code class="ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span> &lt; ActiveRecord::Base</span>
@@ -313,7 +322,8 @@ post.save
       <ul>
         <li>Quick explanation about <code>has_many</code> and <code>belongs_to</code>. Both <code>codes</code> are
           methods defined on <code>ActiveRecord</code> class. You can see that we create our models inheriting from
-          <code>ActiveRecord::Base</code>.</li>
+          <code>ActiveRecord::Base</code>.
+        </li>
       </ul>
       <p>Remember in my <a href="https://medium.freecodecamp.org/learning-ruby-from-zero-to-hero-90ad4eecc82d">Ruby
           Foundation</a> article that we learned about Object Oriented Programming, the Inheritance part? This is why
@@ -349,7 +359,8 @@ Post.where(tit<span class="hljs-symbol">le:</span> <span class="hljs-string">"Da
 =&gt; #&lt;Post <span class="hljs-symbol">id:</span> <span class="hljs-number">1</span>, tit<span class="hljs-symbol">le:</span> <span class="hljs-string">"Database &amp; Rails"</span>, te<span class="hljs-symbol">xt:</span> <span class="hljs-string">"Lorem Ipsum..."</span>, author_<span class="hljs-symbol">id:</span> <span class="hljs-number">1</span>&gt;
 </code></pre>
       <p>Behind the scenes, it is executing
-        <code>SELECT * FROM posts WHERE title = &#39;Database &amp; Rails&#39;</code>query.</p>
+        <code>SELECT * FROM posts WHERE title = &#39;Database &amp; Rails&#39;</code>query.
+      </p>
       <ul>
         <li><strong>order</strong>: Sort all objects based on a column.</li>
       </ul>
@@ -410,7 +421,7 @@ Post.order(<span class="hljs-string">"created_at DESC"</span>)
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

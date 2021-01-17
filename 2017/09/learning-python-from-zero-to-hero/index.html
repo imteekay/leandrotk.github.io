@@ -31,7 +31,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -113,7 +113,8 @@ book_price = <span class="hljs-number">15.80</span>
 </code></pre>
       <p><strong>2</strong> is greater than <strong>1</strong>, so the “<strong>print</strong>” code is executed.</p>
       <p>The “<strong>else</strong>” statement will be executed if the “<strong>if</strong>” expression is
-        <strong>false</strong>.</p>
+        <strong>false</strong>.
+      </p>
       <pre><code class="python"><span class="hljs-keyword">if</span> <span class="hljs-number">1</span> &gt; <span class="hljs-number">2</span>:
   print(<span class="hljs-string">"1 is greater than 2"</span>)
 <span class="hljs-keyword">else</span>:
@@ -131,7 +132,8 @@ book_price = <span class="hljs-number">15.80</span>
 </code></pre>
       <h3><a id="3_Looping_ Iterator_83"></a>3. Looping / Iterator</h3>
       <p>In Python, we can iterate in different forms. I’ll talk about two: <strong>while</strong> and
-        <strong>for</strong>.</p>
+        <strong>for</strong>.
+      </p>
       <p><strong>While</strong> Looping: while the statement is True, the code inside the block will be executed. So,
         this code will print the number from <strong>1</strong> to <strong>10</strong>.</p>
       <pre><code class="python">num = <span class="hljs-number">1</span>
@@ -142,7 +144,8 @@ book_price = <span class="hljs-number">15.80</span>
 </code></pre>
       <p>The <strong>while</strong> loop needs a “<strong>loop condition.</strong>” If it stays True, it continues
         iterating. In this example, when <code>num</code> is <code>11</code> the <strong>loop condition</strong> equals
-        <code>False</code>.</p>
+        <code>False</code>.
+      </p>
       <p>Another basic bit of code to better understand it:</p>
       <pre><code class="python">loop_condition = <span class="hljs-keyword">True</span>
 
@@ -151,12 +154,14 @@ book_price = <span class="hljs-number">15.80</span>
     loop_condition = <span class="hljs-keyword">False</span>
 </code></pre>
       <p>The <strong>loop condition</strong> is <code>True</code> so it keeps iterating — until we set it to
-        <code>False</code>.</p>
+        <code>False</code>.
+      </p>
       <p><strong>For Looping</strong>: you apply the variable “<strong>num</strong>” to the block, and the
         “<strong>for</strong>”
         statement will iterate it for you. This code will print the same as <strong>while</strong> code: from
         <strong>1</strong>
-        to <strong>10</strong>.</p>
+        to <strong>10</strong>.
+      </p>
       <pre><code class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>):
   print(i)
 </code></pre>
@@ -223,7 +228,8 @@ print(bookshelf[<span class="hljs-number">1</span>]) <span class="hljs-comment">
 </code></pre>
       <p>The <strong>key</strong> is the index pointing to the <strong>value</strong>. How do we access the
         <code>Dictionary</code>
-        <strong>value</strong>? You guessed it — using the <strong>key</strong>. Let’s try it:</p>
+        <strong>value</strong>? You guessed it — using the <strong>key</strong>. Let’s try it:
+      </p>
       <pre><code class="python">dictionary_tk = {
   <span class="hljs-string">"name"</span>: <span class="hljs-string">"Leandro"</span>,
   <span class="hljs-string">"nickname"</span>: <span class="hljs-string">"Tk"</span>,
@@ -235,7 +241,8 @@ print(<span class="hljs-string">"But you can call me %s"</span> %(dictionary_tk[
 print(<span class="hljs-string">"And by the way I'm %s"</span> %(dictionary_tk[<span class="hljs-string">"nationality"</span>])) <span class="hljs-comment"># And by the way I'm Brazilian</span>
 </code></pre>
       <p>I created a <code>Dictionary</code> about me. My name, nickname, and nationality. Those attributes are the
-        <code>Dictionary</code> <strong>keys</strong>.</p>
+        <code>Dictionary</code> <strong>keys</strong>.
+      </p>
       <p>As we learned how to access the <code>List</code> using index, we also use indices (<strong>keys</strong> in
         the <code>Dictionary</code> context) to access the <strong>value</strong> stored in the <code>Dictionary</code>.
       </p>
@@ -243,7 +250,8 @@ print(<span class="hljs-string">"And by the way I'm %s"</span> %(dictionary_tk[<
         simple, right?</p>
       <p>Another cool thing about <code>Dictionary</code> is that we can use anything as the value. In the
         <code>Dictionary</code>
-        I created, I want to add the <strong>key</strong> “age” and my real integer age in it:</p>
+        I created, I want to add the <strong>key</strong> “age” and my real integer age in it:
+      </p>
       <pre><code class="python">dictionary_tk = {
   <span class="hljs-string">"name"</span>: <span class="hljs-string">"Leandro"</span>,
   <span class="hljs-string">"nickname"</span>: <span class="hljs-string">"Tk"</span>,
@@ -257,11 +265,13 @@ print(<span class="hljs-string">"And by the way I'm %i and %s"</span> %(dictiona
 </code></pre>
       <p>Here we have a <strong>key</strong> (age) <strong>value</strong> (24) pair using string as the
         <strong>key</strong>
-        and integer as the <strong>value</strong>.</p>
+        and integer as the <strong>value</strong>.
+      </p>
       <p>As we did with <code>Lists</code>, let’s learn how to add elements to a <code>Dictionary</code>. The
         <strong>key
           <strong>pointing to a</strong> value</strong> is a big part of what <code>Dictionary</code> is. This is also
-        true when we are talking about adding elements to it:</p>
+        true when we are talking about adding elements to it:
+      </p>
       <pre><code class="python">dictionary_tk = {
   <span class="hljs-string">"name"</span>: <span class="hljs-string">"Leandro"</span>,
   <span class="hljs-string">"nickname"</span>: <span class="hljs-string">"Tk"</span>,
@@ -278,7 +288,8 @@ print(dictionary_tk) <span class="hljs-comment"># {'nationality': 'Brazilian', '
       <p>As we learned in the <a
           href="https://medium.com/the-renaissance-developer/python-101-the-basics-441136fb7cc3">Python
           Basics</a>, the <code>List</code> iteration is very simple. We <code>Python</code> developers commonly use
-        <code>For</code> looping. Let’s do it:</p>
+        <code>For</code> looping. Let’s do it:
+      </p>
       <pre><code class="python">bookshelf = [
   <span class="hljs-string">"The Effective Engineer"</span>,
   <span class="hljs-string">"The 4 hours work week"</span>,
@@ -302,7 +313,8 @@ print(dictionary_tk) <span class="hljs-comment"># {'nationality': 'Brazilian', '
 </code></pre>
       <p>This is an example how to use it. For each <code>key</code> in the <code>dictionary</code> , we
         <code>print</code>
-        the <code>key</code> and its corresponding <code>value</code>.</p>
+        the <code>key</code> and its corresponding <code>value</code>.
+      </p>
       <p>Another way to do it is to use the <code>iteritems</code> method.</p>
       <pre><code class="python">dictionary = { <span class="hljs-string">"some_key"</span>: <span class="hljs-string">"some_value"</span> }
 
@@ -339,21 +351,24 @@ print(dictionary_tk) <span class="hljs-comment"># {'nationality': 'Brazilian', '
         things.</p>
       <p>We identify <strong>data</strong> as <strong>attributes</strong> and <strong>behavior</strong> as
         <strong>methods</strong>
-        in object-oriented programming. Again:</p>
+        in object-oriented programming. Again:
+      </p>
       <p>Data → Attributes and Behavior → Methods</p>
       <p>And a <strong>Class</strong> is the blueprint from which individual objects are created. In the real world, we
         often find many objects with the same type. Like cars. All the same make and model (and all have an engine,
         wheels, doors, and so on). Each car was built from the same set of blueprints and has the same components.</p>
       <h3><a id="Python_ObjectOriented_Programming_mode ON_328"></a>Python Object-Oriented Programming mode: ON</h3>
       <p>Python, as an Object-Oriented programming language, has these concepts: <strong>class</strong> and
-        <strong>object</strong>.</p>
+        <strong>object</strong>.
+      </p>
       <p>A class is a blueprint, a model for its objects.</p>
       <p>So again, a class it is just a model, or a way to define <strong>attributes</strong> and
         <strong>behavior</strong>
         (as we talked about in the theory section). As an example, a vehicle <strong>class</strong> has its own
         <strong>attributes</strong>
         that define what <strong>objects</strong> are vehicles. The number of wheels, type of tank, seating capacity,
-        and maximum velocity are all attributes of a vehicle.</p>
+        and maximum velocity are all attributes of a vehicle.
+      </p>
       <p>With this in mind, let’s look at Python syntax for <strong>classes</strong>:</p>
       <pre><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span>:</span>
     <span class="hljs-keyword">pass</span>
@@ -365,7 +380,8 @@ print(dictionary_tk) <span class="hljs-comment"># {'nationality': 'Brazilian', '
 print(car) <span class="hljs-comment"># &lt;__main__.Vehicle instance at 0x7fb1de6c2638&gt;</span>
 </code></pre>
       <p>Here <code>car</code> is an <strong>object</strong> (or instance) of the <strong>class</strong>
-        <code>Vehicle</code>.</p>
+        <code>Vehicle</code>.
+      </p>
       <p>Remember that our vehicle <strong>class</strong> has four <strong>attributes</strong>: number of wheels, type
         of tank, seating capacity, and maximum velocity. We set all these <strong>attributes</strong> when creating a
         vehicle <strong>object</strong>. So here, we define our <strong>class</strong> to receive data when it
@@ -381,7 +397,8 @@ print(car) <span class="hljs-comment"># &lt;__main__.Vehicle instance at 0x7fb1d
         vehicle <strong>object</strong>, we can define these <strong>attributes</strong>. Imagine that we love the
         <strong>Tesla Model S,</strong> and we want to create this kind of <strong>object</strong>. It has four wheels,
         runs on electric energy, has space for five seats, and the maximum velocity is 250km/hour (155 mph). Let’s
-        create this <strong>object:</strong></p>
+        create this <strong>object:</strong>
+      </p>
       <pre><code class="python">tesla_model_s = Vehicle(<span class="hljs-number">4</span>, <span class="hljs-string">'electric'</span>, <span class="hljs-number">5</span>, <span class="hljs-number">250</span>)
 </code></pre>
       <p>Four wheels + electric “tank type” + five seats + 250km/hour maximum speed.</p>
@@ -405,7 +422,8 @@ print(car) <span class="hljs-comment"># &lt;__main__.Vehicle instance at 0x7fb1d
       <p>This is an implementation of two methods: <strong>number_of_wheels</strong> and
         <strong>set_number_of_wheels</strong>.
         We call it <code>getter</code> &amp; <code>setter</code>. Because the first gets the attribute value, and the
-        second sets a new value for the attribute.</p>
+        second sets a new value for the attribute.
+      </p>
       <p>In Python, we can do that using <code>@property</code> (<code>decorators</code>) to define <code>getters</code>
         and <code>setters</code>. Let’s see it with code:</p>
       <pre><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span>:</span>
@@ -477,7 +495,8 @@ print(tk.first_name) <span class="hljs-comment"># =&gt; TK</span>
     first_name = <span class="hljs-string">'TK'</span>
 </code></pre>
       <p>Here, we do not need to apply the <code>first_name</code> as an argument, and all instance objects will have a
-        <code>class attribute</code> initialized with <code>TK</code>.</p>
+        <code>class attribute</code> initialized with <code>TK</code>.
+      </p>
       <pre><code class="python">tk = Person()
 print(tk.first_name) <span class="hljs-comment"># =&gt; TK</span>
 </code></pre>
@@ -485,7 +504,8 @@ print(tk.first_name) <span class="hljs-comment"># =&gt; TK</span>
         <code>class attributes</code>.
         Another interesting thing about the <code>public</code> part is that we can manage the variable value. What do
         I mean by that? Our <code>object</code> can manage its variable value: <code>Get</code> and <code>Set</code>
-        variable values.</p>
+        variable values.
+      </p>
       <p>Keeping the <code>Person</code> class in mind, we want to set another value to its <code>first_name</code>
         variable:</p>
       <pre><code class="python">tk = Person(<span class="hljs-string">'TK'</span>)
@@ -502,7 +522,8 @@ print(tk.first_name) <span class="hljs-comment"># =&gt; Kaio</span>
       <p>As the <code>public instance variable</code> , we can define the <code>non-public instance variable</code>
         both within the constructor method or within the class. The syntax difference is: for
         <code>non-public instance variables</code>
-        , use an underscore (<code>_</code>) before the <code>variable</code> name.</p>
+        , use an underscore (<code>_</code>) before the <code>variable</code> name.
+      </p>
       <blockquote>
         <p>“‘Private’ instance variables that cannot be accessed except from inside an object don’t exist in Python.
           However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g.
@@ -598,7 +619,8 @@ print(tk.show_age()) <span class="hljs-comment"># =&gt; 25</span>
       <p>Here we have a <code>_get_age</code> <code>non-public method</code> and a <code>show_age</code>
         <code>public method</code>.
         The <code>show_age</code> can be used by our object (out of our class) and the <code>_get_age</code> only used
-        inside our class definition (inside <code>show_age</code> method). But again: as a matter of convention.</p>
+        inside our class definition (inside <code>show_age</code> method). But again: as a matter of convention.
+      </p>
       <h3><a id="Encapsulation_Summary_618"></a>Encapsulation Summary</h3>
       <p>With encapsulation we can ensure that the internal representation of the object is hidden from the outside.</p>
       <h2><a id="Inheritance_behaviors_and_characteristics_622"></a>Inheritance: behaviors and characteristics</h2>
@@ -625,13 +647,15 @@ print(my_car.maximum_velocity)
       <p>Once initiated, we can use all <code>instance variables</code> created. Nice.</p>
       <p>In Python, we apply a <code>parent class</code> to the <code>child class</code> as a parameter. An
         <strong>ElectricCar</strong>
-        class can inherit from our <strong>Car</strong> class.</p>
+        class can inherit from our <strong>Car</strong> class.
+      </p>
       <pre><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ElectricCar</span><span class="hljs-params">(Car)</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, number_of_wheels, seating_capacity, maximum_velocity)</span>:</span>
         Car.__init__(self, number_of_wheels, seating_capacity, maximum_velocity)
 </code></pre>
       <p>Simple as that. We don’t need to implement any other method, because this class already has it (inherited from
-        <strong>Car</strong> class). Let’s prove it:</p>
+        <strong>Car</strong> class). Let’s prove it:
+      </p>
       <pre><code class="python">my_electric_car = ElectricCar(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">250</span>)
 print(my_electric_car.number_of_wheels) <span class="hljs-comment"># =&gt; 4</span>
 print(my_electric_car.seating_capacity) <span class="hljs-comment"># =&gt; 5</span>
@@ -718,7 +742,7 @@ print(my_electric_car.maximum_velocity) <span class="hljs-comment"># =&gt; 250</
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

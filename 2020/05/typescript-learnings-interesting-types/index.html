@@ -30,7 +30,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -92,7 +92,8 @@
 </code></pre>
       <p>Now that I could fetch some products, I wanted to use the list of products to render in the DOM. So I created a
         <code>Product</code> component. But as we are using TypeScript, the props should be typed. In this case, I used
-        the <code>Product</code> type. It looks like this:</p>
+        the <code>Product</code> type. It looks like this:
+      </p>
       <pre><code class="typescript language-typescript">export const Product = ({
   imageUrl,
   name,
@@ -118,7 +119,8 @@
       <p>I learned about this new type: the <a
           href="https://www.typescriptlang.org/docs/handbook/utility-types.html#partialt">Partial</a> type. The idea of
         the <code>Partial</code> type is to build a new type based on the passed type and set all attributes to
-        <code>optional</code>.</p>
+        <code>optional</code>.
+      </p>
       <p>So, if we do a partial of the <code>Product</code> type, it would look like this:</p>
       <pre><code class="typescript language-typescript">type Product = {
   name?: string;
@@ -154,7 +156,8 @@ export const Image = ({ imageUrl }): ImagePropsType =&gt;
       <p>To build the whole <code>Image</code> component, I also needed to pass other props like: <code>imageAlt</code>
         and <code>width</code>.</p>
       <p>What I wanted is the intersection of the <code>Pick&lt;ProductType, 'imageUrl'&gt;</code>, the
-        <code>imageAlt</code> type, and the <code>width</code> type.</p>
+        <code>imageAlt</code> type, and the <code>width</code> type.
+      </p>
       <p>In TypeScript, the representation of the intersection is the <code>&amp;</code> operator.</p>
       <p>I defined the <code>ImageUrlType</code>:</p>
       <pre><code class="typescript language-typescript">type ImageUrlType = Pick&lt;ProductType, 'imageUrl'&gt;;
@@ -211,7 +214,7 @@ export const Image = ({ imageUrl, imageAlt, width }: ImagePropsType) =&gt;
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>
