@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="HandheldFriendly" content="True">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="description" content="Solving algorithms problems with TK">
-  <meta name="keywords" content="algorithms,data_structures">
+  <meta name="description" content="Solving algorithm and data structure problems">
+  <meta name="keywords" content="algorithms_and_data_structures,python">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Algorithms Problem Solving Series">
-  <meta property="og:description" content="Solving algorithms problems with TK">
+  <meta property="og:title" content="Can Reach End">
+  <meta property="og:description" content="Solving algorithm and data structure problems">
   <meta property="og:locale" content="en">
   <meta property="og:image"
-    content="https://raw.githubusercontent.com/leandrotk/tk/master/series/algorithms-problem-solving/assets/encryption.jpg">
-  <meta property="og:updated_time" content="2020-03-08T00:00:00.000Z">
+    content="https://leandrotk.github.io/series/algorithms-problem-solving/assets/dead-end-tree.jpg">
+  <meta property="og:updated_time" content="2021-01-18T00:00:00.000Z">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Algorithms Problem Solving Series">
-  <meta name="twitter:description" content="Solving algorithms problems with TK">
+  <meta name="twitter:title" content="Can Reach End">
+  <meta name="twitter:description" content="Solving algorithm and data structure problems">
   <meta name="twitter:image"
-    content="https://raw.githubusercontent.com/leandrotk/tk/master/series/algorithms-problem-solving/assets/encryption.jpg">
+    content="https://leandrotk.github.io/series/algorithms-problem-solving/assets/dead-end-tree.jpg">
 
-  <title>Algorithms Problem Solving Series</title>
+  <title>Can Reach End</title>
   <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -46,327 +46,84 @@
     </div>
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
-        <h1 class="posttitle">Algorithms Problem Solving Series</h1>
+        <h1 class="posttitle">Can Reach End</h1>
         <div class="meta">
           <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span itemprop="name">TK</span>
           </span>
 
           <div class="postdate">
-            <time datetime="2020-05-17T00:00:00.000Z" itemprop="datePublished">2020-05-17</time>
+            <time datetime="2021-01-18T00:00:00.000Z" itemprop="datePublished">2021-01-18</time>
           </div>
 
           <div class="article-tag">
             <i class=b fa-tag"></i>
             <a class="tag-link" href="../../tags/algorithms_and_data_structures.html">algorithms_and_data_structures</a>
             <a class="tag-link" href="../../tags/python.html">python</a>
+
           </div>
         </div>
       </header>
 
       <div class="figure">
-        <img
-          src="https://raw.githubusercontent.com/leandrotk/tk/master/series/algorithms-problem-solving/assets/encryption.jpg">
+        <img src="assets/dead-end-tree.jpg" alt="A tree with dead end written on it">
         <span class="figcaption">
-          Photo by <a href="https://unsplash.com/@markusspiske" target="_blank">Markus Spiske</a>
+          Photo by <a href="https://unsplash.com/@mikejerskine" target="_blank">Mike Erskine</a>
         </span>
       </div>
 
       <hr />
 
-      <p>This is part of my series on <code>Algorithms Problem Solving Series</code>, where I document posts about
-        algorithms problems I solved.</p>
+      <p>This post is part of the <a href="https://leandrotk.github.io/series/algorithms-problem-solving">Algorithms
+          Problem Solving</a> series.</p>
+      <h2 id="problemdescription">Problem description</h2>
+      <p>In a particular board game, a player has to try to advance through a sequence of positions. Each position has a
+        nonnegative integer associated with it, representing the maximum you can advance from that position in one move.
+        You begin in the first position and win by getting to the last position.</p>
+      <p>For example, let A = (3,3,1,0,2,0,1) represent the board game, i.e., the lth entry in A is the maximum we can
+        advance from L Then the game can be won by the following sequence of advances through A: take 1 step from A[0]
+        to A[1], then 3 steps from A[1] to A[4], then 2 steps from A[4] to A[6], which is the last position. Note that
+        A[0] = 3 &gt;= 1, A[1] =3 &gt;= 3, and A[4] = 2 &gt;= 2, so all moves are valid. If A instead was
+        (3,2,0,0,2,0,1), it would not be possible to advance past position 3, so the game cannot be won.</p>
+      <p>Write a program that takes an array of n integers, where A[i] denotes the maximum you can advance from the
+        index i, and returns whether it is possible to advance to the last index starting from the beginning of the
+        array.</p>
+      <h2 id="examples">Examples</h2>
+      <p><strong>Example 1:</strong></p>
+      <pre><code class="python language-python">Input: [3, 3, 7, 0, 2, 0, 1]
+Output: True
+</code></pre>
+      <p><strong>Example 2:</strong></p>
+      <pre><code class="python language-python">Input: [2, 4, 1, 1, 0, 2, 3]
+Output: True
+</code></pre>
+      <p><strong>Example 3:</strong></p>
+      <pre><code class="python language-python">Input: root = [3, 2, 0, 0, 2, 0, 1]
+Output: False
+</code></pre>
+      <h2 id="solutions">Solutions</h2>
+      <pre><code class="python language-python">def can_reach_end(board_game):
+    furthest_reach_so_far, last_index = 0, len(board_game) - 1
+    current_index = 0
 
-      <p>This is live document and will be updated everytime I solve new problems.</p>
+    while current_index &lt;= furthest_reach_so_far and furthest_reach_so_far &lt; last_index:
+        furthest_reach_so_far = max(furthest_reach_so_far, board_game[current_index] + current_index)
+        current_index += 1
 
-      <h2>Algorithms Problem Solving Series</h2>
-
-      <ul class="post-list">
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-05-17T00:00:00.000Z" itemprop="datePublished">2020-05-17</time>
-          </div>
-          <span>
-            <a href="jewels-and-stones.html">
-              001: Jewels and Stones
-            </a>
-          </span>
+    return furthest_reach_so_far &gt;= last_index
+</code></pre>
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://leandrotk.github.io/tk/2017/09/learning-python-from-zero-to-hero/index.html">Learning
+            Python: From Zero to Hero</a></li>
+        <li><a href="https://leandrotk.github.io/tk/series/algorithms-problem-solving/index.html">Algorithms Problem
+            Solving Series</a></li>
+        <li><a href="https://leandrotk.github.io/tk/2020/01/stack-data-structure/index.html">Stack Data Structure</a>
         </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-05-25T00:00:00.000Z" itemprop="datePublished">2020-05-25</time>
-          </div>
-          <span>
-            <a href="./ransom-note.html">
-              002: Ransom Note
-            </a>
-          </span>
+        <li><a href="https://leandrotk.github.io/tk/2020/01/queue-data-structure/index.html">Queue Data Structure</a>
         </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-05-29T00:00:00.000Z" itemprop="datePublished">2020-05-29</time>
-          </div>
-          <span>
-            <a href="./sum-of-nodes.html">
-              003: Sum of nodes
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-05-31T00:00:00.000Z" itemprop="datePublished">2020-05-31</time>
-          </div>
-          <span>
-            <a href="./subtract-product-and-sum.html">
-              004: Subtract product and sum
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-01T00:00:00.000Z" itemprop="datePublished">2020-06-01</time>
-          </div>
-          <span>
-            <a href="./cloned-binary-tree.html">
-              005: Cloned Binary Tree
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-02T00:00:00.000Z" itemprop="datePublished">2020-06-02</time>
-          </div>
-          <span>
-            <a href="./group-the-people.html">
-              006: Group the people
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-03T00:00:00.000Z" itemprop="datePublished">2020-06-03</time>
-          </div>
-          <span>
-            <a href="./equal-reversed-arrays.html">
-              007: Equal Reversed Arrays
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-04T00:00:00.000Z" itemprop="datePublished">2020-06-04</time>
-          </div>
-          <span>
-            <a href="./reduce-to-zero.html">
-              008: Reduce to zero
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-05T00:00:00.000Z" itemprop="datePublished">2020-06-05</time>
-          </div>
-          <span>
-            <a href="./even-number-of-digits.html">
-              009: Even Number of Digits
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-06T00:00:00.000Z" itemprop="datePublished">2020-06-06</time>
-          </div>
-          <span>
-            <a href="./deepest-leaves-sum.html">
-              010: Deepest Leaves Sum
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-07T00:00:00.000Z" itemprop="datePublished">2020-06-07</time>
-          </div>
-          <span>
-            <a href="./tree-to-greater-sum.html">
-              011: Tree to greater sum
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-08T00:00:00.000Z" itemprop="datePublished">2020-06-08</time>
-          </div>
-          <span>
-            <a href="./to-lower-case.html">
-              012: to Lower case
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-09T00:00:00.000Z" itemprop="datePublished">2020-06-09</time>
-          </div>
-          <span>
-            <a href="./balanced-strings.html">
-              013: Balanced Strings
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-10T00:00:00.000Z" itemprop="datePublished">2020-06-10</time>
-          </div>
-          <span>
-            <a href="./number-of-students.html">
-              014: Number of Students
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-11T00:00:00.000Z" itemprop="datePublished">2020-06-11</time>
-          </div>
-          <span>
-            <a href="./destination-city.html">
-              015: Destination City
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-12T00:00:00.000Z" itemprop="datePublished">2020-06-12</time>
-          </div>
-          <span>
-            <a href="./maximum-69-number.html">
-              016: Maximum 69 Number
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-13T00:00:00.000Z" itemprop="datePublished">2020-06-13</time>
-          </div>
-          <span>
-            <a href="./shuffle-the-array.html">
-              017: Shuffle the array
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-14T00:00:00.000Z" itemprop="datePublished">2020-06-14</time>
-          </div>
-          <span>
-            <a href="./insert-into-binary-search-tree.html">
-              018: Insert into Binary Search Tree
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-15T00:00:00.000Z" itemprop="datePublished">2020-06-15</time>
-          </div>
-          <span>
-            <a href="./insert-into-binary-search-tree.html">
-              019: Construct Binary Search Tree from Preorder Traversal
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-20T00:00:00.000Z" itemprop="datePublished">2020-06-20</time>
-          </div>
-          <span>
-            <a href="./odd-in-matrix.html">
-              020: Odd in Matrix
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-22T00:00:00.000Z" itemprop="datePublished">2020-06-22</time>
-          </div>
-          <span>
-            <a href="./sort-the-matrix-diagonally.html">
-              021: Sort the Matrix Diagonally
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-23T00:00:00.000Z" itemprop="datePublished">2020-06-23</time>
-          </div>
-          <span>
-            <a href="./discount-for-prices.html">
-              022: Discount for prices
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2020-06-24T00:00:00.000Z" itemprop="datePublished">2020-06-24</time>
-          </div>
-          <span>
-            <a href="./running-array-sum.html">
-              023: Running Array Sum
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2021-01-05T00:00:00.000Z" itemprop="datePublished">2021-01-05</time>
-          </div>
-          <span>
-            <a href="./number-of-good-pairs.html">
-              024: Number of Good Pairs
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2021-01-13T00:00:00.000Z" itemprop="datePublished">2021-01-13</time>
-          </div>
-          <span>
-            <a href="./binary-tree-inorder-traversal.html">
-              025: Binary Tree Inorder Traversal
-            </a>
-          </span>
-        </li>
-
-        <li class="post-item">
-          <div class="meta">
-            <time datetime="2021-01-18T00:00:00.000Z" itemprop="datePublished">2021-01-18</time>
-          </div>
-          <span>
-            <a href="./can-reach-end.html">
-              026: Can Reach End
-            </a>
-          </span>
-        </li>
+        <li><a href="https://leandrotk.github.io/tk/2020/02/linked-list/index.html">Linked List</a></li>
+        <li><a href="https://leandrotk.github.io/tk/2020/02/tree-data-structure/index.html">Tree Data Structure</a></li>
       </ul>
     </article>
 
@@ -378,6 +135,7 @@
         Tags:
         <a class="tag-link" href="../../tags/algorithms_and_data_structures.html">algorithms_and_data_structures</a>
         <a class="tag-link" href="../../tags/python.html">python</a>
+
       </div>
     </div>
 
@@ -400,7 +158,7 @@
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2021 TK
+      Copyright &copy; 2020 TK
     </div>
     <div class="footer-right">
       <nav>
@@ -414,7 +172,7 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script src="../../javascripts/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
