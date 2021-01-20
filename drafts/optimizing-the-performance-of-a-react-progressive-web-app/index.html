@@ -229,9 +229,7 @@
         develop the landing page with react but in the build time, we remove the react from the application to reduce
         the bundle size served in the landing page.</p>
       <p>And this is what we got:</p>
-      <img
-          src="./assets/react-on-lp.png"
-          alt="React on Landing Bundle Size" />
+      <img src="./assets/react-on-lp.png" alt="React on Landing Bundle Size" />
       <p>We can analyze a lot of things here, but one that got our attention was the React library in our landing page
         bundle. As I wrote above, in the side note, React is not being used in production, and we are unintentionally
         serving it in production making our users download the library without the need to do this.</p>
@@ -264,12 +262,11 @@ import { A_CONSTANT } from 'components/XYZ/constants';
         <li>Gather results &amp; keep track the metrics</li>
       </ol>
       <p>We run again the bundle analyzer and we got this:</p>
-      <img
-          src="./assets/lp-with-appboy.png"
-          alt="Landing page with appboy bundle size" />
+      <img src="./assets/lp-with-appboy.png" alt="Landing page with appboy bundle size" />
       <p>The first things that got our attention were the <code>appboy.min.js</code> and the <code>transit.js</code>
         libraries. The <code>appboy</code> is the Braze, a library we use for communication, and the
-        <code>transit</code> is a library to transform JSON format data into our app state.</p>
+        <code>transit</code> is a library to transform JSON format data into our app state.
+      </p>
       <p>The <code>Braze</code> library was very similar to the React library. It was an <code>import</code> statement
         in a file that the landing page was using but not really using the <code>Braze</code>.</p>
       <pre><code class="jsx language-jsx">// braze.js
@@ -282,16 +279,15 @@ export const aFunction = (brazeInstance = braze) =&gt; {
       <p>It was importing Braze in the file and using the instance as a default value for a function. The simple
         solution was to remove the import statement and enforce that every place that was using the
         <code>aFunction</code> function passes the braze instance. So we don't need to import Braze and add a default
-        value to the parameter:</p>
+        value to the parameter:
+      </p>
       <pre><code class="jsx language-jsx">// braze.js
 export const aFunction = (brazeInstance) =&gt; {
   // do something with braze
 };
 </code></pre>
       <p>Running the bundle analyzer again, we got an astonishing result.</p>
-      <img
-          src="./assets/before-after-appboy.png"
-          alt="Befor and after appboy removal from LP" />
+      <img src="./assets/before-after-appboy.png" alt="Befor and after appboy removal from LP" />
       <p>The AnnounceYourHouse landing page was reduced to 90 KB. We could remove almost 50% of the main landing bundle.
       </p>
       <p>We also improved a lot the bundle size of the PriceSuggestion landing page. From 115 KB to 4 KB was an amazing
@@ -299,31 +295,22 @@ export const aFunction = (brazeInstance) =&gt; {
       <p>For the <code>transit</code> library, we did a temporary workaround solution. It was importing the library to
         transform the string JSON saved in the local storage to get info from a single attribute from this object.</p>
       <p>The temporary solution was to verify if the string included the info we wanted and remove the need to use the
-        <code>transit</code> library.</p>
-      <img
-          src="./assets/befor-after-transit-js.png"
-          alt="Before and after transit-js removal from LP" />
+        <code>transit</code> library.
+      </p>
+      <img src="./assets/befor-after-transit-js.png" alt="Before and after transit-js removal from LP" />
       <p>We could improved a lot the bundle size of the main landing. Removing almost 50% of the bundle.</p>
       <p>As we saw in the metrics section, we had set up the Speed Curve to track the performance of some pages in all
         this journey. So, for every improvement we made in our application, we keep track of the metrics in these tools.
       </p>
       <p>The total size of the landing page reduced drastically: -2.16 MB.</p>
-      <img
-          src="./assets/speed-curve-total-size.png"
-          alt="Speed Curve Results: Landing Page Total Size" />
+      <img src="./assets/speed-curve-total-size.png" alt="Speed Curve Results: Landing Page Total Size" />
       <p>The Lighthouse Performance score was from 73 to 97:</p>
-      <img
-          src="./assets/speed-curve-lighthouse-score.png"
-          alt="Speed Curve Results: Landing Page Lighthouse Score" />
+      <img src="./assets/speed-curve-lighthouse-score.png" alt="Speed Curve Results: Landing Page Lighthouse Score" />
       <p>The Largest Contentful Paint was improved in 1s:</p>
-      <img
-          src="./assets/speed-curve-lcp.png"
-          alt="Speed Curve Results: Landing Page LCP" />
+      <img src="./assets/speed-curve-lcp.png" alt="Speed Curve Results: Landing Page LCP" />
       <h3 id="vendorchunk">Vendor Chunk</h3>
       <p>When running <code>npm run bundle:analyzer</code>, we also notice a big dependency in our vendor chunk.</p>
-      <img
-          src="./assets/vendor-icons.png"
-          alt="Vendor Chunk with Material UI Icons" />
+      <img src="./assets/vendor-icons.png" alt="Vendor Chunk with Material UI Icons" />
       <p>In the vendor chunk, we noticed all the icons from Material UI. Every time a user enters the website, and if
         the chunk is not cached in the browser, it would need to download the whole chunk. If it's a big chunk to
         download, it has an impact on the performance and consequently on the user experience.</p>
@@ -343,7 +330,8 @@ export const aFunction = (brazeInstance) =&gt; {
       <p>This performance project was not our main project in the quarter so we had less time to focus on it in the
         sprint. The babel plugin was a more straightforward and simple solution for us at that moment.</p>
       <p>We basically needed to add this new babel plugin <code>babel-plugin-transform-imports</code> and configure the
-        <code>babelrc</code>:</p>
+        <code>babelrc</code>:
+      </p>
       <pre><code class="jsx language-jsx">[
   "babel-plugin-transform-imports",
   {
@@ -359,13 +347,9 @@ export const aFunction = (brazeInstance) =&gt; {
 ]
 </code></pre>
       <p>And with it, we prevent the full import of the library in the vendor chunk.</p>
-      <img
-          src="./assets/before-after-material-ui.png"
-          alt="Before and after material removal from vendor chunk" />
+      <img src="./assets/before-after-material-ui.png" alt="Before and after material removal from vendor chunk" />
       <p>The vendor became way smaller. We also had some impact in the main chunk (the next chunk will talk soon).</p>
-      <img
-          src="./assets/results-material-ui.png"
-          alt="Performance Results Material UI" />
+      <img src="./assets/results-material-ui.png" alt="Performance Results Material UI" />
       <p>With this simple analysis and configuration, we could reduce the vendor chunk by more than 50% (it's still 2.83
         MB and could be improved. We will see later!) and the main chunk by 28%.</p>
       <p>A huge improvement for the whole app as these chunks were downloaded on each page, if not cached in the
@@ -373,9 +357,7 @@ export const aFunction = (brazeInstance) =&gt; {
       <h3 id="mainchunk">Main Chunk</h3>
       <p>The main chunk has some common modules among all parts of the application. But after running the bundle
         analyzer, we got this:</p>
-      <img
-          src="./assets/main-chunk-before.png"
-          alt="Main Chunk Before" />
+      <img src="./assets/main-chunk-before.png" alt="Main Chunk Before" />
       <p>The main chunk is the bottom-left block in the bundle. One thing that got our attention was some containers and
         components in the bundle. Why are there some components that are specific to only one page but we are making our
         users download the whole main chunk?</p>
@@ -394,13 +376,9 @@ export default Loadable({
 </code></pre>
       <p>And use them for each route entry point.</p>
       <p>Running bundle analyzer, we got this:</p>
-      <img
-          src="./assets/main-chunk-after.png"
-          alt="Main Chunk After" />
+      <img src="./assets/main-chunk-after.png" alt="Main Chunk After" />
       <p>The main chunk is way smaller and Webpack created more page-specific chunks as well.</p>
-      <img
-          src="./assets/results-code-splitting.png"
-          alt="Main Chunk Improvements with Code Splitting" />
+      <img src="./assets/results-code-splitting.png" alt="Main Chunk Improvements with Code Splitting" />
       <p>The result was huge. The main chunk got more than 50% smaller and the vendor chunk also decreased by 29%.</p>
       <h3 id="cachingbiggestdependencies">Caching Biggest Dependencies</h3>
       <p>Reading this article, you probably saw some big dependencies in our bundle like firebase, braze, immutable, and
@@ -415,9 +393,7 @@ export default Loadable({
       <p>As we were using Webpack 3 at that time, we needed to use the <code>CommonsChunkPlugin</code> to split these
         dependencies in its own chunk.</p>
       <p>We created a list of all biggest dependencies:</p>
-      <img
-          src="./assets/biggest-deps-table.png"
-          alt="Biggest Dependencies Table" />
+      <img src="./assets/biggest-deps-table.png" alt="Biggest Dependencies Table" />
       <p>It was mapped as a list data structure in our Webpack config as well:</p>
       <pre><code class="jsx language-jsx">const VENDOR_LIBRARIES = [
   {
@@ -456,40 +432,27 @@ export default Loadable({
 </code></pre>
       <p>Along with <code>CommonsChunkPlugin</code>, we just needed to iterate through this list to create each chunk.
       </p>
-      <img
-          src="./assets/biggest-deps-later.png"
-          alt="Vendor Chunk after Biggest Dependencies Removal" />
+      <img src="./assets/biggest-deps-later.png" alt="Vendor Chunk after Biggest Dependencies Removal" />
       <p>We can see that the vendor chunk got way smaller and some new chunks were created.</p>
       <p>Running the application, we can also test the download of each separate chunk.</p>
-      <img
-          src="./assets/biggest-deps-network.png"
-          alt="Biggest dependencies in the network tab" />
+      <img src="./assets/biggest-deps-network.png" alt="Biggest dependencies in the network tab" />
       <p>And we got a really cool result:</p>
-      <img
-          src="./assets/results-biggest-deps.png"
-          alt="Results: Biggest Dependencies" />
+      <img src="./assets/results-biggest-deps.png" alt="Results: Biggest Dependencies" />
       <p>The user still needs to download the dependencies, but after download the first time, the browser will cache
         them and they won't need to be downloaded again until we bump their version. If we change the vendor chunk,
         Webpack only generates a new hash for the vendor and doesn't change the other dependencies.</p>
       <p>We saw some nice improvements in the Speed Curve dashboard:</p>
       <p>As expected, we saw a huge improvement in the JavaScript size: -1.43 MB</p>
-      <img
-          src="./assets/speed-curve-total-size-home.png"
-          alt="Speed Curve Result: Total Size" />
+      <img src="./assets/speed-curve-total-size-home.png" alt="Speed Curve Result: Total Size" />
       <p>Decreasing the JavaScript size also had an impact on the total time the user is blocked to interact with the
         page: -1.2s</p>
-      <img
-          src="./assets/speed-curve-js-total-blocking-time-home.png"
-          alt="Speed Curve Result: JS Total Blocking Time" />
+      <img src="./assets/speed-curve-js-total-blocking-time-home.png"
+        alt="Speed Curve Result: JS Total Blocking Time" />
       <p>The speed index is a metric to show how quickly the contents of a page are visibly populated. We improved the
         page to load 2.2s faster.</p>
-      <img
-          src="./assets/speed-curve-speed-index-home.png"
-          alt="Speed Curve Result: Speed Index" />
+      <img src="./assets/speed-curve-speed-index-home.png" alt="Speed Curve Result: Speed Index" />
       <p>And the largest contentful paint went from 6s to 3.75s.</p>
-      <img
-          src="./assets/speed-curve-lcp-home.png"
-          alt="Speed Curve Result: LCP" />
+      <img src="./assets/speed-curve-lcp-home.png" alt="Speed Curve Result: LCP" />
       <h2 id="recap">Recap</h2>
       <p>To recap what we saw in this article, let's see the list of things we did in this journey:</p>
       <ul>
@@ -549,7 +512,7 @@ export default Loadable({
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

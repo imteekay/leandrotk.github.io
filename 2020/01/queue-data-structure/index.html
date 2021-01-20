@@ -27,7 +27,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -78,13 +78,15 @@
 
       <p>The main API methods are <code>enqueue</code> (add) and <code>dequeue</code> (remove). But we can also add
         other methods as part of the API implementation: <code>size</code>, <code>front</code>, <code>back</code>, and
-        <code>is_empty</code>.</p>
+        <code>is_empty</code>.
+      </p>
 
       <hr />
 
       <p>We can create a <code>Queue</code> class as a wrapper and use the Python list to store the queue data. This
         class will have the implementation of the <code>enqueue</code>, <code>dequeue</code>, <code>size</code>,
-        <code>front</code>, <code>back</code>, and <code>is_empty</code> methods.</p>
+        <code>front</code>, <code>back</code>, and <code>is_empty</code> methods.
+      </p>
 
       <p>The first step is to create a class definition and how we are gone store our items.</p>
 
@@ -129,7 +131,8 @@
 </code></pre>
 
       <p>But we need to handle the queue emptiness. For an empty list, the <code>pop</code> method raises an exception
-        <code>IndexError: poop from empty list</code>. So we can create an exception class to handle this issue.</p>
+        <code>IndexError: poop from empty list</code>. So we can create an exception class to handle this issue.
+      </p>
 
       <pre><code class="python language-python">class Emptiness(Exception):
     pass
@@ -385,7 +388,7 @@ test_back(queue) # 5
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

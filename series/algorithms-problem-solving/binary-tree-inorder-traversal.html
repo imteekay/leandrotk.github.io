@@ -6,23 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="HandheldFriendly" content="True">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="description" content="Learning interesting types from TypeScript">
-  <meta name="keywords" content="typescript,javascript">
+  <meta name="description" content="Solving algorithm and data structure problems">
+  <meta name="keywords" content="algorithms_and_data_structures,python">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="TypeScript Learnings: Interesting Types">
-  <meta property="og:description" content="Learning interesting types from TypeScript">
+  <meta property="og:title" content="Binary Tree Inorder Traversal">
+  <meta property="og:description" content="Solving algorithm and data structure problems">
   <meta property="og:locale" content="en">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/leandrotk/tk/master/2020/05/typescript-learnings-interesting-types/assets/cover.jpg">
-  <meta property="og:updated_time" content="2020-05-09T00:00:00.000Z">
+  <meta property="og:image" content="assets/old-tree-baw.jpg">
+  <meta property="og:updated_time" content="2021-01-13T12:00:00.000Z">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="TypeScript Learnings: Interesting Types">
-  <meta name="twitter:description" content="Learning interesting types from TypeScript">
-  <meta name="twitter:image"
-    content="https://raw.githubusercontent.com/leandrotk/tk/master/2020/05/typescript-learnings-interesting-types/assets/cover.jpg">
+  <meta name="twitter:title" content="Binary Tree Inorder Traversal">
+  <meta name="twitter:description" content="Solving algorithm and data structure problems">
+  <meta name="twitter:image" content="assets/old-tree-baw.jpg">
 
-  <title>TypeScript Learnings: Interesting Types</title>
-  <link rel="stylesheet" type="text/css" href="../../../stylesheets/main.css">
+  <title>Binary Tree Inorder Traversal</title>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet"
@@ -39,148 +37,107 @@
 <body>
   <div class="content index width mx-auto px2 my4">
     <div id="header-post">
-      <a id="menu-icon" href="../../../index.html">
+      <a id="menu-icon" href="../../index.html">
         <i class="fas fa-long-arrow-alt-left"></i>
         Home
       </a>
     </div>
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
-        <h1 class="posttitle">TypeScript Learnings: Interesting Types</h1>
+        <h1 class="posttitle">Binary Tree Inorder Traversal</h1>
         <div class="meta">
           <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span itemprop="name">TK</span>
           </span>
 
           <div class="postdate">
-            <time datetime="2020-05-09T00:00:00.000Z" itemprop="datePublished">2020-05-09</time>
+            <time datetime="2021-01-13T00:00:00.000Z" itemprop="datePublished">2021-01-13</time>
           </div>
 
           <div class="article-tag">
             <i class=b fa-tag"></i>
-            <a class="tag-link" href="../../../tags/typescript.html">typescript</a>
-            <a class="tag-link" href="../../../tags/javascript.html">javascript</a>
+            <a class="tag-link" href="../../tags/algorithms_and_data_structures.html">algorithms_and_data_structures</a>
+            <a class="tag-link" href="../../tags/python.html">python</a>
 
           </div>
         </div>
       </header>
 
       <div class="figure">
-        <img src="assets/cover.jpg" alt="Soil">
+        <img src="assets/old-tree-baw.jpg" alt="A old tree">
         <span class="figcaption">
-          Photo by <a href="https://unsplash.com/@pixel_talkies" target="_blank">Nijwam Swargiary</a>
+          Photo by <a href="https://unsplash.com/@cleipelt" target="_blank">Chris Leipelt</a>
         </span>
       </div>
 
       <hr />
 
-      <p>This post is part of the <a href="../../04/typescript-learnings/index.html">TypeScript Learning Series</a>.</p>
-
-      <p>These days I'm building a new project to understand some topics deeply. It is about user experience, web
-        performance, accessibility, and a type system for consistent data.</p>
-      <p>This project I'm basically using React with TypeScript. At first, I implemented a custom hook to handle the
-        data fetching. One of the possible data types the fetch could return is a <code>Product</code> type. It looks
-        like this:</p>
-      <pre><code class="typescript language-typescript">type Product = {
-  name: string;
-  price: number;
-  imageUrl: string;
-  description: string;
-  isShippingFree: boolean;
-  discount: number;
-};
+      <p>This post is part of the <a href="https://leandrotk.github.io/series/algorithms-problem-solving">Algorithms
+          Problem Solving</a> series.</p>
+      <h2 id="problemdescription">Problem description</h2>
+      <p>Given the root of a binary tree, return the inorder traversal of its nodes' values</p>
+      <h2 id="examples">Examples</h2>
+      <p><strong>Example 1:</strong></p>
+      <pre><code class="python language-python">Input: root = [1,null,2,3]
+Output: [1,3,2]
 </code></pre>
-      <p>Now that I could fetch some products, I wanted to use the list of products to render in the DOM. So I created a
-        <code>Product</code> component. But as we are using TypeScript, the props should be typed. In this case, I used
-        the <code>Product</code> type. It looks like this:
+      <p><strong>Example 2:</strong></p>
+      <pre><code class="python language-python">Input: root = []
+Output: []
+</code></pre>
+      <p><strong>Example 3:</strong></p>
+      <pre><code class="python language-python">Input: root = [1]
+Output: [1]
+</code></pre>
+      <p><strong>Example 4</strong>:</p>
+      <pre><code class="jsx language-jsx">Input: root = [1,2]
+Output: [2,1]
+</code></pre>
+      <p><strong>Example 5</strong>:</p>
+      <pre><code class="jsx language-jsx">Input: root = [1,null,2]
+Output: [1,2]
+</code></pre>
+      <h2 id="solutions">Solutions</h2>
+      <p>The first step is to make sure we have a initial list to add elements and return as the result of our
+        implementation. We can do this by initializing the list in when the class instance is created:</p>
+      <pre><code class="python language-python">def __init__(self):
+        self.inorder_list = []
+</code></pre>
+      <p>Then we need to verify if the tree exists or it is an "empty tree" (basically the empty tree here is a
+        <code>None</code> value).
       </p>
-      <pre><code class="typescript language-typescript">export const Product = ({
-  imageUrl,
-  name,
-  description,
-  price,
-  discount,
-  isShippingFree,
-}: ProductType) =&gt; (
-  &lt;Box&gt;
-    &lt;Image imageUrl={imageUrl} imageAlt={name} /&gt;
-    &lt;TitleDescription name={name} description={description} /&gt;
-    &lt;Price price={price} discount={discount} /&gt;
-    &lt;Tag label="Free Shipping" isVisible={isShippingFree} /&gt;
-  &lt;/Box&gt;
-);
+      <pre><code class="python language-python">if root:
+        # The tree has nodes, do the traversal!
 </code></pre>
-      <p>And when I started implementing the <code>Image</code> component, I just passed the <code>imageUrl</code> and
-        the <code>imageAlt</code> as props. It looks like this:</p>
-      <pre><code class="typescript language-typescript">export const Image = ({ imageUrl }) =&gt;
-  &lt;img src={imageUrl} /&gt;;
-</code></pre>
-      <p>In this case, I couldn't use the <code>Product</code> type. But I could reuse it.</p>
-      <p>I learned about this new type: the <a
-          href="https://www.typescriptlang.org/docs/handbook/utility-types.html#partialt">Partial</a> type. The idea of
-        the <code>Partial</code> type is to build a new type based on the passed type and set all attributes to
-        <code>optional</code>.
-      </p>
-      <p>So, if we do a partial of the <code>Product</code> type, it would look like this:</p>
-      <pre><code class="typescript language-typescript">type Product = {
-  name?: string;
-  price?: number;
-  imageUrl?: string;
-  description?: string;
-  isShippingFree?: boolean;
-  discount?: number;
-};
-</code></pre>
-      <p>All properties are set to optional.</p>
-      <p>And now I can use it for the <code>Image</code> component:</p>
-      <pre><code class="typescript language-typescript">export const Image = ({ imageUrl }): Partial&lt;ProductType&gt; =&gt;
-  &lt;img src={imageUrl} /&gt;;
-</code></pre>
-      <p>But when I use the <code>Image</code> component, I can pass any props I want. I miss the type check. It doesn't
-        break in compile time.</p>
-      <p>To fix that, I could just build an <code>ImagePropsType</code> and use it as the component props type.</p>
-      <pre><code class="typescript language-typescript">type ImagePropsType = {
-  imageUrl: string;
-};
+      <p>To do an inorder traversal, we need to just go to the leftmost node, add the node value, and then go to the
+        right node. We can do this recursively:</p>
+      <pre><code class="python language-python">class Tree:
+    def __init__(self):
+        self.inorder_list = []
 
-export const Image = ({ imageUrl }): ImagePropsType =&gt;
-  &lt;img src={imageUrl} /&gt;;
-</code></pre>
-      <p>But I already have the type for the <code>imageUrl</code> inside the <code>Product</code> type. So I started to
-        search how I could reuse the type: I found the <code>Pick</code> type.</p>
-      <p>The <code>Pick</code> type lets me reuse the <code>Product</code> type by picking a set of properties I want:
-      </p>
-      <pre><code class="typescript language-typescript">type ImagePropsType = Pick&lt;ProductType, 'imageUrl'&gt;;
-</code></pre>
-      <p>Now I ensure that type checking and the type reusability work well.</p>
-      <p>To build the whole <code>Image</code> component, I also needed to pass other props like: <code>imageAlt</code>
-        and <code>width</code>.</p>
-      <p>What I wanted is the intersection of the <code>Pick&lt;ProductType, 'imageUrl'&gt;</code>, the
-        <code>imageAlt</code> type, and the <code>width</code> type.
-      </p>
-      <p>In TypeScript, the representation of the intersection is the <code>&amp;</code> operator.</p>
-      <p>I defined the <code>ImageUrlType</code>:</p>
-      <pre><code class="typescript language-typescript">type ImageUrlType = Pick&lt;ProductType, 'imageUrl'&gt;;
-</code></pre>
-      <p>And the <code>ImageAttrType</code> to represent both the <code>imageAlt</code> and the <code>width</code>:</p>
-      <pre><code class="typescript language-typescript">type ImageAttrType = { imageAlt: string; width?: string };
-</code></pre>
-      <p>And compose them together by insecting the types:</p>
-      <pre><code class="typescript language-typescript">type ImagePropsType = ImageUrlType &amp; ImageAttrType;
-</code></pre>
-      <p>And the final result is:</p>
-      <pre><code class="typescript language-typescript">import { ProductType } from 'types/Product';
+    def inorder_traversal(self, root):
+        if root:
+            self.inorder_traversal(root.left)
+            self.inorder_list.append(root.val)
+            self.inorder_traversal(root.right)
 
-type ImageUrlType = Pick&lt;ProductType, 'imageUrl'&gt;;
-type ImageAttrType = { imageAlt: string; width?: string };
-type ImagePropsType = ImageUrlType &amp; ImageAttrType;
-
-export const Image = ({ imageUrl, imageAlt, width }: ImagePropsType) =&gt;
-  &lt;img src={imageUrl} alt={imageAlt} width={width} /&gt;;
+        return self.inorder_list
 </code></pre>
-      <p>I have the image URL, alt, width types intersected, and defined in the <code>ImagePropsType</code>. It can
-        think of types as data and compose them. This is a very cool feature.</p>
-      <p>These are the interesting new types I learned this week.</p>
+      <p>With recursion, the algorithm looks pretty simple.</p>
+      <p>The time and space complexities are both O(n).</p>
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://leandrotk.github.io/tk/2017/09/learning-python-from-zero-to-hero/index.html">Learning
+            Python: From Zero to Hero</a></li>
+        <li><a href="https://leandrotk.github.io/tk/series/algorithms-problem-solving/index.html">Algorithms Problem
+            Solving Series</a></li>
+        <li><a href="https://leandrotk.github.io/tk/2020/01/stack-data-structure/index.html">Stack Data Structure</a>
+        </li>
+        <li><a href="https://leandrotk.github.io/tk/2020/01/queue-data-structure/index.html">Queue Data Structure</a>
+        </li>
+        <li><a href="https://leandrotk.github.io/tk/2020/02/linked-list/index.html">Linked List</a></li>
+        <li><a href="https://leandrotk.github.io/tk/2020/02/tree-data-structure/index.html">Tree Data Structure</a></li>
+      </ul>
     </article>
 
     <iframe src="https://teekay.substack.com/embed" width="100%" height="300"
@@ -189,8 +146,8 @@ export const Image = ({ imageUrl, imageAlt, width }: ImagePropsType) =&gt;
     <div class="meta meta-footer">
       <div class="article-tag">
         Tags:
-        <a class="tag-link" href="../../../tags/typescript.html">typescript</a>
-        <a class="tag-link" href="../../../tags/javascript.html">javascript</a>
+        <a class="tag-link" href="../../tags/algorithms_and_data_structures.html">algorithms_and_data_structures</a>
+        <a class="tag-link" href="../../tags/python.html">python</a>
 
       </div>
     </div>
@@ -219,16 +176,16 @@ export const Image = ({ imageUrl, imageAlt, width }: ImagePropsType) =&gt;
     <div class="footer-right">
       <nav>
         <ul>
-          <li><a href="../../../index.html">Home</a></li>
-          <li><a href="../../../writing.html">Writing</a></li>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../writing.html">Writing</a></li>
           <li><a href="https://github.com/leandrotk" target="_blank">Projects</a></li>
-          <li><a href="../../../quotes.html">Quotes</a></li>
+          <li><a href="../../quotes.html">Quotes</a></li>
         </ul>
       </nav>
     </div>
   </footer>
 
-  <script src="../../../javascripts/highlight.pack.js"></script>
+  <script src="../../javascripts/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </body>
 

@@ -31,7 +31,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -79,7 +79,8 @@
           href="https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm">Application,
           TCP, Internet, Hardware layers</a>) that are all connected. But basically, it works through
         <strong>HTTP</strong>
-        (Hypertext Transfer Protocol).</p>
+        (Hypertext Transfer Protocol).
+      </p>
       <blockquote>
         <p>The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, collaborative, hypermedia
           information systems. — Wikipedia</p>
@@ -128,7 +129,8 @@
         as a layer between our application and the database.</p>
       <p>Besides that relation with the database, the model can create <strong>validations</strong>and
         <strong>associations</strong>
-        between models.</p>
+        between models.
+      </p>
       <h3 id="view">View</h3>
       <blockquote>
         <p>“A presentation of data in a particular format, triggered by a controller’s decision to present the data.”
@@ -174,13 +176,15 @@ DELETE      /articles/<span class="hljs-symbol">:id</span>(.<span class="hljs-sy
       <p>The HTTP verb can be <code>GET</code>, <code>POST</code>, <code>PATCH</code>, <code>PUT</code>, or
         <code>DELETE</code>.
         And we know how Rails maps each <code>PATH</code> to the right <code>controller</code> and <code>action</code>.
-        Read more <a href="http://guides.rubyonrails.org/routing.html">here</a>.</p>
+        Read more <a href="http://guides.rubyonrails.org/routing.html">here</a>.
+      </p>
       <p>In our case, the server will receive <code>/articles</code> path and <code>GET</code> as the HTTP verb. It
         will map to <code>ArticlesController</code> and <code>index</code> action.</p>
       <p>In the <strong>controller</strong><code>ArticlesController</code> we use the <strong>model</strong>
         <code>Article</code>
         to get all articles in the database and render the <strong>view</strong> <code>index.html.erb</code> as the
-        server response (the UI).</p>
+        server response (the UI).
+      </p>
       <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArticlesController</span> &lt; ApplicationController</span>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span></span>
     @articles = Article.all
@@ -260,7 +264,7 @@ DELETE      /articles/<span class="hljs-symbol">:id</span>(.<span class="hljs-sy
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

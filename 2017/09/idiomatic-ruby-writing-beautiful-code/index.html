@@ -31,7 +31,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -128,11 +128,13 @@ even_numbers = even_numbers.compact # [<span class="hljs-number">2</span>, <span
 </code></pre>
       <p>Well, we can understand the code, but I’m not sure if it is good enough. And what if we use the
         <strong>shuffle</strong>
-        method?</p>
+        method?
+      </p>
       <pre><code class="ruby"><span class="hljs-selector-attr">[1, 2, 3]</span><span class="hljs-selector-class">.shuffle</span><span class="hljs-selector-class">.first</span>
 </code></pre>
       <p>Hmm. I actually prefer to use <strong>shuffle</strong> over <strong>rand</strong>. But when I discovered the
-        <strong>sample</strong> method, it made so much more sense:</p>
+        <strong>sample</strong> method, it made so much more sense:
+      </p>
       <pre><code class="ruby">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].sample
 </code></pre>
       <p>Really, really simple.</p>
@@ -145,7 +147,8 @@ even_numbers = even_numbers.compact # [<span class="hljs-number">2</span>, <span
       <h3 id="implicit-return">Implicit return</h3>
       <p>Any statement in Ruby returns the value of the last evaluated expression. A simple example is the
         <strong>getter
-        </strong>method. We call a method and expect some value in return.</p>
+        </strong>method. We call a method and expect some value in return.
+      </p>
       <p>Let’s see:</p>
       <pre><code class="ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_user_ids</span><span class="hljs-params">(users)</span></span>
   <span class="hljs-keyword">return</span> users.map(&amp;<span class="hljs-symbol">:id</span>)
@@ -191,7 +194,8 @@ one, two, three = values
         or <strong>false</strong> value.</p>
       <p>A method that I commonly use is <strong>any?</strong> It’s like asking an array if it has
         <strong>any</strong>thing
-        inside it.</p>
+        inside it.
+      </p>
       <pre><code class="ruby">[].any? # =&gt; <span class="hljs-keyword">false</span>
 [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].any? # =&gt; <span class="hljs-keyword">true</span>
 </code></pre>
@@ -221,7 +225,8 @@ puts <span class="hljs-string">"let’s go"</span> <span class="hljs-keyword">if
       <p>The <strong>try</strong> method invokes the method identified by the symbol, passing it any arguments and/or
         the block specified. This is similar to Ruby’s <strong>Object#send.</strong> Unlike that method,
         <strong>nil</strong>
-        will be returned if the receiving object is a <strong>nil</strong> object or <strong>NilClass.</strong></p>
+        will be returned if the receiving object is a <strong>nil</strong> object or <strong>NilClass.</strong>
+      </p>
       <p>Using <strong>if and unless</strong> condition statement:</p>
       <pre><code class="ruby"><span class="hljs-selector-tag">user</span><span class="hljs-selector-class">.id</span> <span class="hljs-selector-tag">unless</span> <span class="hljs-selector-tag">user</span><span class="hljs-selector-class">.nil</span>?
 </code></pre>
@@ -230,7 +235,8 @@ puts <span class="hljs-string">"let’s go"</span> <span class="hljs-keyword">if
 </code></pre>
       <p>Since Ruby 2.3, we can use Ruby’s safe navigation operator<strong> (&amp;.)</strong> instead of Rails
         <strong>try
-        </strong>method.</p>
+        </strong>method.
+      </p>
       <pre><code class="ruby">user&amp;.<span class="hljs-built_in">id</span>
 </code></pre>
       <h3 id="double-pipe-equals-memoization">Double pipe equals (||=) / memoization</h3>
@@ -243,7 +249,8 @@ puts some_variable <span class="hljs-meta"># =&gt; 10</span>
 </code></pre>
       <p>You don’t need to use the <strong>if</strong> statement ever. Just use double pipe equals
         <strong>(||=)</strong>
-        and it’s done.</p>
+        and it’s done.
+      </p>
       <p>Simple and easy.</p>
       <h3 id="class-static-method">Class static method</h3>
       <p>One way I like to write Ruby classes is to define a <strong>static </strong>method (class method).</p>
@@ -267,7 +274,8 @@ puts some_variable <span class="hljs-meta"># =&gt; 10</span>
 </code></pre>
       <p>The <strong>self.call</strong> method initializes an instance, and this object calls the <strong>call
         </strong>method.
-        <a href="https://github.com/collectiveidea/interactor">Interactor design pattern</a> uses it.</p>
+        <a href="https://github.com/collectiveidea/interactor">Interactor design pattern</a> uses it.
+      </p>
       <h3 id="getters-and-setters">Getters and setters</h3>
       <p>For the same <strong>GetSearchResult</strong> class, if we want to use the params, we can use the @params</p>
       <pre><code class="ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GetSearchResult</span></span>
@@ -387,7 +395,8 @@ puts some_variable <span class="hljs-meta"># =&gt; 10</span>
           href="https://twitter.com/LeandroTk_">Twitter</a>
         &
         <a href="https://github.com/LeandroTk">Github</a>.
-        ☺</p>
+        ☺
+      </p>
 
     </article>
 
@@ -420,7 +429,7 @@ puts some_variable <span class="hljs-meta"># =&gt; 10</span>
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>

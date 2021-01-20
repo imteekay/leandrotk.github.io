@@ -31,7 +31,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-186262444-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-186262444-1');
   </script>
@@ -92,7 +92,8 @@
         <ul>
           <li>
             <p>It returns the same result if given the same arguments (it is also referred as
-              <code>deterministic</code>)</p>
+              <code>deterministic</code>)
+            </p>
           </li>
           <li>
             <p>It does not cause any observable side effects</p>
@@ -102,7 +103,8 @@
           arguments</h3>
         <p>Imagine we want to implement a function that calculates the area of a circle. An impure function would
           receive
-          <code>radius</code> as the parameter, and then calculate <code>radius * radius * PI</code>:</p>
+          <code>radius</code> as the parameter, and then calculate <code>radius * radius * PI</code>:
+        </p>
         <pre><code class="javascript"><span class="hljs-keyword">const</span> PI = <span class="hljs-number">3.14</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">calculateArea</span><span class="hljs-params">(radius)</span> </span>{
@@ -222,7 +224,8 @@ function incrementNumbers(<span class="hljs-type">list</span>) {
         <pre><code class="javascript">incrementNumbers(<span class="hljs-built_in">list</span>); <span class="hljs-comment">// [2, 3, 4, 5, 6]</span>
 </code></pre>
         <p>For the <code>input</code> <code>[1, 2, 3, 4, 5]</code>, the expected <code>output</code> would be
-          <code>[2, 3, 4, 5, 6]</code>.</p>
+          <code>[2, 3, 4, 5, 6]</code>.
+        </p>
         <h2 id="immutability">Immutability</h2>
         <blockquote>
           <p>Unchanging over time or unable to be changed.</p>
@@ -244,7 +247,8 @@ sumOfValues <span class="hljs-comment">// 15</span>
 </code></pre>
         <p>For each iteration, we are changing the <code>i</code> and the <code>sumOfValue</code>
           <strong>state</strong>.
-          But how do we handle mutability in iteration? Recursion!</p>
+          But how do we handle mutability in iteration? Recursion!
+        </p>
         <pre><code class="javascript">let <span class="hljs-type">list</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
 let accumulator = <span class="hljs-number">0</span>;
 
@@ -274,7 +278,8 @@ accumulator; <span class="hljs-comment">// 0</span>
           and we want to transform this string into a <code>url slug</code>.</p>
         <p>In OOP in Ruby, we would create a class, let’s say, <code>UrlSlugify</code>. And this class will have a
           <code>slugify!</code>
-          method to transform the string input into a <code>url slug</code>.</p>
+          method to transform the string input into a <code>url slug</code>.
+        </p>
         <pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UrlSlugify</span></span>
   <span class="hljs-keyword">attr_reader</span> <span class="hljs-symbol">:text</span>
 
@@ -293,7 +298,8 @@ UrlSlugify.new(<span class="hljs-string">' I will be a url slug   '</span>).slug
 </code></pre>
         <p>Beautiful! It’s implemented! Here we have imperative programming saying exactly what we want to do in each
           <code>slugify</code> process — first lower case, then remove useless white spaces and, finally, replace
-          remaining white spaces with hyphens.</p>
+          remaining white spaces with hyphens.
+        </p>
         <p>But we are mutating the input state in this process.</p>
         <p>We can handle this mutation by doing function composition, or function chaining. In other words, the result
           of
@@ -339,7 +345,8 @@ square<span class="hljs-comment">(2)</span>; <span class="hljs-comment">// 4</sp
         <p>Passing <code>2</code> as a parameter of the <code>square function</code> will always returns 4. So now we
           can
           replace the <code>square(2)</code> with 4. That&#39;s it! Our function is
-          <code>referentially transparent</code>.</p>
+          <code>referentially transparent</code>.
+        </p>
         <p>Basically, if a function consistently yields the same result for the same input, it is referentially
           transparent.</p>
         <p><strong>pure functions + immutable data = referential transparency</strong></p>
@@ -361,7 +368,8 @@ square<span class="hljs-comment">(2)</span>; <span class="hljs-comment">// 4</sp
         <h2 id="functions-as-first-class-entities">Functions as first-class entities</h2>
         <p><img src="https://cdn-images-1.medium.com/max/1600/0*K6m1Ftw54Wm6tfFB" alt=""></p>
         <p>The idea of functions as first-class entities is that functions are <strong>also</strong> treated as values
-          <strong>and</strong> used as data.</p>
+          <strong>and</strong> used as data.
+        </p>
         <p>Functions as first-class entities can:</p>
         <ul>
           <li>
@@ -407,7 +415,8 @@ doubleOperator(subtraction, <span class="hljs-number">3</span>, <span class="hlj
         <p>Done! Now we have an <code>f</code> argument, and use it to process <code>a</code> and <code>b</code>. We
           passed the <code>sum</code> and <code>subtraction</code> functions to compose with the
           <code>doubleOperator</code>
-          function and create a new behavior.</p>
+          function and create a new behavior.
+        </p>
         <h2 id="higher-order-functions">Higher-order functions</h2>
         <p>When we talk about higher-order functions, we mean a function that either:</p>
         <ul>
@@ -428,7 +437,8 @@ doubleOperator(subtraction, <span class="hljs-number">3</span>, <span class="hlj
           <code>false</code> value to determine if the element <strong>should or should not</strong> be included in the
           result collection. Basically, if the callback expression is <code>true</code>, the filter function will
           include
-          the element in the result collection. Otherwise, it will not.</p>
+          the element in the result collection. Otherwise, it will not.
+        </p>
         <p>A simple example is when we have a collection of integers and we want only the even numbers.</p>
         <p><strong>Imperative approach</strong></p>
         <p>An imperative way to do it with JavaScript is to:</p>
@@ -505,9 +515,11 @@ filterArray(<span class="hljs-number">3</span>, numbers); <span class="hljs-comm
           easy to understand.</p>
         <p><code>this</code> will be the second parameter in the <code>filter</code> function. In this case,
           <code>3</code>
-          (the <code>x</code>) is represented by <code>this</code>. That&#39;s it.</p>
+          (the <code>x</code>) is represented by <code>this</code>. That&#39;s it.
+        </p>
         <p>We can also do this with maps. Imagine we have a map of people with their <code>name</code> and
-          <code>age</code>.</p>
+          <code>age</code>.
+        </p>
         <pre><code class="javascript">let people = [
   { <span class="hljs-string">name:</span> <span class="hljs-string">"TK"</span>, <span class="hljs-string">age:</span> <span class="hljs-number">26</span> },
   { <span class="hljs-string">name:</span> <span class="hljs-string">"Kaio"</span>, <span class="hljs-string">age:</span> <span class="hljs-number">10</span> },
@@ -549,7 +561,8 @@ overAge(people); // [{ name: <span class="hljs-symbol">'TK</span>', age: <span c
           just want a list of strings, something like <code>TK is 26 years old</code>. So the final string might be
           <code>:name is :age years old</code>
           where <code>:name</code> and <code>:age</code> are attributes from each element in the <code>people</code>
-          collection.</p>
+          collection.
+        </p>
         <p>In a imperative JavaScript way, it would be:</p>
         <pre><code class="javascript"><span class="hljs-built_in">var</span> people = [
   { name: <span class="hljs-string">"TK"</span>, age: <span class="hljs-number">26</span> },
@@ -624,7 +637,8 @@ updateListMap(<span class="hljs-built_in">values</span>); // [<span class="hljs-
         <p>A common example people talk about is to get the total amount of an order. Imagine you were at a shopping
           website. You’ve added <code>Product 1</code>, <code>Product 2</code>, <code>Product 3</code>, and
           <code>Product 4</code>
-          to your shopping cart (order). Now we want to calculate the total amount of the shopping cart.</p>
+          to your shopping cart (order). Now we want to calculate the total amount of the shopping cart.
+        </p>
         <p>In imperative way, we would iterate the order list and sum each product amount to the total amount.</p>
         <pre><code class="javascript">var orders = [
   { <span class="hljs-string">productTitle:</span> <span class="hljs-string">"Product 1"</span>, <span class="hljs-string">amount:</span> <span class="hljs-number">10</span> },
@@ -660,7 +674,8 @@ getTotalAmount(shoppingCart); <span class="hljs-comment">// 120</span>
 </code></pre>
         <p>Here we have <code>shoppingCart</code>, the function <code>sumAmount</code> that receives the current
           <code>currentTotalAmount</code>
-          , and the <code>order</code> object to <code>sum</code> them.</p>
+          , and the <code>order</code> object to <code>sum</code> them.
+        </p>
         <p>The <code>getTotalAmount</code> function is used to <code>reduce</code> the <code>shoppingCart</code> by
           using
           the <code>sumAmount</code> and starting from <code>0</code>.</p>
@@ -668,7 +683,8 @@ getTotalAmount(shoppingCart); <span class="hljs-comment">// 120</span>
           by
           that? We can use <code>map</code> to transform the <code>shoppingCart</code> into a collection of
           <code>amount</code>
-          values, and then just use the <code>reduce</code> function with <code>sumAmount</code> function.</p>
+          values, and then just use the <code>reduce</code> function with <code>sumAmount</code> function.
+        </p>
         <pre><code class="javascript"><span class="hljs-keyword">const</span> getAmount = <span class="hljs-function">(<span class="hljs-params">order</span>) =&gt;</span> order.amount;
 <span class="hljs-keyword">const</span> sumAmount = <span class="hljs-function">(<span class="hljs-params">acc, amount</span>) =&gt;</span> acc + amount;
 
@@ -888,7 +904,7 @@ getTotalAmount(shoppingCart); <span class="hljs-comment">// 70</span>
 
   <footer id="footer" class="article-footer">
     <div class="footer-left">
-      Copyright &copy; 2020 TK
+      Copyright &copy; 2021 TK
     </div>
     <div class="footer-right">
       <nav>
