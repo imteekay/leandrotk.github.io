@@ -337,9 +337,9 @@ const App = () =&gt; (
 </code></pre>
       <p>So for each component, it will try to prefetch the next page. This is why we have all the chunks downloaded in
         the <code>Home</code> page.</p>
-      <p>So one idea is to import each next page when the page component renders. Let's see how it can work.</p>
-      <p>And then I can use this object and function to import when the home page renders. As we are changing the DOM,
-        it's a side-effect, and call this in a <code>useEffect</code> hook.</p>
+      <p>So one idea is to import each next page when the page component renders.</p>
+      <p>As we are changing the DOM, it's a side-effect, and we can call this in a <code>useEffect</code> hook. Let's
+        see how it can work.</p>
       <pre><code class="jsx language-jsx">const Home = () =&gt; {
   useEffect(() =&gt; {
     import(/* webpackPrefetch: true */ 'Pages/Step1/Step1');
