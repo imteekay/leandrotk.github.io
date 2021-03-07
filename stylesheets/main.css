@@ -1331,10 +1331,6 @@ pre code {
 .highlight figcaption a {
   float: right;
 }
-.highlight figcaption:before,
-.highlight figcaption content: "" {
-  display: table;
-}
 .highlight figcaption:after {
   clear: both;
 }
