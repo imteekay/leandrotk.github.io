@@ -1,11 +1,11 @@
-new Typed('.js-about-info', {
+new Typed(".js-about-info", {
   strings: [
-    'software engineer',
-    'writer',
-    'lifelong learner',
-    'problem solver'
+    "software engineer",
+    "writer",
+    "lifelong learner",
+    "problem solver",
   ],
   typeSpeed: 50,
   loop: true,
-  backDelay: 1200
+  backDelay: 1200,
 });
