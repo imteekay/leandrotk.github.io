@@ -471,9 +471,9 @@ body {
   background-color: #292929e8;
   border: 0;
   margin: 30px 0 40px;
-  -webkit-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
-  box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.75);
 }
 
 .content pre,
@@ -494,10 +494,20 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, #c9cacc 5px, #c9cacc);
+  background-image: linear-gradient(
+    transparent,
+    transparent 5px,
+    #c9cacc 5px,
+    #c9cacc
+  );
 }
 .content a:hover {
-  background-image: linear-gradient(transparent, transparent 4px, white 4px, white);
+  background-image: linear-gradient(
+    transparent,
+    transparent 4px,
+    white 4px,
+    white
+  );
 }
 .content a.icon {
   background: none;
@@ -526,7 +536,12 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 6px, white 6px, white);
+  background-image: linear-gradient(
+    transparent,
+    transparent 6px,
+    white 6px,
+    white
+  );
 }
 @media (min-width: 540px) {
   .image-wrap {
@@ -628,7 +643,12 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, white 5px, white);
+  background-image: linear-gradient(
+    transparent,
+    transparent 5px,
+    white 5px,
+    white
+  );
 }
 #header #nav ul li {
   display: inline-block;
@@ -769,7 +789,12 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, white 5px, white);
+  background-image: linear-gradient(
+    transparent,
+    transparent 5px,
+    white 5px,
+    white
+  );
 }
 #footer-post #nav-footer ul {
   list-style-type: none;
@@ -997,7 +1022,7 @@ article blockquote {
   line-height: 30px;
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   article blockquote {
     font-size: 1.5em;
   }
@@ -1026,12 +1051,22 @@ article blockquote footer {
 
 article blockquote footer a {
   color: #666;
-  background-image: linear-gradient(transparent, transparent 5px, #666 5px, #666);
+  background-image: linear-gradient(
+    transparent,
+    transparent 5px,
+    #666 5px,
+    #666
+  );
 }
 
 article blockquote footer a:hover {
   color: #999;
-  background-image: linear-gradient(transparent, transparent 4px, #999 4px, #999);
+  background-image: linear-gradient(
+    transparent,
+    transparent 4px,
+    #999 4px,
+    #999
+  );
 }
 
 article blockquote footer cite:before {
@@ -1055,7 +1090,7 @@ article blockquote {
   line-height: 30px;
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   article blockquote {
     font-size: 1.5em;
   }
@@ -1081,11 +1116,21 @@ article .content blockquote footer {
 }
 article .content blockquote footer a {
   color: #666;
-  background-image: linear-gradient(transparent, transparent 5px, #666 5px, #666);
+  background-image: linear-gradient(
+    transparent,
+    transparent 5px,
+    #666 5px,
+    #666
+  );
 }
 article .content blockquote footer a:hover {
   color: #999;
-  background-image: linear-gradient(transparent, transparent 4px, #999 4px, #999);
+  background-image: linear-gradient(
+    transparent,
+    transparent 4px,
+    #999 4px,
+    #999
+  );
 }
 article .content blockquote footer cite:before {
   content: "—";
@@ -1401,8 +1446,8 @@ a.patreon-button:active {
   border: 2px solid #f96854;
   background: #f96854;
   padding: 0 1rem 0 0;
-  color: #fff!important;
-  margin: 0 .5rem 0 0;
+  color: #fff !important;
+  margin: 0 0.5rem 0 0;
   height: 50px;
   line-height: 21px;
 }
