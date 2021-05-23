@@ -11,6 +11,11 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>Building an Interpreter: Lexical Analysis - Part 1</title>
+    <link>https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-1.html</link>
+    <description>The first part of the Lexical Analysis implementation of the interpreter</description>
+  </item>
+  <item>
     <title>Building an Interpreter Series</title>
     <link>https://leandrotk.github.io/series/building-an-interpreter</link>
     <description>A documentation series about the interpreter I'm building and learning</description>
