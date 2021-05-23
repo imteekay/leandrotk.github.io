@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
   <title>TK's Blog</title>
   <link>https://leandrotk.github.io</link>
+  <atom:link href="https://leandrotk.github.io/rss.xml" rel="self" type="application/rss+xml" />
   <description>Software Engineering, Lifestyle, Books, Learning</description>
   <image>
     <url>https://raw.githubusercontent.com/leandrotk/tk/master/images/logo.jpg</url>
