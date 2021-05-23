@@ -13,216 +13,259 @@
   <item>
     <title>Building an Interpreter: Lexical Analysis - Part 1</title>
     <link>https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-1.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-1.html</guid>
     <description>The first part of the Lexical Analysis implementation of the interpreter</description>
   </item>
   <item>
     <title>Building an Interpreter Series</title>
     <link>https://leandrotk.github.io/series/building-an-interpreter</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/building-an-interpreter</guid>
     <description>A documentation series about the interpreter I'm building and learning</description>
   </item>
   <item>
     <title>DX &amp; Software Maintainability in Frontend Engineering</title>
     <link>https://leandrotk.github.io/2021/04/dx-and-software-maintainability-in-frontend-engineering</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/04/dx-and-software-maintainability-in-frontend-engineering</guid>
     <description>Tech Debts, Software Maintainability, Developer Experience, and Technical Leadership</description>
   </item>
   <item>
     <title>Optimizing the Performance of a React Progressive Web App</title>
     <link>https://leandrotk.github.io/2021/01/optimizing-the-performance-of-a-react-progressive-web-app/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/01/optimizing-the-performance-of-a-react-progressive-web-app/index.html</guid>
     <description>A performance case study of a React PWA</description>
   </item>
   <item>
     <title>Performance: Prefetch Next Page Chunk</title>
     <link>https://leandrotk.github.io/2021/01/performance-prefetch-next-pages-chunks/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/01/performance-prefetch-next-pages-chunks/index.html</guid>
     <description>Prefetching next pages chunks to optimize performance</description>
   </item>
   <item>
     <title>Atomic Habits</title>
     <link>https://leandrotk.github.io/2021/01/atomic-habits/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/01/atomic-habits/index.html</guid>
     <description>Atomic Habits: Book Review</description>
   </item>
   <item>
     <title>The Effective Engineer</title>
     <link>https://leandrotk.github.io/2021/01/the-effective-engineer/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/01/the-effective-engineer/index.html</guid>
     <description>Notes on how to be an effective engineer</description>
   </item>
   <item>
     <title>Slow Living</title>
     <link>https://leandrotk.github.io/2021/01/slow-living/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/01/slow-living/index.html</guid>
     <description>To experience life to the fullest</description>
   </item>
   <item>
     <title>Building a simple Individual Development Plan (IDP) with Notion</title>
     <link>https://leandrotk.github.io/2020/10/building-a-simple-individual-development-plan-idp-with-notion/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/10/building-a-simple-individual-development-plan-idp-with-notion/index.html</guid>
     <description>In this post I share with you how I created a simple individual development plan using Notion</description>
   </item>
   <item>
     <title>Basic Recipes for React Testing Library</title>
     <link>https://leandrotk.github.io/2020/10/basic-recipes-for-react-testing-library/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/10/basic-recipes-for-react-testing-library/index.html</guid>
     <description>Understanding testing in the frontend and react applications</description>
   </item>
   <item>
     <title>A Mental Model to think in TypeScript</title>
     <link>https://leandrotk.github.io/2020/07/a-mental-model-to-think-in-typescript/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/07/a-mental-model-to-think-in-typescript/index.html</guid>
     <description>Types can be hard and this long-format essay tries to give a way of thinking about types and TypeScript</description>
   </item>
   <item>
     <title>Designing my life's System</title>
     <link>https://leandrotk.github.io/2020/06/designing-my-lifes-system/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/06/designing-my-lifes-system/index.html</guid>
     <description>A full documentation of how I designed a system for my life</description>
   </item>
   <item>
     <title>UX Studies with React, TypeScript, and Testing Library</title>
     <link>https://leandrotk.github.io/2020/06/ux-studies-with-react-typescript-and-testing-library/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/06/ux-studies-with-react-typescript-and-testing-library/index.html</guid>
     <description>Studying and applying UX using React, TypeScript, Testing Library</description>
   </item>
   <item>
     <title>Data Structures Series</title>
     <link>https://leandrotk.github.io/series/data-structures/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/data-structures/index.html</guid>
     <description>Solving algorithms problems with TK</description>
   </item>
   <item>
     <title>Algorithms Problem Solving Series</title>
     <link>https://leandrotk.github.io/series/algorithms-problem-solving/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/algorithms-problem-solving/index.html</guid>
     <description>Solving algorithms problems with TK</description>
   </item>
   <item>
     <title>TypeScript Learnings: Interesting Types</title>
     <link>https://leandrotk.github.io/2020/05/typescript-learnings-interesting-types/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/05/typescript-learnings-interesting-types/index.html</guid>
     <description>Learning interesting types from TypeScript</description>
   </item>
   <item>
     <title>Constant feedback driven development with Nodemon</title>
     <link>https://leandrotk.github.io/2020/05/constant-feedback-driven-development-with-nodemon/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/05/constant-feedback-driven-development-with-nodemon/index.html</guid>
     <description>As I'm building a lot of TypeScript projects, I wanted to make it more dynamic and with constant feedback.</description>
   </item>
   <item>
     <title>Publisher, a tooling to automate the process to publish my blog posts</title>
     <link>https://leandrotk.github.io/2020/04/publisher-a-tooling-to-automate-the-process-to-publish-my-blog-posts/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/publisher-a-tooling-to-automate-the-process-to-publish-my-blog-posts/index.html</guid>
     <description>An implementation detail of the Publisher tooling to automate the process to publish blog posts</description>
   </item>
   <item>
     <title>TypeScript Learnings 002: Type System</title>
     <link>https://leandrotk.github.io/2020/04/typescript-learnings-002-type-system/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/typescript-learnings-002-type-system/index.html</guid>
     <description>Understanding TypeScript Type Systerm</description>
   </item>
   <item>
     <title>Elixir Learnings 002: playing around with lists</title>
     <link>https://leandrotk.github.io/2020/04/elixir-learnings/002-playing-around-with-lists.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/elixir-learnings/002-playing-around-with-lists.html</guid>
     <description>Understanding how lists work in Elixir</description>
   </item>
   <item>
     <title>React Hooks, Context API, and Pokemons</title>
     <link>https://leandrotk.github.io/2020/04/react-hooks-context-api-and-pokemons/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/react-hooks-context-api-and-pokemons/index.html</guid>
     <description>Understanding hooks and the context API by building a Pokemon app.</description>
   </item>
   <item>
     <title>Fun with Dates</title>
     <link>https://leandrotk.github.io/2020/04/fun-with-dates/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/fun-with-dates/index.html</guid>
     <description>Learning about Dates and playing around with a new API</description>
   </item>
   <item>
     <title>Elixir Learnings Series</title>
     <link>https://leandrotk.github.io/2020/04/elixir-learnings/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/elixir-learnings/index.html</guid>
     <description>Learning elixir with TK</description>
   </item>
   <item>
     <title>Thinking in data contracts</title>
     <link>https://leandrotk.github.io/2020/04/thinking-in-data-contracts/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/thinking-in-data-contracts/index.html</guid>
     <description>This is part of my studies on how to build sustainable and consistent software.</description>
   </item>
   <item>
     <title>TypeScript Learnings Series</title>
     <link>https://leandrotk.github.io/2020/04/typescript-learnings/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/typescript-learnings/index.html</guid>
     <description>Learning TypeScript with TK</description>
   </item>
   <item>
     <title>Consistent State Management in React and Redux</title>
     <link>https://leandrotk.github.io/2020/04/consistent-state-management-in-react-and-redux/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/04/consistent-state-management-in-react-and-redux/index.html</guid>
     <description>This is part of my studies on how to build sustainable and consistent software.</description>
   </item>
   <item>
     <title>TDD, simple functions, and React components</title>
     <link>https://leandrotk.github.io/2020/03/tdd-functions-and-react-components/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/03/tdd-functions-and-react-components/index.html</guid>
     <description>This is part of my studies on how to build sustainable and consistent software.</description>
   </item>
   <item>
     <title>Closures, Currying, and Cool Abstractions</title>
     <link>https://leandrotk.github.io/2020/03/closure-currying-and-cool-abstractions/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/03/closure-currying-and-cool-abstractions/index.html</guid>
     <description>In this article, we will talk about closures, curried functions, and play around with these concepts to build cool abstractions.</description>
   </item>
   <item>
     <title>Tree Data Structure</title>
     <link>https://leandrotk.github.io/2020/02/tree-data-structure/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/02/tree-data-structure/index.html</guid>
     <description>This post is to help you better understand the Tree Data Structure and to clarify any confusion you may have about it..</description>
   </item>
   <item>
     <title>Linked List</title>
     <link>https://leandrotk.github.io/2020/02/linked-list/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/02/linked-list/index.html</guid>
     <description>Notes on what is a linked list, how it works, and a Python implementation</description>
   </item>
   <item>
     <title>Queue Data Structure</title>
     <link>https://leandrotk.github.io/2020/01/queue-data-structure/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/01/queue-data-structure/index.html</guid>
     <description>Notes on what is a queue, how it works, and a Python implementation</description>
   </item>
   <item>
     <title>Stack Data Structure</title>
     <link>https://leandrotk.github.io/2020/01/stack-data-structure/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/01/stack-data-structure/index.html</guid>
     <description>Notes on what is a stack, how it works, and a Python implementation</description>
   </item>
   <item>
     <title>Building an abstraction for React internationalization messages</title>
     <link>https://leandrotk.github.io/2020/01/building-an-abstraction-for-react-internationalization-messages/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2020/01/building-an-abstraction-for-react-internationalization-messages/index.html</guid>
     <description>I came across a feature I wanted to build and...</description>
   </item>
   <item>
     <title>Designing my Learning Experience</title>
     <link>https://leandrotk.github.io/2019/09/designing-my-learning-experience/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2019/09/designing-my-learning-experience/index.html</guid>
     <description>I'm learning a lot and sharing knowledge. This is my first take on designing a better learning experience</description>
   </item>
   <item>
     <title>Thoughts on my productivity</title>
     <link>https://leandrotk.github.io/2019/07/thoughts-on-my-productivity/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2019/07/thoughts-on-my-productivity/index.html</guid>
     <description>Think about my energy. Think about prioritization. Think about tasks planning. Think about removing distractions.</description>
   </item>
   <item>
     <title>An introduction to the basic principles of Functional Programming</title>
     <link>https://leandrotk.github.io/2018/11/functional-programming-principles-in-javascript/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2018/11/functional-programming-principles-in-javascript/index.html</guid>
     <description>In this post, I will tell you more about functional programming, and some important concepts, with a lot of code examples.</description>
   </item>
   <item>
     <title>An introduction to the basic principles of Functional Programming</title>
     <link>https://leandrotk.github.io/2018/11/an-introduction-to-the-basic-principles-of-functional-programming/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2018/11/an-introduction-to-the-basic-principles-of-functional-programming/index.html</guid>
     <description>In this post, I will tell you more about functional programming, and some important concepts, with a lot of code examples.</description>
   </item>
   <item>
     <title>Understanding the basics of Ruby on Rails: SQL Databases and how they work</title>
     <link>https://leandrotk.github.io/2018/01/understanding-the-basics-of-ruby-on-rails-sql-databases-and-how-they-work/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2018/01/understanding-the-basics-of-ruby-on-rails-sql-databases-and-how-they-work/index.html</guid>
     <description>Learn about databases and how they connect with Ruby on Rails.</description>
   </item>
   <item>
     <title>Actionable advice to start learning to code</title>
     <link>https://leandrotk.github.io/2018/01/actionable-advice-to-start-learning-to-code/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2018/01/actionable-advice-to-start-learning-to-code/index.html</guid>
     <description>This post has stories and a lot of actionable advice for you to be inspired, motivated, and take the first step in the programming world.</description>
   </item>
   <item>
     <title>Understanding the basics of Ruby on Rails: HTTP, MVC, and Routes</title>
     <link>https://leandrotk.github.io/2018/01/understanding-the-basics-of-ruby-on-rails-http-mvc-and-routes/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2018/01/understanding-the-basics-of-ruby-on-rails-http-mvc-and-routes/index.html</guid>
     <description>We’ll understand the basics of how the web, the routes, and the MVC architecture work using the Ruby on Rails web framework</description>
   </item>
   <item>
     <title>Everything you need to know about tree data structures</title>
     <link>https://leandrotk.github.io/2017/11/everything-you-need-to-know-about-tree-data-structures/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2017/11/everything-you-need-to-know-about-tree-data-structures/index.html</guid>
     <description>This post is to help you better understand the Tree Data Structure and to clarify any confusion you may have about it..</description>
   </item>
   <item>
     <title>Learning Python: From Zero to Hero</title>
     <link>https://leandrotk.github.io/2017/09/learning-python-from-zero-to-hero/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2017/09/learning-python-from-zero-to-hero/index.html</guid>
     <description>High-level programming language, and its core design philosophy is all about code readability and a syntax which allows programmers to express concepts in a few lines of code.</description>
   </item>
   <item>
     <title>Idiomatic Ruby: writing beautiful code</title>
     <link>https://leandrotk.github.io/2017/09/idiomatic-ruby-writing-beautiful-code/index.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2017/09/idiomatic-ruby-writing-beautiful-code/index.html</guid>
     <description>A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.</description>
   </item>
 </channel>
