@@ -11,6 +11,11 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>Building an Interpreter Series</title>
+    <link>https://leandrotk.github.io/series/building-an-interpreter</link>
+    <description>A documentation series about the interpreter I'm building and learning</description>
+  </item>
+  <item>
     <title>DX &amp; Software Maintainability in Frontend Engineering</title>
     <link>https://leandrotk.github.io/2021/04/dx-and-software-maintainability-in-frontend-engineering</link>
     <description>Tech Debts, Software Maintainability, Developer Experience, and Technical Leadership</description>
