@@ -1250,7 +1250,7 @@ article .content .caption {
   margin-right: 0;
 }
 #footer a {
-  color: #666;
+  color: #c1c1c1;
 }
 #footer a:hover {
   color: #999;
@@ -1259,6 +1259,7 @@ article .content .caption {
   height: 20px;
   line-height: 20px;
   vertical-align: middle;
+  color: #c1c1c1;
 }
 @media (min-width: 39rem) {
   #footer {
