@@ -12,6 +12,12 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>Data Fetching in React with react-query</title>
+    <link>https://leandrotk.github.io/2021/06/data-fetching-in-react-with-reactquery</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/06/data-fetching-in-react-with-reactquery</guid>
+    <description>Understanding data fetching from the early days with xml requests and jquery to these days that we handle more complex cases.</description>
+  </item>
+  <item>
     <title>Building an Interpreter: Lexical Analysis - Part 2</title>
     <link>https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-2.html</link>
     <guid isPermaLink="true">https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-2.html</guid>
