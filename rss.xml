@@ -12,6 +12,12 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>react-query: complex dependent queries</title>
+    <link>https://leandrotk.github.io/2021/06/react-query-complex-dependent-queries</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/06/react-query-complex-dependent-queries</guid>
+    <description>Building complex queries in data fetching with react and react-query.</description>
+  </item>
+  <item>
     <title>Data Fetching in React with react-query</title>
     <link>https://leandrotk.github.io/2021/06/data-fetching-in-react-with-reactquery</link>
     <guid isPermaLink="true">https://leandrotk.github.io/2021/06/data-fetching-in-react-with-reactquery</guid>
