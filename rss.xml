@@ -12,6 +12,18 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>Rebuilding Mercari's Search: Setup NextJS with TypeScript, Prettier, and Jest</title>
+    <link>https://leandrotk.github.io/series/rebuilding-mercaris-search/setup-nextjs-with-typescript-prettier-and-jest.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/rebuilding-mercaris-search/setup-nextjs-with-typescript-prettier-and-jest.html</guid>
+    <description>Rebuilding Mercari's Search: Setup NextJS with TypeScript, Prettier, and Jest</description>
+  </item>
+  <item>
+    <title>Rebuilding Mercari's Search Series</title>
+    <link>https://leandrotk.github.io/series/rebuilding-mercaris-search</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/rebuilding-mercaris-search</guid>
+    <description>A documentation series about how I rebuilt the Mercari's Search experience with NextJS, ReactJS, and TypeScript.</description>
+  </item>
+  <item>
     <title>react-query: complex dependent queries</title>
     <link>https://leandrotk.github.io/2021/06/react-query-complex-dependent-queries</link>
     <guid isPermaLink="true">https://leandrotk.github.io/2021/06/react-query-complex-dependent-queries</guid>
