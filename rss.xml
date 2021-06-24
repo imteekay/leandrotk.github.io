@@ -12,6 +12,12 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>Rebuilding Mercari's Search: Home and Menu</title>
+    <link>https://leandrotk.github.io/series/rebuilding-mercaris-search/home-menu.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/rebuilding-mercaris-search/home-menu.html</guid>
+    <description>Rebuilding Mercari's Search: Home and Menu</description>
+  </item>
+  <item>
     <title>Rebuilding Mercari's Search: Setup NextJS with TypeScript, Prettier, and Jest</title>
     <link>https://leandrotk.github.io/series/rebuilding-mercaris-search/setup-nextjs-with-typescript-prettier-and-jest.html</link>
     <guid isPermaLink="true">https://leandrotk.github.io/series/rebuilding-mercaris-search/setup-nextjs-with-typescript-prettier-and-jest.html</guid>
