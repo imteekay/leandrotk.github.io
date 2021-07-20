@@ -12,6 +12,12 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>Building an Interpreter: REPL</title>
+    <link>https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-repl.html</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-repl.html</guid>
+    <description>Building an Interpreter: REPL</description>
+  </item>
+  <item>
     <title>Building an Interpreter: Lexical Analysis - Part 3</title>
     <link>https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-3.html</link>
     <guid isPermaLink="true">https://leandrotk.github.io/series/building-an-interpreter/building-an-interpreter-lexical-analysis-part-3.html</guid>
