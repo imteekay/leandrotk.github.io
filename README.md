@@ -7,6 +7,7 @@ $ cat /etc/profile.txt
 I'm a software engineer, lifelong-learner, and writer.
 Always curious about backend, frontend, developer tooling, compilers, and programming languages.
 I also like to write, play music, read books, and learn new languages.
+```
 
 <p align="center">
   <samp>
@@ -17,4 +18,3 @@ I also like to write, play music, read books, and learn new languages.
     <a href="https://teekay.substack.com">newsletter</a> .
   </samp>
 </p>
-```
