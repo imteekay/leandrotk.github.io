@@ -12,6 +12,18 @@
     <link>https://leandrotk.github.io</link>
   </image>
   <item>
+    <title>On Leaving</title>
+    <link>https://leandrotk.github.io/2021/11/on-leaving</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/11/on-leaving</guid>
+    <description>Why am I moving to Tokyo, Japan?</description>
+  </item>
+  <item>
+    <title>On Distraction</title>
+    <link>https://leandrotk.github.io/2021/11/on-distraction</link>
+    <guid isPermaLink="true">https://leandrotk.github.io/2021/11/on-distraction</guid>
+    <description>Focusing on things I can control and systems to fight distractions and procrastination.</description>
+  </item>
+  <item>
     <title>Parser - Part 1: Fundamental parts of AST and basic statements</title>
     <link>https://leandrotk.github.io/series/building-an-interpreter/parser-part-1-fundamental-parts-of-ast-and-basic-statements.html</link>
     <guid isPermaLink="true">https://leandrotk.github.io/series/building-an-interpreter/parser-part-1-fundamental-parts-of-ast-and-basic-statements.html</guid>
