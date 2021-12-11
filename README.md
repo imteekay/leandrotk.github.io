@@ -11,7 +11,7 @@ I also like to write, play music, read books, and learn new languages.
 
 <p align="center">
   <samp>
-    <a href="https://leandrotk.github.io/">website</a> .
+    <a href="https://iamtk.co">website</a> .
     <a href="https://twitter.com/leandrotk_">twitter</a> .
     <a href="https://linkedin.com/in/imtk">linkedin</a> .
     <a href="https://goodreads.com/iamteekay">goodreads</a> .
